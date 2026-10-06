@@ -55,13 +55,10 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
   'pages.services.hero',
   locale
 )!;
+const analysis = tData<Service>('pages.services.analysis', locale)!;
 const design = tData<Service>('pages.services.design', locale)!;
 const development = tData<Service>('pages.services.development', locale)!;
-const performance = tData<Service>('pages.services.performance', locale)!;
-const processSection = tData<{ badge: string; heading: string; lead: string; steps: ProcessStep[] }>(
-  'pages.services.process',
-  locale
-)!;
+const sqa = tData<Service>('pages.services.sqa', locale)!;
 const faq = tData<{ badge: string; heading: string; lead: string; cards: FaqCard[] }>('pages.services.faq', locale)!;
 const cta = tData<{ badge: string; heading: string; description: string; primary: string; secondary: string }>(
   'pages.services.cta',
@@ -82,8 +79,8 @@ const aboutUrl = localizedPath('/about', locale);
       {hero.badge}
     </Badge>
     <h1 slot="title">
-      <span class="text-foreground">{hero.titleLead}</span><br />
-      <span class="text-brand-500">{hero.titleHighlight}</span>
+      <span class="capitalize text-foreground">{hero.titleLead}</span><br />
+      <span class="capitalize text-brand-500">{hero.titleHighlight}</span>
     </h1>
 
     <p slot="description">
@@ -91,33 +88,83 @@ const aboutUrl = localizedPath('/about', locale);
     </p>
 
     <Fragment slot="actions">
-      <Button size="lg" href="#design" variant="outline">
+      <Button size="lg" href="#analysis" variant="outline">
         {hero.jumpLabels[0]}
         <Icon name="arrow-down" size="sm" class="hero-jump-arrow" />
       </Button>
-      <Button size="lg" href="#development" variant="outline">
+      <Button size="lg" href="#design" variant="outline">
         {hero.jumpLabels[1]}
         <Icon name="arrow-down" size="sm" class="hero-jump-arrow" />
       </Button>
-      <Button size="lg" href="#performance" variant="outline">
+      <Button size="lg" href="#development" variant="outline">
         {hero.jumpLabels[2]}
+        <Icon name="arrow-down" size="sm" class="hero-jump-arrow" />
+      </Button>
+      <Button size="lg" href="#qa" variant="outline">
+        {hero.jumpLabels[3]}
         <Icon name="arrow-down" size="sm" class="hero-jump-arrow" />
       </Button>
     </Fragment>
   </Hero>
 
-  <!-- Design -->
-  <section id="design" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <!-- Analysis -->
+  <section id="analysis" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 glitch:items-start">
         <!-- Text -->
         <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
           <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
             <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
+              <Icon name="user-search" size="sm" />
+              {analysis.badge}
+            </Badge>
+            <h2 class="capitalize font-display text-3xl md:text-4xl font-bold text-foreground">
+              {analysis.heading}
+            </h2>
+          </div>
+          {analysis.paragraphs.map((paragraph) => (
+            <p class="text-lg text-foreground-muted leading-relaxed sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <!-- Card -->
+        <div class="sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <Card variant="elevated" padding="lg" class="h-full flex flex-col justify-center">
+            <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border sm:justify-center glitch:justify-start">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name="user-search" size="md" />
+              </div>
+              <h3 class="font-display text-base font-semibold text-foreground">{includedLabel}</h3>
+            </div>
+            <ul class="flex flex-col gap-3">
+              {analysis.included.map((item) => (
+                <li class="flex items-start gap-3">
+                  <Icon name="check" size="sm" class="text-brand-500 shrink-0 mt-1" />
+                  <p class="text-sm text-foreground-muted leading-relaxed">
+                    <span class="font-semibold text-foreground">{item.lead}</span> — {item.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design -->
+  <section id="design" class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 glitch:items-start">
+        <!-- Text -->
+        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:order-2 glitch:items-start glitch:text-left" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
+            <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
               <Icon name="layout" size="sm" />
               {design.badge}
             </Badge>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+            <h2 class="capitalize font-display text-3xl md:text-4xl font-bold text-foreground">
               {design.heading}
             </h2>
           </div>
@@ -128,7 +175,7 @@ const aboutUrl = localizedPath('/about', locale);
           ))}
         </div>
         <!-- Card -->
-        <div class="sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+        <div class="sm:max-w-xl sm:mx-auto glitch:order-1 glitch:max-w-none glitch:mx-0" data-reveal data-reveal-ease="smooth">
           <Card variant="elevated" padding="lg" class="h-full flex flex-col justify-center">
             <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border sm:justify-center glitch:justify-start">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
@@ -153,17 +200,17 @@ const aboutUrl = localizedPath('/about', locale);
   </section>
 
   <!-- Development -->
-  <section id="development" class="py-[var(--space-section-md)] bg-background border-t border-border">
+  <section id="development" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 glitch:items-start">
         <!-- Text -->
-        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:order-2 glitch:items-start glitch:text-left" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
           <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
             <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
               <Icon name="code" size="sm" />
               {development.badge}
             </Badge>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+            <h2 class="capitalize font-display text-3xl md:text-4xl font-bold text-foreground">
               {development.heading}
             </h2>
           </div>
@@ -174,7 +221,7 @@ const aboutUrl = localizedPath('/about', locale);
           ))}
         </div>
         <!-- Card -->
-        <div class="sm:max-w-xl sm:mx-auto glitch:order-1 glitch:max-w-none glitch:mx-0" data-reveal data-reveal-ease="smooth">
+        <div class="sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
           <Card variant="elevated" padding="lg" class="h-full flex flex-col justify-center">
             <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border sm:justify-center glitch:justify-start">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
@@ -198,38 +245,38 @@ const aboutUrl = localizedPath('/about', locale);
     </div>
   </section>
 
-  <!-- Performance -->
-  <section id="performance" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <!-- SQA -->
+  <section id="sqa" class="py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 glitch:items-start">
         <!-- Text -->
-        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
+        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:order-2 glitch:items-start glitch:text-left" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
           <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
             <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
-              <Icon name="zap" size="sm" />
-              {performance.badge}
+              <Icon name="list-check" size="sm" />
+              {sqa.badge}
             </Badge>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-              {performance.heading}
+            <h2 class="capitalize font-display text-3xl md:text-4xl font-bold text-foreground">
+              {sqa.heading}
             </h2>
           </div>
-          {performance.paragraphs.map((paragraph) => (
+          {sqa.paragraphs.map((paragraph) => (
             <p class="text-lg text-foreground-muted leading-relaxed sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
               {paragraph}
             </p>
           ))}
         </div>
         <!-- Card -->
-        <div class="sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+        <div class="sm:max-w-xl sm:mx-auto glitch:order-1 glitch:max-w-none glitch:mx-0" data-reveal data-reveal-ease="smooth">
           <Card variant="elevated" padding="lg" class="h-full flex flex-col justify-center">
             <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border sm:justify-center glitch:justify-start">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                <Icon name="zap" size="md" />
+                <Icon name="list-check" size="md" />
               </div>
               <h3 class="font-display text-base font-semibold text-foreground">{includedLabel}</h3>
             </div>
             <ul class="flex flex-col gap-3">
-              {performance.included.map((item) => (
+              {sqa.included.map((item) => (
                 <li class="flex items-start gap-3">
                   <Icon name="check" size="sm" class="text-brand-500 shrink-0 mt-1" />
                   <p class="text-sm text-foreground-muted leading-relaxed">
@@ -244,34 +291,6 @@ const aboutUrl = localizedPath('/about', locale);
     </div>
   </section>
 
-  <!-- Process -->
-  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="list-checks" size="sm" />
-            {processSection.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            {processSection.heading}
-          </h2>
-        </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
-          {processSection.lead}
-        </p>
-      </div>
-
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {processSection.steps.map((step, i) => (
-          <ProofTile number={i + 1} title={step.title} data-reveal data-reveal-delay={i || undefined}>
-            {step.description}
-          </ProofTile>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Questions & answers -->
   <section id="faq" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
@@ -281,7 +300,7 @@ const aboutUrl = localizedPath('/about', locale);
             <Icon name="info" size="sm" />
             {faq.badge}
           </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+          <h2 class="capitalize font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
             {faq.heading}
           </h2>
         </div>
