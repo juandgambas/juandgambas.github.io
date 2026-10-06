@@ -24,13 +24,13 @@ const id = `typing-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <span id={id} class="typing-effect" aria-label={words.join(', ')}>
-  <span class="typing-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
+  <span class="typing-text wrap-break-word"></span><span class="typing-cursor" aria-hidden="true">|</span>
 </span>
 
 <style>
   .typing-effect {
     display: inline-block;
-    white-space: nowrap;
+    white-space: pre-line;
     vertical-align: bottom;
   }
 
