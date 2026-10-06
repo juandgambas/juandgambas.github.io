@@ -137,7 +137,8 @@ const copyrightTemplate = copyright ?? t('footer.copyright', locale);
 const currentYear = new Date().getFullYear();
 const processedCopyright = copyrightTemplate
   .replace('{year}', String(currentYear))
-  .replace('{siteName}', siteConfig.name);
+  .replace('{siteName}', siteConfig.name)
+  .replace('{author}', siteConfig.author);
 
 // Centered layout identity lines: the tagline prop wins, then
 // siteConfig.tagline; the note line underneath comes from
