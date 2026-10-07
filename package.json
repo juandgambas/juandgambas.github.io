@@ -26,7 +26,7 @@
     "url": "https://github.com/hansmartensdev/astro-rocket/issues"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",

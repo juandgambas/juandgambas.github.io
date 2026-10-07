@@ -35,6 +35,7 @@ interface IconCard {
   icon: string;
   title: string;
   description: string;
+  url?: string;
 }
 interface Testimonial {
   quote: string;
@@ -70,7 +71,7 @@ const posts = [...postItems]
 // the same `stack` collection so icons and links stay single-sourced. Seven logos
 // are wide enough to fill the constrained hero width and loop seamlessly on their
 // own; the Tech-stack section further down still shows the full stack.
-const heroStackOrder = ['Astro', 'Tailwind CSS', 'TypeScript', 'React', 'GitHub', 'Vercel', 'Claude'];
+const heroStackOrder = ['Astro', 'Laravel', 'Spring Boot', 'Vue'];
 const heroStackItems = (await getCollection('stack'))
   .filter((e) => heroStackOrder.includes(e.data.name))
   .sort((a, b) => heroStackOrder.indexOf(a.data.name) - heroStackOrder.indexOf(b.data.name))
@@ -152,15 +153,15 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   includeProfessionalServiceSchema={true}
 >
   <!-- Hero -->
-  <Hero layout="centered" size="xl" class="hero-dark-gradient" fullHeight>
+  <Hero layout="centered" size="xl" class="hero-dark-gradient pt-(--space-page-top-sm)!" fullHeight>
     <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">{hero.badge}</Badge>
 
     {/* 12.6vw fills the mobile column (~95-98% at 320-390px), sized to the
         English demo strings — translated hero copy is the site owner's to
         refit. The 3rem cap keeps the size continuous with sm:text-5xl at
         the 640px boundary. */}
-    <h1 slot="title" class="!text-[clamp(2rem,12.6vw,3rem)] sm:!text-5xl md:!text-6xl lg:!text-7xl">
-      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor] whitespace-nowrap">{hero.titleLine1}</span><br />
+    <h1 slot="title" class="text-[clamp(2rem,12.6vw,3rem)]! sm:text-5xl md:!text-6xl! lg:text-7xl!">
+      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor] whitespace-pre-line">{hero.titleLine1}</span><br />
       <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLine2}</span><br class="md:hidden" /><span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{' '}{hero.titleLine3}</span>
     </h1>
 
@@ -170,7 +171,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     </p>
 
    <Fragment slot="actions">
-      <Button size="lg" href="https://github.com/hansmartensdev/Astro-Rocket">
+      <Button size="lg" href="https://github.com/juandgambas/juandgambas.github.io">
         {hero.github}
         <Icon name="arrow-right" size="sm" />
       </Button>
@@ -228,7 +229,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       <div class="grid gap-6 sm:grid-cols-3">
         {servicesSection.cards.map((card, i) => (
           <ProofTile
-            href={servicesUrl}
+            href={servicesUrl + (card.url?? '')}
             icon={card.icon}
             title={card.title}
             data-reveal
@@ -424,14 +425,30 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
               <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat1}</p>
             </div>
             <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 h-full">
-              <svg class="w-10 h-10 text-brand-500" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M815.039 94.6439C824.758 106.709 829.714 122.99 839.626 155.553L1056.17 866.901C976.107 825.368 889.072 795.413 797.281 779.252L656.29 302.798C653.983 295.002 646.822 289.654 638.693 289.654C630.542 289.654 623.368 295.03 621.08 302.853L481.795 779.011C389.579 795.1 302.146 825.109 221.741 866.793L439.347 155.388L439.348 155.388C449.291 122.882 454.262 106.629 463.982 94.5853C472.562 83.9531 483.723 75.6958 496.4 70.6002C510.76 64.8284 527.756 64.8284 561.749 64.8284H717.174C751.212 64.8284 768.23 64.8284 782.603 70.6123C795.292 75.7184 806.459 83.9923 815.039 94.6439Z" fill="currentColor"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M840.951 900.754C805.253 931.279 734.002 952.097 651.929 952.097C551.197 952.097 466.767 920.737 444.363 878.561C436.354 902.732 434.558 930.396 434.558 948.068C434.558 948.068 429.281 1034.84 489.636 1095.2C489.636 1063.86 515.042 1038.46 546.381 1038.46C600.097 1038.46 600.036 1085.32 599.987 1123.34C599.986 1124.48 599.984 1125.61 599.984 1126.73C599.984 1184.44 635.255 1233.91 685.416 1254.77C677.924 1239.36 673.721 1222.05 673.721 1203.77C673.721 1148.73 706.034 1128.23 743.588 1104.41L743.588 1104.41C773.469 1085.46 806.668 1064.41 829.548 1022.17C841.486 1000.13 848.265 974.893 848.265 948.068C848.265 931.573 845.702 915.676 840.951 900.754Z" fill="currentColor"/>
-              </svg>
+              <div class="grid grid-cols-2 grid-rows-2 justify-items-center-safe text-center gap-2">
+                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M815.039 94.6439C824.758 106.709 829.714 122.99 839.626 155.553L1056.17 866.901C976.107 825.368 889.072 795.413 797.281 779.252L656.29 302.798C653.983 295.002 646.822 289.654 638.693 289.654C630.542 289.654 623.368 295.03 621.08 302.853L481.795 779.011C389.579 795.1 302.146 825.109 221.741 866.793L439.347 155.388L439.348 155.388C449.291 122.882 454.262 106.629 463.982 94.5853C472.562 83.9531 483.723 75.6958 496.4 70.6002C510.76 64.8284 527.756 64.8284 561.749 64.8284H717.174C751.212 64.8284 768.23 64.8284 782.603 70.6123C795.292 75.7184 806.459 83.9923 815.039 94.6439Z" fill="currentColor"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M840.951 900.754C805.253 931.279 734.002 952.097 651.929 952.097C551.197 952.097 466.767 920.737 444.363 878.561C436.354 902.732 434.558 930.396 434.558 948.068C434.558 948.068 429.281 1034.84 489.636 1095.2C489.636 1063.86 515.042 1038.46 546.381 1038.46C600.097 1038.46 600.036 1085.32 599.987 1123.34C599.986 1124.48 599.984 1125.61 599.984 1126.73C599.984 1184.44 635.255 1233.91 685.416 1254.77C677.924 1239.36 673.721 1222.05 673.721 1203.77C673.721 1148.73 706.034 1128.23 743.588 1104.41L743.588 1104.41C773.469 1085.46 806.668 1064.41 829.548 1022.17C841.486 1000.13 848.265 974.893 848.265 948.068C848.265 931.573 845.702 915.676 840.951 900.754Z" fill="currentColor"/>
+                </svg>
+                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path fill="currentColor" d="M21.7 6.53c.01.02.01.05.01.08v4.29c0 .1-.06.22-.15.27l-3.61 2.08v4.11c0 .11-.05.21-.15.27l-7.52 4.33c-.02.01-.04.04-.06.04H10s0-.03-.04-.04l-7.52-4.33a.32.32 0 0 1-.15-.27V4.5c0-.05 0-.08.01-.1c0-.01.01-.02.01-.03c0-.02.01-.03.02-.05c0-.01.01-.02.02-.03l.03-.03l.03-.03c.01-.01.02-.02.03-.02L6.2 2.04c.1-.04.22-.04.3 0l3.78 2.17c.01.01.02.01.03.02l.03.03l.03.03c.01.01.02.02.02.03c.01.02.02.03.02.05c0 .01.01.02.01.03c.01.03.01.05.01.1v8l3.14-1.78V6.61c0-.03 0-.06.01-.08l.01-.03s.01-.03.02-.05c0-.01.01-.02.02-.03l.03-.03l.03-.03c.01-.01.02-.02.03-.02l3.78-2.17c.08-.06.2-.06.3 0l3.76 2.17c.01 0 .02.01.03.02l.03.03l.03.03c.01.01.01.02.02.03c.01.02.01.05.02.05s.01 0 .01.03m-.61 4.19V7.15l-3.14 1.8v3.55zm-3.76 6.46V13.6l-6.9 3.94v3.61zM2.91 5v12.18l6.9 3.97v-3.61l-3.6-2.04H6.2c-.01 0-.02 0-.03-.03c-.01 0-.02-.01-.03-.02l-.03-.03c-.01-.01-.01-.02-.02-.03c-.01-.02-.01-.03-.02-.04c0-.02-.01-.03-.01-.04c-.01-.01-.01-.03-.01-.04V6.82zm3.45-2.32L3.23 4.5l3.13 1.78L9.5 4.5zm3.45 10.2V5L6.67 6.82v7.87zm7.83-8.08L14.5 6.61l3.14 1.8l3.13-1.8zm-.31 4.15l-3.14-1.8v3.57l3.14 1.78zM10.12 17L17 13.06l-3.12-1.8L7 15.23z" />
+                </svg>
+                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path fill="currentColor" d="M1.791 3.851L12 21.471L22.209 3.936V3.85H18.24l-6.18 10.616L5.906 3.851z" />
+                  <path fill="#35495e" d="m5.907 3.851l6.152 10.617L18.24 3.851h-3.723L12.084 8.03L9.66 3.85z" />
+                </svg>
+                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+                  <path d="M0 0h256v256H0z" fill="none" />
+                  <path fill="currentColor" d="M38.944 35.879c50.58-48.999 131.454-47.682 180.453 3.161c5.532-7.376 10.274-15.542 13.699-23.972c16.07 48.999 25.817 90.095 22.128 121.97c-1.844 26.87-12.381 52.687-29.768 73.235c-45.31 53.741-125.922 60.59-179.663 15.28l-1.028-.915l-.055-.036q-.252-.176-.498-.367q-.735-.573-1.336-1.24l-.144-.164l-1.68-1.493c-1.64-1.405-3.279-2.81-4.733-4.4l-.536-.606c-49-50.58-47.419-131.454 3.16-180.453M57.91 207.376c-4.742-3.688-11.591-3.162-15.28 1.58c-3.242 4.17-3.226 9.969.049 13.815l.052.06l2.033 1.807l.2.136c4.604 3.028 10.8 2.402 14.333-1.878l.194-.241c3.688-4.742 2.898-11.591-1.58-15.28M231.78 28.239c-13.173 27.661-45.84 48.736-74.027 55.322c-26.607 6.322-49.79 1.054-74.289 10.537c-55.848 21.339-54.794 87.724-24.236 102.74l1.844 1.054s22.074-4.389 43.902-10.185l1.87-.5c8.718-2.35 17.295-4.91 24.302-7.492c36.354-13.435 76.397-46.628 89.568-85.09c-6.849 40.042-41.359 78.767-75.87 96.418c-18.44 9.483-32.665 11.59-62.96 22.128c-3.688 1.317-6.586 2.635-6.586 2.635l1.108-.15l.736-.095l.733-.092c6.69-.83 12.702-1.244 12.702-1.244c42.94-2.108 110.38 12.118 141.729-29.768c32.139-42.677 14.225-111.697-.527-156.218" />
+                  <path fill="#fff" d="M57.911 207.376c4.479 3.688 5.269 10.537 1.58 15.279c-3.687 4.742-10.537 5.269-15.279 1.58s-5.268-10.537-1.58-15.279s10.537-5.268 15.28-1.58M231.78 28.239c14.752 44.521 32.666 113.541.527 156.218c-31.35 41.886-98.789 27.66-141.729 29.768c0 0-6.012.415-12.702 1.244l-.733.092q-.919.117-1.844.245s2.898-1.318 6.586-2.635c30.295-10.537 44.52-12.645 62.96-22.128c34.511-17.65 69.021-56.376 75.87-96.418c-13.171 38.462-53.214 71.655-89.568 85.09c-25.026 9.22-70.074 18.177-70.074 18.177l-1.844-1.054c-30.558-15.016-31.612-81.401 24.236-102.74c24.5-9.483 47.682-4.215 74.29-10.537c28.187-6.586 60.853-27.66 74.025-55.322" />
+                </svg>
+              </div>
               <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat2}</p>
             </a>
             <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="globe" class="w-10 h-10 text-brand-500" />
+              <Icon name="locate-fixed" class="w-10 h-10 text-brand-500" />
               <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat3}</p>
             </div>
             <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">

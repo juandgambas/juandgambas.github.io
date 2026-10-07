@@ -251,7 +251,7 @@ const siteConfig: SiteConfig = {
   description:
     'GhostForge Dev by Juan Gamba Saenz. High-performance full-stack web development with PHP (Laravel, Vue.js) & Java (Spring Boot). Systems engineering student portfolio & blog.',
   tagline: 'Crafting high-performance web applications from concept to deployment.',
-  footerNote: 'GhostForge Dev by Juan Gamba Website',
+  footerNote: 'GhostForge Dev by Juan Gamba Website, Portfolio & Blog',
   url: SITE_URL || 'https://jdgambas.github.io',
   ogImage: '/og-default.svg',
   author: 'Juan D. Gamba S.',

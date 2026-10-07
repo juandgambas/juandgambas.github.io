@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const headerVariants = cva('z-50', {
+export const headerVariants = cva('z-50 max-h-[calc(100dvh-32px)] overflow-y-auto md:overflow-y-visible', {
   variants: {
     position: {
       fixed: 'fixed top-0 left-0 right-0',
@@ -19,7 +19,7 @@ export const headerVariants = cva('z-50', {
   },
   compoundVariants: [
     // Floating + fixed: centered with gap
-    { shape: 'floating', position: 'fixed', class: '!left-1/2 !right-auto -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl mt-4 animate-header-drop' },
+    { shape: 'floating', position: 'fixed', class: '!left-1/2 !right-auto -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl my-4 animate-header-drop' },
     // Floating + sticky: centered with gap
     { shape: 'floating', position: 'sticky', class: '!top-4 mx-auto max-w-6xl' },
     // Floating + static: centered
@@ -48,8 +48,8 @@ export const headerInnerVariants = cva(
         lg: 'h-16',
       },
       shape: {
-        bar: 'mx-auto max-w-6xl px-6',
-        floating: 'px-6',
+        bar: 'mx-auto max-w-6xl px-4',
+        floating: 'px-4',
       },
     },
     defaultVariants: {

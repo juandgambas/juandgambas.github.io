@@ -31,7 +31,8 @@
     "cancel": "Cancel",
     "next": "Next",
     "previous": "Previous",
-    "home": "Home"
+    "home": "Home",
+    "avatarAlt": "Juan David Gamba Saenz Profile Image."
   },
   "blog": {
     "title": "Blog",
@@ -51,9 +52,9 @@
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
     "metaTitle": "Blog",
-    "metaDescription": "The Astro Rocket blog: practical guides to setting up, configuring, and building with the theme.",
+    "metaDescription": "GhostForge Dev blog: A place for share ideas and decisions that shape my work, and opinions on current events in the sector.",
     "heroBadge": "All posts",
-    "heroDescription": "Everything you need to know about Astro\u00a0Rocket, explained in practical guides.",
+    "heroDescription": "A place for share ideas and decisions that shape my work, and opinions on current events in the sector.",
     "allPosts": "All posts",
     "noPosts": "No posts found",
     "pageMetaTitle": "Blog — Page {page}",
@@ -89,9 +90,9 @@
     "viewSource": "View source",
     "noProjectsFound": "No projects found.",
     "metaTitle": "Projects",
-    "metaDescription": "Selected work — websites, tools, and open-source projects built by Astro Rocket.",
+    "metaDescription": "Selected work — websites, tools, and open-source projects built by GhostForge Dev and Juan D. Gamba S.",
     "heroBadge": "Selected work",
-    "heroDescription": "Work I'm most proud of.",
+    "heroDescription": "Work selected to share.",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
     "pageMetaDescription": "Page {page} of {total} — selected work, tools, and open-source projects by Astro Rocket.",
@@ -107,7 +108,7 @@
     "moreProjects": "More projects",
     "ctaBadge": "Let's talk",
     "ctaHeading": "Let's talk about what you need",
-    "ctaLead": "Every website I build is its own custom design, made with the care you see here. Tell me what you have in mind.",
+    "ctaLead": "I'm ready to build software solutions for you in your business. Tell me what you have in mind.",
     "ctaPrimary": "Send a message",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
@@ -133,9 +134,9 @@
     "browseBlog": "Browse the blog",
     "tryInstead": "Try one of these instead",
     "projectsDesc": "Selected work and case studies.",
-    "blogDesc": "Notes on design, code, and the craft.",
+    "blogDesc": "Notes on ideas, decisions and opinions.",
     "contactTitle": "Contact",
-    "contactDesc": "Start a conversation about your project."
+    "contactDesc": "Start a conversation about your project or your job offer."
   },
   "newsletter": {
     "heading": "Subscribe to the newsletter",
@@ -184,7 +185,7 @@
     "watchOn": "Watch on YouTube"
   },
   "footer": {
-    "copyright": "© {year} {siteName}",
+    "copyright": "© {year} {siteName} by {author}",
     "credit": "Theme by <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
     "builtWith": "Built with Astro Rocket",
     "followOn": "Follow us on {platform}"
@@ -192,170 +193,193 @@
   "pages": {
     "about": {
       "meta": {
-        "title": "About — Free Open-Source Astro 7 Theme",
-        "description": "What Astro Rocket is and how it's built: a free, lightning-fast Astro 7 starter theme with 57 designed components, 12 colour themes, built-in i18n, and dark mode."
+        "title": "About - This is me",
+        "description": "GhostForge Dev by Juan Gamba Saenz website. High-performance full-stack web development with PHP (Laravel, Vue.js) & Java (Spring Boot). Systems engineering student portfolio & blog."
       },
       "hero": {
         "badge": "About",
-        "titleLead": "Astro Rocket —",
-        "typingWords": ["Lightning-fast", "Starter theme", "57 Components", "12 Themes", "Dark Mode", "Built-in i18n"],
-        "typingWordsMobile": ["Lightning-fast", "Starter theme", "12 Themes", "Dark Mode", "Built-in i18n"],
-        "description": "A free, open-source Astro 7 starter\u00a0theme to build anything on."
+        "titleLead": "GhostForge Dev\nBy\nJuan D. Gamba\n—",
+        "typingWords": ["Web Full-stack Developer", "Systems Engineering Student", "Laravel", "Vue.js", "Spring Boot", "Software Analysis & Design"],
+        "typingWordsMobile": ["Full-stack Dev", "Sys. Eng. Student", "Laravel", "Vue.js", "Spring Boot", "Analysis & Design"],
+        "description": "Crafting high-performance web applications from concept to deployment. Specialized in Laravel, Spring Boot, and Vue.js."
       },
-      "whatYouGet": {
-        "badge": "What you get",
-        "heading": "Everything a real website needs",
-        "lead": "The component library is the heart of the theme. Everything else a real website needs is already on board.",
+      "whoAmI": {
+        "badge": "Who Am I?",
+        "heading": "Warm Greetings, I am Juan David Gamba",
+        "lead": "From ISAD fundamentals to Systems Engineering at UNAD: a constant evolution through GhostForge Dev.",
+        "description": "My path in tech is not just a list of languages, it's the story of curiosity transformed into engineering.",
         "items": [
           {
-            "icon": "component",
-            "title": "57 designed components",
-            "description": "From buttons to hero sections: typed, accessible, consistent, and documented in a live showcase."
+            "title": "The Past: The Foundation",
+            "description": "As an ADSI Technologist, I learned that software starts with impeccable logic and rigorous documentation (UML, IEEE-830)."
           },
           {
-            "icon": "layout",
-            "title": "Pages to start from",
-            "description": "Home, about, services, contact, blog, projects, and 404, fully designed and responsive, ready to make your own."
+            "title": "The Present: The Forge",
+            "description": "Currently at UNAD, GhostForge Dev is born as my quality standard for building Full-Stack solutions with Laravel and Spring Boot."
           },
           {
-            "icon": "palette",
-            "title": "12 colour themes",
-            "description": "Switch the whole site's palette live from the header. Light and dark mode included."
+            "title": "The Future: The Vision",
+            "description": "I aim to bring my 'forge' mindset to high-performance teams to build software that scales and lasts."
+          }
+        ]
+      },
+      "whatYouGet": {
+        "badge": "Value Proposition",
+        "heading": "What you get",
+        "lead": "Full-Stack solutions built with an engineering mindset, prioritizing scalability and professional deployment.",
+        "items": [
+          {
+            "icon": "layers",
+            "title": "Robust Architectures",
+            "description": "Solid systems with Laravel and Spring Boot, designed to scale and handle complex processes seamlessly"
           },
           {
-            "icon": "book-open",
-            "title": "Blog with table of contents",
-            "description": "MDX, RSS, tags, comments, related posts, and a scroll-spy table of contents. Write and publish."
+            "icon": "monitor",
+            "title": "Reactive Interfaces",
+            "description": "Smooth focused on usability and performance"
           },
           {
-            "icon": "image",
-            "title": "Projects with galleries",
-            "description": "A portfolio section with image galleries, video slides, tags, and its own table of contents."
+            "icon": "workflow",
+            "title": "CI/CD Culture",
+            "description": "Production-ready software Professional version control and automated deployments with Git and GitHub Actions"
           },
           {
-            "icon": "globe",
-            "title": "Full i18n, opt-in",
-            "description": "Blog, projects, navigation, forms, and 404: all localized per locale. Off by default, at zero cost when unused."
-          },
-          {
-            "icon": "search",
-            "title": "Site search",
-            "description": "Fast static search (Pagefind) with a ⌘K modal: zero JavaScript until it's opened."
-          },
-          {
-            "icon": "trending-up",
-            "title": "SEO toolkit",
-            "description": "Metadata, sitemaps, structured data, and OG images, correct out of the box."
-          },
-          {
-            "icon": "server",
-            "title": "Forms & deploy",
-            "description": "Spam-protected contact and newsletter forms, and one-switch deploys to Vercel, Netlify, or Cloudflare."
+            "icon": "shield-check",
+            "title": "Standard-driven Code",
+            "description": "Application of best practices and technical documentation"
           }
         ]
       },
       "principles": {
-        "badge": "Design Principles",
+        "badge": "Engineering Philosophy",
         "heading": "Built with intention",
-        "lead": "Every decision in Astro Rocket, from component structure to default config, is driven by the same three principles.",
+        "lead": "Every line of code at GhostForge Dev, from the database to the UI, is driven by three core principles.",
         "items": [
-          { "icon": "zap", "title": "Performance First", "description": "Zero JavaScript by default. Every component is optimised for speed, Core Web Vitals, and lean output." },
-          { "icon": "award", "title": "Developer Experience", "description": "TypeScript throughout, sensible defaults, and a component library you can drop straight into any page." },
-          { "icon": "rocket", "title": "Modern from the Ground Up", "description": "Astro 7, Tailwind CSS 4, and a clean architecture that's easy to extend and maintain." }
+          { "icon": "zap", "title": "Performance First", "description": "Full optimization across server and client. Aiming for maximum response speed and a lean, clean code output." },
+          { "icon": "award", "title": "Clean architecture", "description": "Using design patterns and industry standards (SOLID, DRY) to build software that is scalable, maintainable, and easy to extend." },
+          { "icon": "rocket", "title": "Modern and Robust", "description": "Proficiency in modern stacks like Laravel/Inertia and Spring Boot, always integrating the latest security and deployment practices." }
         ]
       },
       "stack": {
-        "badge": "Tools & Tech",
-        "title": "The Stack",
-        "description": "The technologies powering Astro Rocket, chosen for performance, great developer experience, and long-term reliability."
+        "badge": "Tech Stack",
+        "title": "Forge Tools",
+        "description": "I master a modern ecosystem focused on enterprise robustness and frontend agility. My stack is designed to build scalable end-to-end applications."
       },
       "faq": {
         "badge": "Good to know",
         "heading": "Frequently asked questions",
-        "lead": "Everything you need to know before getting started.",
+        "lead": "Everything you need to know about GhostForge Dev and this repository.",
         "cards": [
           {
-            "icon": "rocket",
-            "title": "About Astro",
+            "icon": "building-2",
+            "title": "About GhostForge Dev",
             "items": [
-              { "question": "What is Astro?", "answer": "Astro is a modern web framework built for content-driven sites. It ships zero JavaScript by default — only sending what the page actually needs. The result is fast load times, excellent Core Web Vitals scores, and lean, maintainable code." },
-              { "question": "Why build with Astro?", "answer": "Astro is the right tool for content-heavy sites: minimal JavaScript, clean HTML, great SEO out of the box, and a developer experience that stays out of your way. It's lean, purposeful, and built to last." },
-              { "question": "What can I build with Astro Rocket?", "answer": "Portfolios, business sites, marketing pages, blogs, documentation sites — any content-driven project. Astro Rocket gives you the structure, components, and defaults to hit the ground running." },
-              { "question": "Is Astro Rocket listed on the official Astro themes directory?", "answer": "Yes. <a href=\"https://astro.build/themes/details/astro-rocket/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Astro Rocket</a> is listed on the official Astro themes directory as a free, production-ready theme." },
-              { "question": "Will Astro Rocket keep up with new Astro releases?", "answer": "Yes. Astro Rocket is actively maintained and updated to track new Astro releases. Follow along on the blog or watch the GitHub repository for updates." }
+              { "question": "What is GhostForge Dev?", "answer": "It is a brand name I use for freelance project development." },
+              { "question": "Why building my website with GhostForge Dev?", "answer": "GhostForge Dev is currently experiencing its birth, as a commercial brand with great potential of growth and development of high-capacity projects." }
             ]
           },
           {
-            "icon": "code-2",
-            "title": "Using the theme",
+            "icon": "search-check",
+            "title": "Verifying this project",
             "items": [
-              { "question": "Is it free to use?", "answer": "Yes, completely free. Astro Rocket is MIT licensed — use it for personal and commercial projects, no attribution required." },
-              { "question": "How do I switch themes?", "answer": "Change a single line in your config. Astro Rocket ships with 12 hand-crafted colour themes — swap between them instantly without touching a line of CSS." },
-              { "question": "Does it support TypeScript?", "answer": "Yes, TypeScript is used throughout. All components, configs, and utilities are fully typed." },
-              { "question": "How do I add my own language for i18n?", "answer": "Astro Rocket's i18n is config-driven. Add your locale to the i18n config file, create a matching translation file, and the routing and UI adapt automatically." },
-              { "question": "Where do I report bugs or suggest features?", "answer": "Open an issue or start a discussion on the <a href=\"https://github.com/hansmartensdev/astro-rocket\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub repository</a>. Contributions and feedback are always welcome." }
+              { "question": "Why is the repository public?", "answer": "The repository is public for job recruiters such as LinkedIn recruiters." }
             ]
           }
         ]
       },
       "openSource": {
         "badge": "Open Source",
-        "heading": "Built in the open",
-        "description": "Astro Rocket is free, open source, and MIT licensed. Browse the source, open issues, submit PRs, or just clone it and build something great.",
+        "heading": "This website was built in the open",
+        "description": "GhostForge Dev Website is free, open source, and MIT licensed. Browse the source, open issues, submit PRs, or can just clone it and build something great.",
         "button": "View on GitHub",
         "cards": [
-          { "title": "Made by Hans Martens Dev", "text": "Astro Rocket was designed and built by <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — a freelance Astro developer who uses it as the foundation for client projects." },
-          { "title": "MIT License", "text": "Free to use in personal and commercial projects. No attribution required, though a star on GitHub is always appreciated." },
-          { "title": "Actively maintained", "text": "The theme is kept up to date with new Astro releases and regularly improved based on community feedback." }
+          { "title": "Modified by Juan Gamba", "text": "The structure and content was created and modified by Juan Gamba <a href=\"https://github.com/juandgambas\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Juan D. Gamba S.</a> — a full-stack developer who can create a wide variety of software projects with Laravel, Spring Boot, and Vue.js." },
+          { "title": "Template made by Hans Martens Dev", "text": "Astro Rocket was designed and built by <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — a freelance Astro developer who uses it as the foundation for client projects." },
+          { "title": "MIT License", "text": "Free to use in personal and commercial projects. No attribution required, though a star on GitHub is always appreciated." }
         ]
       },
       "cta": {
         "badge": "Get started",
         "heading": "Ready to build?",
-        "description": "Clone Astro Rocket, pick a theme, and launch your next project in minutes.",
+        "description": "Verify the best practices for a static website with Astro and the Astro Rocket template.",
         "button": "Get Started"
       }
     },
     "services": {
       "meta": {
-        "title": "Services — Web Design, Development & Optimisation",
-        "description": "Freelance web design, development, and optimisation: sleek, lightning-fast custom Astro websites. A free first talk, one clear proposal, one fixed price."
+        "title": "Services — Analysis, Design, Development and QA",
+        "description": "Freelance or contracted services, web design, development, and optimisation: sleek, lightning-fast custom Astro websites. A free first talk, one clear proposal, one fixed price."
       },
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
-        "titleLead": "Web design, development,",
-        "titleHighlight": "and optimisation",
-        "description": "Three services, one product: a sleek, lightning-fast custom Astro website you're proud to put your name on.",
-        "jumpLabels": ["Web design", "Web development", "Web optimisation"]
+        "titleLead": "Analysis, web design, development",
+        "titleHighlight": "and quality assurance (QA)",
+        "description": "Four services, one product: a sleek, lightning-fast custom Astro, Laravel or Spring Boot website you're proud to put your name on.",
+        "jumpLabels": ["Requirements Analysis", "Web Design", "Web Development", "Quality assurance"]
+      },
+      "analysis": {
+        "badge": "Analysis",
+        "heading": "Business analysis",
+        "paragraphs": [
+          "Business analysis is what we do first: Analyse the context, your business and your clients and users needs.",
+          "We need to speak the same language about important aspects of your business, otherwise the solution we devise will not work for you."
+        ],
+        "included": [
+          {
+            "lead": "Planning",
+            "text": "connect what you know with what I know and with what I don't know, and what your users and customers require."
+          },
+          {
+            "lead": "Collecting information",
+            "text": "talk with you, your users and customers to observe your behavior in your real environment regarding to your business needs."
+          },
+          {
+            "lead": "Immersing myself in your needs",
+            "text": "understanding the experience of your users and customers to capture hidden details."
+          },
+          {
+            "lead": "Organise and analyse the collected data",
+            "text": "organise the interview information and notes into a decisions-making panel, group them by themes, and identifying patterns."
+          },
+          {
+            "lead": "Extracting insights and focusing on the problem",
+            "text": "searching for revelations or hidden truths about users and focus on the problem that really needs to be resolved."
+          }
+        ],
+        "ctaLabel": "Let's analyse your ideas and needs"
       },
       "design": {
         "badge": "Design",
         "heading": "Web design",
         "paragraphs": [
           "Web design is how your website looks and feels: the layout, the colours, the images, and the way visitors find their way around.",
-          "I design every website around your business — your brand, your content, and the customers you want to reach — so it makes a strong first impression and guides people straight to what matters. Clean, modern, and made to work on every screen, from a desktop monitor to a phone."
+          "We need to diversify ideas, that is, to open ourselves up to options regarding our problem, and then converge ideas, that is, filter ideas and define the possible solution."
         ],
         "included": [
           {
-            "lead": "A design that's yours",
-            "text": "shaped around your business, your brand, and the customers you want to reach."
+            "lead": "A brainstorm",
+            "text": "I can be very creative if I put my mind on it. Use brainstorming to support the creative process."
           },
           {
-            "lead": "A strong first impression",
-            "text": "a clean, modern look that shows people who you are the moment your page opens."
+            "lead": "Expansive thinking",
+            "text": "find unconventional alternatives for your needs."
           },
           {
-            "lead": "Clear navigation",
-            "text": "a layout that guides visitors straight to what matters to them."
+            "lead": "Support techniques",
+            "text": "use mind maps, sticky notes, and other tools to brainstorm solutions."
           },
           {
-            "lead": "A design for every screen",
-            "text": "looks and works beautifully on phone, tablet, and desktop."
+            "lead": "Group and filter",
+            "text": "sort the proposals and check if they align with your business idea."
           },
           {
-            "lead": "Your content at its best",
-            "text": "your words and images given a layout that makes them easy to read and good to look at."
+            "lead": "Vote and prioritize",
+            "text": "use adhesive dots or impact matrices to choose the most promising options."
+          },
+          {
+            "lead": "Final selection",
+            "text": "select one or two ideas with the greatest real value for your business users and customers"
           }
         ],
         "ctaLabel": "Discuss a design project"
@@ -370,7 +394,7 @@
         "included": [
           {
             "lead": "A lightning-fast website",
-            "text": "built with Astro, the framework behind some of the fastest websites online."
+            "text": "built with Astro, Laravel, Vue.js, and/or Spring Boot the frameworks behind some of the fastest static and dynamic websites online."
           },
           {
             "lead": "A secure, reliable website",
@@ -381,61 +405,42 @@
             "text": "the code, the domain, and the hosting all in your name from day one."
           },
           {
-            "lead": "Care after launch",
-            "text": "your website kept updated and secure with the monthly care plan, while you run your business."
-          },
-          {
             "lead": "Room to grow",
             "text": "space to add new pages and features whenever your business needs them."
           }
         ],
         "ctaLabel": "See recent projects"
       },
-      "performance": {
-        "badge": "Optimisation",
-        "heading": "Web optimisation",
+      "sqa": {
+        "badge": "Quality Control (QA)",
+        "heading": "Software Quality Control (SQA)",
         "paragraphs": [
-          "Web optimisation is the work that makes your website perform: loading quickly, ranking well in search, and working for everyone.",
-          "I build speed, SEO, and accessibility in from the very first line, not as an afterthought. That means your website is easy for Google to find and understand, opens fast for every visitor, and can be used by everyone who lands on it."
+          "Software quality assurance (SQA) is the work that keeps your website functioning as, when, and where you need it to, preventing problems before they occur.",
+          "I anticipate problems, review development processes, verify and validate software, and apply continuous improvement processes so your website will function almost forever according to your needs."
         ],
         "included": [
           {
-            "lead": "A website Google and AI can find",
-            "text": "built so search engines and AI assistants can read, understand, and recommend your pages."
+            "lead": "Anticipated problems",
+            "text": "software problems can happen, but they are more common if there are no work standards, coding guidelines, methodologies, and a proper description of the needs of your business, users, and customers."
           },
           {
-            "lead": "Speed on every device",
-            "text": "pages that stay quick, even on a phone or a slower connection."
+            "lead": "Reviewed development processes",
+            "text": "it is necessary to verify the software meets technical requirements and user needs throughout the entire process and it meets the needs of your business."
           },
           {
-            "lead": "A website for everyone",
-            "text": "accessible for every visitor, whatever their device or ability."
+            "lead": "Continuous improvement",
+            "text": "analyse metrics and error reports to adjust team processes"
           },
           {
-            "lead": "High performance scores",
-            "text": "strong marks on Google's own speed and quality checks (Lighthouse)."
-          },
-          {
-            "lead": "Optimisation from day one",
-            "text": "speed, SEO, and accessibility built in from the very first line."
+            "lead": "Quality Control (QC)",
+            "text": "proactively verify that the solution works."
           }
         ],
-        "ctaLabel": "Start a project"
-      },
-      "process": {
-        "badge": "How it works",
-        "heading": "How a project runs",
-        "lead": "From your first message to a live website.",
-        "steps": [
-          { "title": "First contact", "description": "You send a message through the contact form. I reply within a working day, and we plan a free, informational talk about what you need. No obligations." },
-          { "title": "Proposal", "description": "After our talk you get one clear document: what I'll build, when it's ready, and the fixed price. You decide with everything on the table." },
-          { "title": "Design & build", "description": "I work in short cycles. You follow the progress on a staging link, and you see your website take shape." },
-          { "title": "Launch & support", "description": "Your website goes live on your own domain and hosting, in your name. Afterwards I stay reachable, and there's a monthly care plan if you want regular updates." }
-        ]
+        "ctaLabel": "Contact me"
       },
       "faq": {
         "badge": "Questions",
-        "heading": "Questions and answers",
+        "heading": "Questions and answers (freelance working)",
         "lead": "The things clients ask before we start.",
         "cards": [
           {
@@ -446,7 +451,7 @@
               { "question": "How long does a project take?", "answer": "That depends on the size of the website. The proposal names the timeline together with the price, so you know both before we start." },
               { "question": "What happens with my current website?", "answer": "It stays online until the new one is ready. Your content, your web address, and your Google rankings come along. I check your current website before our first talk, so you get clear answers from the start." },
               { "question": "Do I need to arrange hosting or a domain?", "answer": "No. I set up the hosting and the domain for you, in your own name. If you already have a domain, we simply keep it." },
-              { "question": "Do we need to meet in person?", "answer": "It's not needed. Most projects run entirely by phone, video, and email. I work with clients worldwide, and time zones are rarely a problem." }
+              { "question": "Do we need to meet in person?", "answer": "It's not needed. Most projects run entirely by phone, video, and email. Currently, I am working with clients locally in Bogota (Colombia)." }
             ]
           },
           {
@@ -454,10 +459,10 @@
             "title": "Working with me",
             "items": [
               { "question": "Are you a company or agency?", "answer": "I'm a one-person business: a freelancer, not an agency. You work directly with the person doing the work, from the first talk to the finished website. No sales team, no account managers, no handoffs." },
-              { "question": "Can I change the website myself after launch?", "answer": "You can simply send me your changes, and the monthly care plan exists exactly for that. If you want to edit the website yourself, say so in the first talk and I set the site up for it." },
-              { "question": "Do you also build webshops?", "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it." },
+              { "question": "Can I change the website myself after launch?", "answer": "You can simply send me your changes, and the monthly care plan (if we agree) exists exactly for that. If you want to edit the website yourself, say so in the first talk and I set the site up for it." },
+              { "question": "Do you also build webshops?", "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro, Laravel, Vue.js, and/or a Spring Boot website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it." },
               { "question": "Is the website really mine?", "answer": "Completely. The domain, the hosting, and the code are in your name from day one. If you ever want to move on, you take everything with you: you're never locked in." },
-              { "question": "What happens if something breaks after launch?", "answer": "Very little can break: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan." }
+              { "question": "What happens if something breaks after launch?", "answer": "Very little can break if the website is build with Astro: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan. If the website is build with Laravel, Vue.js or Spring Boot, there are more things can go wrong, but the care plan, if we agree, can fix any issue too, verifying databases, services, dependencies, runtime errors, etc." }
             ]
           }
         ]
@@ -465,7 +470,7 @@
       "cta": {
         "badge": "Let's talk",
         "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations: by phone, video, or email. You get honest answers, and after the talk one clear proposal with a timeline and a fixed price.",
+        "description": "The first talk is free and informative, without obligation: by phone, video or email, if there are job offers or freelance work.",
         "primary": "Send a message",
         "secondary": "More about me"
       }
@@ -473,13 +478,13 @@
     "contact": {
       "meta": {
         "title": "Contact",
-        "description": "Starting something new? I design and build new websites from scratch — tell me about your project and I'll get back to you within 1 business day."
+        "description": "I want to work with you, just tell me. I would be pleased to help whatever you wish."
       },
       "hero": {
         "badge": "Start a project",
         "titleLead": "Tell me about your",
         "titleHighlight": "new project",
-        "description": "I'd love to hear from you. Send a message with the form below, or reach out on one of the other channels below."
+        "description": "I want to work with you, just tell me. I would be pleased to help whatever you wish. Send a message with the form below, or reach out on one of the other channels below."
       },
       "formTitle": "Project details",
       "channelsTitle": "Other channels",
@@ -491,28 +496,32 @@
     },
     "home": {
       "meta": {
-        "title": "Free open-source Astro 7 theme",
-        "description": "Astro Rocket is a free, lightning-fast Astro 7 starter theme to build anything on — with 57+ designed components, 12 colour themes, dark mode, and built-in i18n on board."
+        "title": "Full-Stack Developer",
+        "description": "Crafting high-performance web applications from concept to deployment. Specialized in Laravel, Spring Boot, and Vue.js."
       },
       "hero": {
         "badge": "Available for new projects",
-        "titleLine1": "Astro Rocket —",
-        "titleLine2": "Web Designer",
-        "titleLine3": "& Developer",
-        "description": "A free, lightning-fast Astro 7 starter theme to build anything on: 57+ designed components, 12 colour themes, and dark mode.",
-        "descriptionMobile": "A free, lightning-fast Astro 7 starter theme to build anything on, with 57+ designed components.",
+        "titleLine1": "GhostForge Dev —",
+        "titleLine2": "Web Design ",
+        "titleLine3": "& Development",
+        "description": "Crafting high-performance web applications from concept to deployment. Specialized in Laravel, Spring Boot, and Vue.js.",
+        "descriptionMobile": "Crafting high-performance web applications from concept to deployment. Laravel, Spring Boot, and Vue.js",
         "github": "Get it on GitHub",
         "getStarted": "Get started"
       },
       "services": {
         "badge": "What I do",
-        "heading": "Design, build, optimise",
-        "lead": "Every project gets all three services.",
+        "heading": "Analyse, Design, Build, Ensure",
+        "lead": "Every project gets all four services.",
         "learnMore": "Learn more",
         "cards": [
-          { "icon": "layout", "title": "Web Design", "description": "Interfaces that feel obvious. Layouts shaped around your content, your brand, and how people actually read on a screen." },
-          { "icon": "code", "title": "Web Development", "description": "Sites built to last. Astro, Tailwind, and a clean architecture: fast on day one, easy to maintain on day 500." },
-          { "icon": "trending-up", "title": "Web Optimisation", "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor." }
+          { "icon": "lightbulb", "title": "Requirements Analysis", "description": "Understand your business needs. Accompanying you in structuring and devising the solution required for your problem." },
+          { "icon": "layout", "title": "Web Design", "description": "User-centered design. Design by connecting the needs of your users, customers, and your business.", "url": "#design" },
+          { "icon": "code", "title": "Web Development", "description": "Built the software that your problem requires. Focus the idea devised in the analysis so that it aligns with your needs and works correctly.", "url": "#development" },
+          { "icon": "list-checks", "title": "Quality assurance", "description": "Quality assurance allows you to have your business running smoothly without so many worries.", "url": "#qa" },
+          { "icon": "trending-up", "title": "Web Optimization", "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor.", "url": "#qa" },
+          { "icon": "bug", "title": "Bug Fixing", "description": "Bugs exists, fixes too. We humans can make mistakes, but we can also fix them, under any circumstances.", "url": "#qa" }
+
         ]
       },
       "workWithMe": {
@@ -537,23 +546,20 @@
         "badge": "Testimonials",
         "heading": "What clients say",
         "lead": "Real words from finished projects.",
-        "items": [
-          { "quote": "The new site launched on time and hit every goal we set. Performance improved dramatically — load times dropped and the feedback from our customers has been overwhelmingly positive.", "name": "Alex Morgan", "role": "Founder, Bright Studio" },
-          { "quote": "Straightforward from first conversation to final handover. The right questions were asked, we were kept in the loop throughout, and the end result exceeded what we imagined. Would recommend without hesitation.", "name": "Sarah Chen", "role": "CEO, Luma Agency" }
-        ]
+        "items": []
       },
       "aboutTeaser": {
         "badge": "About me",
-        "headingLine1": "Designer, developer,",
-        "headingLine2": "and blogger.",
-        "para1WithLocation": "Sixteen years of hands-on experience, based in {location} and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para1NoLocation": "Sixteen years of hands-on experience and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para2": "On the blog, I share the ideas and decisions that shape my work.",
+        "headingLine1": "Developer",
+        "headingLine2": "and Blogger.",
+        "para1WithLocation": "Seven years of hands-on experience, based in {location} and available for local clients or enterprises for now. I build with Astro, static websites, because it aligns with how I think about the web: lean, purposeful, and built to last, and I build dynamic websites with Laravel with Vue.js stack, for fast monolithic websites, and a Spring stack with Spring Boot and Spring MVC, for stable websites with microservices.",
+        "para1NoLocation": "Seven years of hands-on experience and available for local clients or enterprises for now. I build with Astro b, static websites, because it aligns with how I think about the web: lean, purposeful, and built to last, and I build dynamic websites with Laravel with Vue.js stack, for fast monolithic websites, and a Spring stack with Spring Boot and Spring MVC, for stable websites with microservices.",
+        "para2": "On the blog, I share the ideas and decisions that shape my work, and opinions on current events in the sector.",
         "moreAboutMe": "More about me",
         "statsIntro": "A few things about me.",
-        "stat1": "16 Years Experience",
-        "stat2": "Building with Astro",
-        "stat3": "Working worldwide",
+        "stat1": "7 Years Experience",
+        "stat2": "Building with Astro, Laravel, Vue.js, and Spring",
+        "stat3": "Working locally",
         "basedIn": "Based in"
       },
       "blog": {
@@ -564,7 +570,7 @@
       "cta": {
         "badge": "Let's talk",
         "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations. And from the first conversation to the final delivery, it's me.",
+        "description": "The first talk is free and informative, with no obligations. And I'm ready to build software solutions for you in your business.",
         "primary": "Send a message",
         "secondary": "More about me"
       }

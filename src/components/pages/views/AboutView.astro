@@ -46,11 +46,17 @@ interface TitleText {
   title: string;
   text: string;
 }
+interface WhoAmICard {
+  title: string;
+  text: string;
+  description: string;
+}
 
 const { locale = defaultLocale } = Astro.props;
 
-const GITHUB_URL = 'https://github.com/hansmartensdev/astro-rocket';
+const GITHUB_URL = 'https://github.com/juandgambas/juandgambas.github.io';
 
+const common = tData<{ avatarAlt: string }>('common', locale)!;
 const hero = tData<{
   badge: string;
   titleLead: string;
@@ -59,6 +65,13 @@ const hero = tData<{
   typingWordsMobile: string[];
   description: string;
 }>('pages.about.hero', locale)!;
+const whoAmI = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  description: string;
+  items: WhoAmICard[];
+}>('pages.about.whoAmI', locale)!;
 const whatYouGet = tData<{ badge: string; heading: string; lead: string; items: IconText[] }>(
   'pages.about.whatYouGet',
   locale
@@ -67,8 +80,14 @@ const principles = tData<{ badge: string; heading: string; lead: string; items: 
   'pages.about.principles',
   locale
 )!;
-const stack = tData<{ badge: string; title: string; description: string }>('pages.about.stack', locale)!;
-const faq = tData<{ badge: string; heading: string; lead: string; cards: FaqCard[] }>('pages.about.faq', locale)!;
+const stack = tData<{ badge: string; title: string; description: string }>(
+  'pages.about.stack',
+  locale
+)!;
+const faq = tData<{ badge: string; heading: string; lead: string; cards: FaqCard[] }>(
+  'pages.about.faq',
+  locale
+)!;
 const openSource = tData<{
   badge: string;
   heading: string;
@@ -76,8 +95,12 @@ const openSource = tData<{
   button: string;
   cards: TitleText[];
 }>('pages.about.openSource', locale)!;
-const cta = tData<{ badge: string; heading: string; description: string; button: string }>('pages.about.cta', locale)!;
+const cta = tData<{ badge: string; heading: string; description: string; button: string }>(
+  'pages.about.cta',
+  locale
+)!;
 ---
+
 <PageLayout
   title={t('pages.about.meta.title', locale)}
   description={t('pages.about.meta.description', locale)}
@@ -89,11 +112,15 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
       {hero.badge}
     </Badge>
     <h1 slot="title">
-      <span class="text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLead}</span><br />
+      <span class="text-foreground capitalize wrap-break-word [-webkit-text-fill-color:currentColor]"
+        >{hero.titleLead}</span
+      ><br />
       <span class="text-brand-500 [-webkit-text-fill-color:var(--color-brand-500)] sm:hidden">
         <TypingEffect words={hero.typingWordsMobile} />
       </span>
-      <span class="text-brand-500 [-webkit-text-fill-color:var(--color-brand-500)] hidden sm:inline">
+      <span
+        class="text-brand-500 hidden [-webkit-text-fill-color:var(--color-brand-500)] sm:inline"
+      >
         <TypingEffect words={hero.typingWords} />
       </span>
     </h1>
@@ -102,58 +129,134 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
       {hero.description}
     </p>
   </Hero>
+  <!-- Who am I? -->
+  <section class="bg-background-secondary border-border border-t py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="glitch:grid-cols-2 glitch:items-center grid gap-8 sm:gap-10">
+        <!-- Text -->
+        <div
+          class="glitch:items-start glitch:justify-center glitch:text-left flex flex-col gap-4 sm:items-center sm:text-center"
+          data-reveal
+          data-reveal-ease="smooth"
+        >
+          <Badge variant="brand" pill class="glitch:self-start self-start sm:self-center">
+            <Icon name="user" size="sm" />
+            {whoAmI.badge}
+          </Badge>
+          <h2 class="font-display text-foreground text-3xl font-bold md:text-4xl wrap-break-word">
+            {whoAmI.heading}
+          </h2>
+          <div class="w-100 flex justify-center">
+            <figure class="bg-indigo-700 rounded-md">
+              <img src="/avatar.png" alt={common.avatarAlt} width="200" height="200">
+            </figure>
+          </div>
+          <p
+            class="text-foreground-muted glitch:max-w-none glitch:mx-0 text-lg leading-relaxed sm:mx-auto sm:max-w-xl"
+          >
+            {whoAmI.description}
+          </p>
+        </div>
+
+        <!-- Info card -->
+        <div
+          class="flex h-full flex-col"
+          data-reveal
+          data-reveal-delay="1"
+          data-reveal-ease="smooth"
+        >
+          <Card variant="elevated" padding="lg" class="flex flex-1 flex-col justify-center">
+            <div class="relative border-l border-primary/20 w-full">
+              {whoAmI.items.map((item) => (
+                <div class="mb-10 ml-6">
+                  <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-primary ring-8 ring-background">
+                    <div class="h-2 w-2 rounded-full bg-background"></div>
+                  </span>
+                  <h3 class="mb-1 text-lg font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                  <p class="text-base font-normal text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- What you get -->
-  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal data-reveal-eager data-reveal-ease="smooth">
+  <section class="bg-background border-border border-t py-[var(--space-section-md)]">
+    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6">
+      <div
+        class="flex flex-col items-center gap-4 text-center"
+        data-reveal
+        data-reveal-eager
+        data-reveal-ease="smooth"
+      >
         <div class="flex flex-col items-center gap-6">
           <Badge variant="brand" pill>
             <Icon name="list-checks" size="sm" />
             {whatYouGet.badge}
           </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+          <h2 class="font-display text-foreground text-3xl font-bold text-balance md:text-4xl">
             {whatYouGet.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+        <p class="text-foreground-muted mx-auto max-w-2xl text-lg text-balance">
           {whatYouGet.lead}
         </p>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {whatYouGet.items.map((item, i) => (
-          <ProofTile icon={item.icon} title={item.title} data-reveal data-reveal-delay={i % 3 || undefined}>
-            {item.description}
-          </ProofTile>
-        ))}
+        {
+          whatYouGet.items.map((item, i) => (
+            <ProofTile
+              icon={item.icon}
+              title={item.title}
+              data-reveal
+              data-reveal-delay={i % 3 || undefined}
+            >
+              {item.description}
+            </ProofTile>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <!-- Principles -->
-  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+  <section class="bg-background-secondary border-border border-t py-[var(--space-section-md)]">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="mb-8 text-center flex flex-col items-center gap-4" data-reveal>
+      <div class="mb-8 flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">
           <Badge variant="brand" pill>
             <Icon name="pen-tool" size="sm" />
             {principles.badge}
           </Badge>
-          <h2 class="font-display text-4xl font-bold text-foreground">
+          <h2 class="font-display text-foreground text-4xl font-bold">
             {principles.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+        <p class="text-foreground-muted mx-auto max-w-2xl text-lg text-balance">
           {principles.lead}
         </p>
       </div>
       <div class="grid gap-6 sm:grid-cols-3">
-        {principles.items.map((item, i) => (
-          <ProofTile icon={item.icon} title={item.title} data-reveal data-reveal-delay={i || undefined}>
-            {item.description}
-          </ProofTile>
-        ))}
+        {
+          principles.items.map((item, i) => (
+            <ProofTile
+              icon={item.icon}
+              title={item.title}
+              data-reveal
+              data-reveal-delay={i || undefined}
+            >
+              {item.description}
+            </ProofTile>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -164,71 +267,94 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
     badgeIcon="wrench"
     title={stack.title}
     description={stack.description}
-    background="secondary"
+    background="primary"
   />
 
   <!-- FAQ -->
-  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+  <section class="bg-background-secondary border-border border-t py-[var(--space-section-md)]">
+    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">
           <Badge variant="brand" pill>
             <Icon name="info" size="sm" />
             {faq.badge}
           </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          <h2 class="font-display text-foreground text-3xl font-bold md:text-4xl">
             {faq.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+        <p class="text-foreground-muted mx-auto max-w-2xl text-lg text-balance">
           {faq.lead}
         </p>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
-        {faq.cards.map((card, cardIndex) => (
-          <Card variant="elevated" padding="lg" data-reveal data-reveal-delay={cardIndex + 1}>
-            <div class="flex items-center gap-3 pb-4 border-b border-border">
-              <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                <Icon name={card.icon} size="md" />
+        {
+          faq.cards.map((card, cardIndex) => (
+            <Card variant="elevated" padding="lg" data-reveal data-reveal-delay={cardIndex + 1}>
+              <div class="border-border flex items-center gap-3 border-b pb-4">
+                <div class="from-brand-500/20 to-brand-500/5 text-brand-500 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br">
+                  <Icon name={card.icon} size="md" />
+                </div>
+                <h3 class="font-display text-foreground text-base font-semibold">{card.title}</h3>
               </div>
-              <h3 class="font-display text-base font-semibold text-foreground">{card.title}</h3>
-            </div>
-            <div class="w-full">
-              {card.items.map((item) => (
-                <details class="border-b border-border last:border-0" name={`faq-${cardIndex}`}>
-                  <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                    {item.question}
-                    <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-                  </summary>
-                  <div class="pb-4 text-sm text-foreground-muted leading-relaxed" set:html={item.answer} />
-                </details>
-              ))}
-            </div>
-          </Card>
-        ))}
+              <div class="w-full">
+                {card.items.map((item) => (
+                  <details class="border-border border-b last:border-0" name={`faq-${cardIndex}`}>
+                    <summary class="text-foreground hover:text-foreground-secondary flex w-full cursor-pointer list-none items-center justify-between py-4 text-left text-sm font-medium transition-colors [&::-webkit-details-marker]:hidden">
+                      {item.question}
+                      <Icon
+                        name="chevron-down"
+                        size="sm"
+                        class="faq-icon text-foreground-muted shrink-0 transition-transform duration-200"
+                      />
+                    </summary>
+                    <div
+                      class="text-foreground-muted pb-4 text-sm leading-relaxed"
+                      set:html={item.answer}
+                    />
+                  </details>
+                ))}
+              </div>
+            </Card>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <!-- Open Source -->
-  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <section class="bg-background border-border border-t py-[var(--space-section-md)]">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="grid gap-8 sm:gap-10 glitch:grid-cols-2 glitch:items-center">
+      <div class="glitch:grid-cols-2 glitch:items-center grid gap-8 sm:gap-10">
         <!-- Text -->
-        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:justify-center glitch:text-left" data-reveal data-reveal-ease="smooth">
-          <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
+        <div
+          class="glitch:items-start glitch:justify-center glitch:text-left flex flex-col gap-4 sm:items-center sm:text-center"
+          data-reveal
+          data-reveal-ease="smooth"
+        >
+          <Badge variant="brand" pill class="glitch:self-start self-start sm:self-center">
             <Icon name="github" size="sm" />
             {openSource.badge}
           </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          <h2 class="font-display text-foreground text-3xl font-bold md:text-4xl">
             {openSource.heading}
           </h2>
-          <p class="text-lg text-foreground-muted leading-relaxed sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
+          <p
+            class="text-foreground-muted glitch:max-w-none glitch:mx-0 text-lg leading-relaxed sm:mx-auto sm:max-w-xl"
+          >
             {openSource.description}
           </p>
-          <div class="flex flex-wrap gap-4 self-start sm:self-center sm:justify-center glitch:self-start mt-2">
-            <Button variant="brand-outline" size="lg" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+          <div
+            class="glitch:self-start mt-2 flex flex-wrap gap-4 self-start sm:justify-center sm:self-center"
+          >
+            <Button
+              variant="brand-outline"
+              size="lg"
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {openSource.button}
               <Icon name="arrow-right" size="sm" />
             </Button>
@@ -236,14 +362,21 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
         </div>
 
         <!-- Info card -->
-        <div class="flex flex-col h-full" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
-          <Card variant="elevated" padding="lg" class="flex-1 flex flex-col justify-center gap-6">
-            {openSource.cards.map((card) => (
-              <div class="flex flex-col gap-2">
-                <h3 class="text-base font-semibold text-foreground">{card.title}</h3>
-                <p class="text-sm text-foreground-muted leading-relaxed" set:html={card.text} />
-              </div>
-            ))}
+        <div
+          class="flex h-full flex-col"
+          data-reveal
+          data-reveal-delay="1"
+          data-reveal-ease="smooth"
+        >
+          <Card variant="elevated" padding="lg" class="flex flex-1 flex-col justify-center gap-6">
+            {
+              openSource.cards.map((card) => (
+                <div class="flex flex-col gap-2">
+                  <h3 class="text-foreground text-base font-semibold">{card.title}</h3>
+                  <p class="text-foreground-muted text-sm leading-relaxed" set:html={card.text} />
+                </div>
+              ))
+            }
           </Card>
         </div>
       </div>
@@ -251,20 +384,28 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
   </section>
 
   <!-- CTA -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+  <section
+    class="bg-background-secondary border-border relative z-10 border-t py-[var(--space-section-md)]"
+  >
     <!-- Mobile: flat section, no card -->
     <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
       <Badge variant="brand" pill class="mb-6">
         <Icon name="rocket" size="sm" />
         {cta.badge}
       </Badge>
-      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+      <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
         {cta.heading}
       </h2>
-      <p class="text-lg text-foreground-muted mb-8 text-balance">
+      <p class="text-foreground-muted mb-8 text-lg text-balance">
         {cta.description}
       </p>
-      <Button size="lg" href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="cta-btn-brand">
+      <Button
+        size="lg"
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-btn-brand"
+      >
         {cta.button}
         <Icon name="arrow-right" size="sm" />
       </Button>
@@ -272,13 +413,19 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
 
     <!-- Desktop: contained LetterGlitch band with glass card -->
     <LetterGlitchBand>
-      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+      <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
         {cta.heading}
       </h2>
-      <p class="text-lg text-foreground-muted mb-8 text-balance">
+      <p class="text-foreground-muted mb-8 text-lg text-balance">
         {cta.description}
       </p>
-      <Button size="lg" href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="hero-btn-brand">
+      <Button
+        size="lg"
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hero-btn-brand"
+      >
         {cta.button}
         <Icon name="arrow-right" size="sm" />
       </Button>
