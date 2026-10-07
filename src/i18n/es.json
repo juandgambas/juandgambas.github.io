@@ -1,0 +1,702 @@
+{
+  "nav": {
+    "skipToContent": "Saltar al contenido",
+    "openMenu": "abrir menú",
+    "closeMenu": "Cerrar menú",
+    "selectLanguage": "Seleccionar idioma",
+    "currentLanguage": "Idioma actual",
+    "mainNav": "Navegación principal",
+    "mobileNav": "Navegación móvil",
+    "toggleMenu": "Alternar menú",
+    "sectionNavigate": "Navegar por",
+    "searchSite": "Buscar en este sitio",
+    "sectionTheme": "Tema",
+    "sectionLanguage": "Idioma",
+    "sectionConnect": "Conectar",
+    "items": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "blog": "Blog",
+      "about": "Acerca de",
+      "contact": "Contacto"
+    }
+  },
+  "common": {
+    "readMore": "Leer más",
+    "loading": "Cargando…",
+    "backToTop": "Volver arriba",
+    "search": "Buscar",
+    "submit": "Entregar",
+    "cancel": "Cancelar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "home": "Inicio",
+    "avatarAlt": "Imagen de perfil de Juan David Gamba Saenz."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Últimos artículos y actualizaciones",
+    "readingTime": "{minutes} min de lectura",
+    "publishedOn": "Publicado el {date}",
+    "updatedOn": "Actualizado el {date}",
+    "writtenBy": "Escrito por {author}",
+    "tagsLabel": "Etiquetas",
+    "featured": "Presentado",
+    "draft": "Borrador",
+    "noPostsFound": "No se encontraron publicaciones.",
+    "tableOfContents": "Tabla de contenido",
+    "shareThisPost": "Comparte esta publicación",
+    "relatedPosts": "Publicaciones relacionadas",
+    "share": "Compartir:",
+    "shareOn": "Compartir en {platform}",
+    "copyLink": "Copiar enlace",
+    "metaTitle": "Blog",
+    "metaDescription": "Blog de desarrollo de GhostForge: Un lugar para compartir ideas y decisiones que dan forma a mi trabajo, y opiniones sobre la actualidad del sector.",
+    "heroBadge": "Todas las publicaciones",
+    "heroDescription": "Un lugar para compartir ideas y decisiones que dan forma a mi trabajo, y opiniones sobre la actualidad del sector.",
+    "allPosts": "Todas las publicaciones",
+    "noPosts": "No se encontraron publicaciones",
+    "pageMetaTitle": "Blog — Página {page}",
+    "pageMetaDescription": "Página {page} de {total}: guías prácticas para instalar, configurar y construir con Astro Rocket.",
+    "pageBadge": "Página {page} de {total}",
+    "newestPosts": "Publicaciones más recientes",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Publicaciones etiquetadas \"{tag}\".",
+    "tagBadge": "Etiqueta",
+    "tagCountOne": "{count} publicación etiquetada \"{tag}\".",
+    "tagCountOther": "{count} publicaciones etiquetadas \"{tag}\".",
+    "tagEmpty": "No se encontraron publicaciones para esta etiqueta.",
+    "tagBackToAll": "Volver a todas las publicaciones",
+    "onThisPage": "En esta pagina",
+    "tocShow": "Espectáculo",
+    "tocHide": "Esconder",
+    "backToBlog": "Volver al blog",
+    "updated": "Actualizado",
+    "followAlong": "Siga adelante",
+    "followAlongLead": "Manténgase informado: nuevos artículos, pensamientos y actualizaciones.",
+    "rssFeed": "Fuente RSS",
+    "emailLabel": "Correo electrónico"
+  },
+  "comments": {
+    "title": "Comentarios",
+    "loadError": "Los comentarios no se pudieron cargar.",
+    "requiresJs": "Los comentarios requieren JavaScript para cargarse."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "description": "Cosas que he construido",
+    "viewProject": "Ver proyecto",
+    "viewSource": "Ver fuente",
+    "noProjectsFound": "No se encontraron proyectos.",
+    "metaTitle": "Proyectos",
+    "metaDescription": "Trabajo seleccionado: sitios web, herramientas y proyectos de código abierto creados por GhostForge Dev y Juan D. Gamba S.",
+    "heroBadge": "Trabajo seleccionado",
+    "heroDescription": "Obra seleccionada para compartir.",
+    "allProjects": "Todos los proyectos",
+    "pageMetaTitle": "Proyectos: página {page}",
+    "pageMetaDescription": "Página {page} de {total}: trabajos, herramientas y proyectos de código abierto seleccionados de Astro Rocket.",
+    "pageBadge": "Página {page} de {total}",
+    "tagMetaTitle": "#{tag} — Proyectos",
+    "tagMetaDescription": "Proyectos etiquetados \"{tag}\".",
+    "tagBadge": "Etiqueta",
+    "tagCountOne": "{count} proyecto etiquetado como \"{tag}\".",
+    "tagCountOther": "{count} proyectos etiquetados \"{tag}\".",
+    "tagEmpty": "No se encontraron proyectos para esta etiqueta.",
+    "tagBackToAll": "Volver a todos los proyectos",
+    "backToProjects": "Volver a Proyectos",
+    "moreProjects": "Más proyectos",
+    "ctaBadge": "hablemos",
+    "ctaHeading": "Hablemos de lo que necesitas",
+    "ctaLead": "Estoy listo para crear soluciones de software para usted en su negocio.",
+    "ctaPrimary": "enviar un mensaje",
+    "ctaSecondary": "más sobre mi",
+    "closingHeading": "¿Tienes un proyecto en mente?",
+    "closingLead": "Ya sea que se trate de una nueva construcción o de algo que necesite una nueva perspectiva, me encantaría saberlo."
+  },
+  "pagination": {
+    "page": "Página {current} de {total}",
+    "label": "Paginación",
+    "previousPage": "Pagina anterior",
+    "nextPage": "Página siguiente"
+  },
+  "errors": {
+    "pageNotFound": "Página no encontrada",
+    "pageNotFoundMessage": "La página que estás buscando no existe o se ha movido.",
+    "goHome": "Ir a la página de inicio",
+    "metaTitle": "Página no encontrada",
+    "metaDescription": "Esta página se movió, se eliminó o nunca existió en primer lugar.",
+    "badge": "404 - página no encontrada",
+    "titleLead": "Página no",
+    "titleHighlight": "encontró.",
+    "description": "Esta página se movió, se eliminó o nunca existió en primer lugar.",
+    "backHome": "De vuelta a casa",
+    "browseBlog": "Navegar por el blog",
+    "tryInstead": "Pruebe uno de estos en su lugar",
+    "projectsDesc": "Trabajos seleccionados y estudios de casos.",
+    "blogDesc": "Apuntes sobre ideas, decisiones y opiniones.",
+    "contactTitle": "Contacto",
+    "contactDesc": "Inicia una conversación sobre tu proyecto o tu oferta de trabajo."
+  },
+  "newsletter": {
+    "heading": "Suscríbete al boletín",
+    "description": "Recibe las últimas publicaciones en tu bandeja de entrada.",
+    "emailPlaceholder": "Introduce tu correo electrónico",
+    "subscribe": "Suscribir",
+    "subscribing": "Suscribiéndose…",
+    "success": "¡Gracias por suscribirte!",
+    "genericError": "algo salió mal",
+    "error": "La suscripción falló."
+  },
+  "contact": {
+    "heading": "Ponte en contacto",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Sujeto",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "sending": "Envío…",
+    "success": "¡Mensaje enviado exitosamente!",
+    "genericError": "Algo salió mal",
+    "error": "No se pudo enviar el mensaje."
+  },
+  "theme": {
+    "selectColourTheme": "Seleccionar tema de color",
+    "colourTheme": "Tema de color",
+    "colourMode": "Modo de color",
+    "modeTrigger": "Tema: {mode}.",
+    "system": "Sistema",
+    "light": "Luz",
+    "dark": "Oscuro",
+    "currentlyLight": "Actualmente ligero",
+    "currentlyDark": "Actualmente oscuro",
+    "swatchLabel": "{name} tema"
+  },
+  "search": {
+    "placeholder": "Buscar publicaciones, proyectos y páginas...",
+    "inputLabel": "Consulta de búsqueda",
+    "resultsLabel": "Resultados de la búsqueda",
+    "hint": "Empiece a escribir para buscar en el sitio.",
+    "noResults": "No hay resultados para “{query}”",
+    "unavailable": "El índice de búsqueda se genera en el momento de la compilación y no está disponible en <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">desarrollador astro</code>.<br />Correr <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">compilación de pnpm && vista previa de pnpm</code> para probarlo localmente."
+  },
+  "video": {
+    "playLabel": "Reproducir vídeo: {title}",
+    "watchOn": "Ver en YouTube"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName} por {author}",
+    "credit": "Tema por <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
+    "builtWith": "Construido con Astro Rocket",
+    "followOn": "Síguenos en {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "Acerca de - Este soy yo",
+        "description": "Sitio web GhostForge Dev por Juan Gamba Saenz."
+      },
+      "hero": {
+        "badge": "Acerca de",
+        "titleLead": "GhostForge Dev\npor\nJuan D. Gamba\n—",
+        "typingWords": [
+          "Des. web full-stack",
+          "Estudiante\nde Ing. de Sistemas",
+          "Laravel",
+          "Vue.js",
+          "Spring Boot",
+          "Análisis y diseño de software"
+        ],
+        "typingWordsMobile": [
+          "Desarrollador Full-stack",
+          "Estudiante de Ingeniería",
+          "Laravel",
+          "Vue.js",
+          "Spring Boot",
+          "Análisis y Diseño"
+        ],
+        "description": "Creación de aplicaciones web de alto rendimiento desde el concepto hasta la implementación."
+      },
+      "whoAmI": {
+        "badge": "¿Quién soy yo?",
+        "heading": "Cordial saludo, soy Juan David Gamba",
+        "lead": "De los fundamentos de ADSI a la Ingeniería de Sistemas en la UNAD: una evolución constante a través de GhostForge Dev.",
+        "description": "Mi trayectoria en el mundo de la tecnología no es solo una lista de lenguajes de programación, sino la historia de la curiosidad transformada en ingeniería.",
+        "items": [
+          {
+            "title": "El pasado: la fundación",
+            "description": "Como tecnólogo de ADSI, aprendí que el software comienza con una lógica impecable y una documentación rigurosa (UML, IEEE-830)."
+          },
+          {
+            "title": "El presente: la fragua",
+            "description": "Actualmente en la UNAD nace GhostForge Dev como mi estándar de calidad para la construcción de soluciones Full-Stack con Laravel y Spring Boot."
+          },
+          {
+            "title": "El futuro: la visión",
+            "description": "Mi objetivo es llevar mi mentalidad de \"forja\" a equipos de alto rendimiento para crear software que escale y dure."
+          }
+        ]
+      },
+      "whatYouGet": {
+        "badge": "Propuesta de Valor",
+        "heading": "Lo que obtienes",
+        "lead": "Soluciones Full-Stack creadas con una mentalidad de ingeniería, priorizando la escalabilidad y la implementación profesional.",
+        "items": [
+          {
+            "icon": "layers",
+            "title": "Arquitecturas robustas",
+            "description": "Sistemas sólidos con Laravel y Spring Boot, diseñados para escalar y manejar procesos complejos sin problemas"
+          },
+          {
+            "icon": "monitor",
+            "title": "Interfaces reactivas",
+            "description": "Smooth centrado en la usabilidad y el rendimiento"
+          },
+          {
+            "icon": "workflow",
+            "title": "Cultura CI/CD",
+            "description": "Software listo para producción Control de versiones profesional e implementaciones automatizadas con Git y GitHub Actions"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Código basado en estándares",
+            "description": "Aplicación de mejores prácticas y documentación técnica."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Filosofía de la ingeniería",
+        "heading": "Construido con intención",
+        "lead": "Cada línea de código en GhostForge Dev, desde la base de datos hasta la interfaz de usuario, se rige por tres principios básicos.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "El rendimiento es lo primero",
+            "description": "Optimización total entre servidor y cliente."
+          },
+          {
+            "icon": "award",
+            "title": "Arquitectura limpia",
+            "description": "Utilizar patrones de diseño y estándares de la industria (SOLID, DRY) para crear software que sea escalable, mantenible y fácil de ampliar."
+          },
+          {
+            "icon": "rocket",
+            "title": "Moderno y Robusto",
+            "description": "Dominio de stacks modernos como Laravel/Inertia y Spring Boot, integrando siempre las últimas prácticas de seguridad e implementación."
+          }
+        ]
+      },
+      "stack": {
+        "badge": "Pila de tecnología",
+        "title": "Herramientas de forja",
+        "description": "Domino un ecosistema moderno centrado en la solidez empresarial y la agilidad del frontend."
+      },
+      "faq": {
+        "badge": "Es bueno saberlo",
+        "heading": "Preguntas frecuentes",
+        "lead": "Todo lo que necesitas saber sobre GhostForge Dev y este repositorio.",
+        "cards": [
+          {
+            "icon": "building-2",
+            "title": "Acerca del desarrollador GhostForge",
+            "items": [
+              {
+                "question": "¿Qué es GhostForge Dev?",
+                "answer": "Es una marca que utilizo para el desarrollo de proyectos independientes."
+              },
+              {
+                "question": "¿Por qué crear mi sitio web con GhostForge Dev?",
+                "answer": "GhostForge Dev vive actualmente su nacimiento, como una marca comercial con gran potencial de crecimiento y desarrollo de proyectos de alta capacidad."
+              }
+            ]
+          },
+          {
+            "icon": "search-check",
+            "title": "Verificando este proyecto",
+            "items": [
+              {
+                "question": "¿Por qué el repositorio es público?",
+                "answer": "El repositorio es público para los reclutadores de empleo, como los reclutadores de LinkedIn."
+              }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Código abierto",
+        "heading": "Este sitio web fue construido de forma libre.",
+        "description": "El sitio web GhostForge Dev es gratuito, de código abierto y tiene licencia del MIT.",
+        "button": "Ver en GitHub",
+        "cards": [
+          {
+            "title": "Modificado por Juan Gamba",
+            "text": "La estructura y contenido fue creado y modificado por Juan Gamba. <a href=\"https://github.com/juandgambas\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Juan D. Gamba S.</a> — un desarrollador completo que puede crear una amplia variedad de proyectos de software con Laravel, Spring Boot y Vue.js."
+          },
+          {
+            "title": "Plantilla hecha por Hans Martens Dev",
+            "text": "Astro Rocket fue diseñado y construido por <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> – un desarrollador independiente de Astro que lo utiliza como base para los proyectos de los clientes."
+          },
+          {
+            "title": "Licencia MIT",
+            "text": "De uso gratuito en proyectos personales y comerciales."
+          }
+        ]
+      },
+      "cta": {
+        "badge": "empezar",
+        "heading": "¿Listo para construir?",
+        "description": "Verifique las mejores prácticas para un sitio web estático con Astro y la plantilla Astro Rocket.",
+        "button": "Empezar"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Servicios: análisis, diseño, desarrollo y control de calidad",
+        "description": "Servicios independientes o contratados, diseño, desarrollo y optimización web: sitios web Astro personalizados, elegantes y ultrarrápidos."
+      },
+      "includedLabel": "Lo Que Obtienes",
+      "hero": {
+        "badge": "Servicios",
+        "titleLead": "Análisis, diseño web, desarrollo.",
+        "titleHighlight": "y aseguramiento de la calidad (QA)",
+        "description": "Cuatro servicios, un producto: un sitio web Astro, Laravel o Spring Boot personalizado, elegante y ultrarrápido en el que estará orgulloso de poner su nombre.",
+        "jumpLabels": [
+          "Análisis de requisitos",
+          "Diseño Web",
+          "Desarrollo Web",
+          "Seguro de calidad"
+        ]
+      },
+      "analysis": {
+        "badge": "Análisis",
+        "heading": "Análisis empresarial",
+        "paragraphs": [
+          "El análisis de negocio es lo que hacemos primero: Analizar el contexto, tu negocio y las necesidades de tus clientes y usuarios.",
+          "Necesitamos hablar el mismo idioma sobre aspectos importantes de su negocio; de lo contrario, la solución que ideamos no funcionará para usted."
+        ],
+        "included": [
+          {
+            "lead": "Planificación",
+            "text": "conecta lo que sabes con lo que sé y con lo que no sé, y lo que tus usuarios y clientes requieren."
+          },
+          {
+            "lead": "Recopilación de información",
+            "text": "Hablamos con usted, sus usuarios y clientes para observar su comportamiento en su entorno real con respecto a las necesidades de su negocio."
+          },
+          {
+            "lead": "Sumergiéndome en tus necesidades",
+            "text": "comprender la experiencia de sus usuarios y clientes para capturar detalles ocultos."
+          },
+          {
+            "lead": "Organizar y analizar los datos recopilados.",
+            "text": "Organice la información y las notas de la entrevista en un panel de toma de decisiones, agrúpelas por temas e identifique patrones."
+          },
+          {
+            "lead": "Extraer ideas y centrarse en el problema.",
+            "text": "buscar revelaciones o verdades ocultas sobre los usuarios y centrarse en el problema que realmente necesita resolverse."
+          }
+        ],
+        "ctaLabel": "Analicemos tus ideas y necesidades"
+      },
+      "design": {
+        "badge": "Diseño",
+        "heading": "diseño web",
+        "paragraphs": [
+          "El diseño web es cómo se ve y se siente su sitio web: el diseño, los colores, las imágenes y la forma en que los visitantes se orientan.",
+          "Necesitamos diversificar ideas, es decir, abrirnos a opciones respecto a nuestro problema, para luego converger ideas, es decir, filtrar ideas y definir la posible solución."
+        ],
+        "included": [
+          {
+            "lead": "una lluvia de ideas",
+            "text": "puedo ser muy creativo si me lo propongo."
+          },
+          {
+            "lead": "pensamiento expansivo",
+            "text": "encuentre alternativas no convencionales para sus necesidades."
+          },
+          {
+            "lead": "Técnicas de apoyo",
+            "text": "utilice mapas mentales, notas adhesivas y otras herramientas para generar ideas sobre soluciones."
+          },
+          {
+            "lead": "Agrupar y filtrar",
+            "text": "ordena las propuestas y comprueba si se alinean con tu idea de negocio."
+          },
+          {
+            "lead": "Vota y prioriza",
+            "text": "utilice puntos adhesivos o matrices de impacto para elegir las opciones más prometedoras."
+          },
+          {
+            "lead": "Selección final",
+            "text": "seleccione una o dos ideas con el mayor valor real para los usuarios y clientes de su empresa."
+          }
+        ],
+        "ctaLabel": "Discutir un proyecto de diseño."
+      },
+      "development": {
+        "badge": "Desarrollo",
+        "heading": "desarrollo web",
+        "paragraphs": [
+          "El desarrollo web es la construcción de su sitio web: convertir el diseño en el código que se ejecuta en el navegador de su visitante.",
+          "Construyo con Astro, un marco moderno confiable para algunos de los sitios web más rápidos en línea."
+        ],
+        "included": [
+          {
+            "lead": "Un sitio web ultrarrápido",
+            "text": "construido con Astro, Laravel, Vue.js y/o Spring Boot, los marcos detrás de algunos de los sitios web estáticos y dinámicos más rápidos en línea."
+          },
+          {
+            "lead": "Un sitio web seguro y confiable",
+            "text": "uno que se mantiene seguro y sigue funcionando, año tras año."
+          },
+          {
+            "lead": "Propiedad total",
+            "text": "el código, el dominio y el hosting, todo a tu nombre desde el primer día."
+          },
+          {
+            "lead": "Espacio para crecer",
+            "text": "espacio para agregar nuevas páginas y funciones cuando su empresa las necesite."
+          }
+        ],
+        "ctaLabel": "Ver proyectos recientes"
+      },
+      "sqa": {
+        "badge": "Control de calidad (QA)",
+        "heading": "Control de calidad del software (SQA)",
+        "paragraphs": [
+          "El control de calidad del software (SQA) es el trabajo que mantiene su sitio web funcionando como, cuando y donde lo necesita, evitando problemas antes de que ocurran.",
+          "Anticipo problemas, reviso procesos de desarrollo, verifico y valido software y aplico procesos de mejora continua para que su sitio web funcione casi para siempre de acuerdo a sus necesidades."
+        ],
+        "included": [
+          {
+            "lead": "Problemas previstos",
+            "text": "pueden ocurrir problemas de software, pero son más comunes si no existen estándares de trabajo, pautas de codificación, metodologías y una descripción adecuada de las necesidades de su empresa, usuarios y clientes."
+          },
+          {
+            "lead": "Procesos de desarrollo revisados.",
+            "text": "es necesario verificar que el software cumpla con los requisitos técnicos y las necesidades del usuario durante todo el proceso y satisfaga las necesidades de su negocio."
+          },
+          {
+            "lead": "Mejora continua",
+            "text": "analizar métricas e informes de errores para ajustar los procesos del equipo"
+          },
+          {
+            "lead": "Control de calidad (QC)",
+            "text": "verificar proactivamente que la solución funciona."
+          }
+        ],
+        "ctaLabel": "Contáctame"
+      },
+      "faq": {
+        "badge": "Preguntas",
+        "heading": "Preguntas y respuestas (trabajo autónomo)",
+        "lead": "Las cosas que los clientes preguntan antes de empezar.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Antes de comenzar",
+            "items": [
+              {
+                "question": "¿Cuánto cuesta un sitio web?",
+                "answer": "Cada proyecto tiene un precio fijo, acordado antes de comenzar."
+              },
+              {
+                "question": "¿Cuánto tiempo lleva un proyecto?",
+                "answer": "Eso depende del tamaño del sitio web."
+              },
+              {
+                "question": "¿Qué pasa con mi sitio web actual?",
+                "answer": "Permanece en línea hasta que el nuevo esté listo."
+              },
+              {
+                "question": "¿Necesito contratar hosting o un dominio?",
+                "answer": "No. Configuro el hosting y el dominio por ti, a tu propio nombre."
+              },
+              {
+                "question": "¿Necesitamos reunirnos en persona?",
+                "answer": "No es necesario."
+              }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Trabajando conmigo",
+            "items": [
+              {
+                "question": "¿Eres una empresa o agencia?",
+                "answer": "Soy una empresa unipersonal: autónomo, no una agencia."
+              },
+              {
+                "question": "¿Puedo cambiar el sitio web yo mismo después del lanzamiento?",
+                "answer": "Simplemente puede enviarme sus cambios y el plan de atención mensual (si estamos de acuerdo) existe exactamente para eso."
+              },
+              {
+                "question": "¿También construyes tiendas web?",
+                "answer": "No. Las grandes tiendas online son lo único que no construyo."
+              },
+              {
+                "question": "¿El sitio web es realmente mío?",
+                "answer": "Completamente."
+              },
+              {
+                "question": "¿Qué pasa si algo se rompe después del lanzamiento?",
+                "answer": "Muy poco puede romperse si el sitio web está construido con Astro: el sitio web no tiene complementos ni base de datos que pueda fallar."
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "hablemos",
+        "heading": "Hablemos De Lo Que Necesitas",
+        "description": "La primera charla es gratuita e informativa, sin compromiso: por teléfono, vídeo o correo electrónico, si hay ofertas de trabajo o trabajo freelance.",
+        "primary": "Enviar un mensaje",
+        "secondary": "Más sobre mi"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Contacto",
+        "description": "Quiero trabajar contigo, solo dímelo."
+      },
+      "hero": {
+        "badge": "iniciar un proyecto",
+        "titleLead": "Cuéntame sobre tu",
+        "titleHighlight": "nuevo proyecto",
+        "description": "Quiero trabajar contigo, solo dímelo."
+      },
+      "formTitle": "Detalles del proyecto",
+      "channelsTitle": "Otros canales",
+      "channelsSubtitle": "¿Prefieres un canal directo?",
+      "emailLabel": "Correo electrónico",
+      "emailNote": "Déjanos una línea",
+      "socialNote": "Siga adelante",
+      "basedIn": "Con sede en {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Desarrollador Full-Stack",
+        "description": "Creación de aplicaciones web de alto rendimiento desde el concepto hasta la implementación."
+      },
+      "hero": {
+        "badge": "Disponible para nuevos proyectos",
+        "titleLine1": "GhostForge Dev -",
+        "titleLine2": "Diseño Web",
+        "titleLine3": "& Desarrollo",
+        "description": "Creación de aplicaciones web de alto rendimiento desde el concepto hasta la implementación.",
+        "descriptionMobile": "Creación de aplicaciones web de alto rendimiento desde el concepto hasta la implementación.",
+        "github": "Consíguelo en GitHub",
+        "getStarted": "Empezar"
+      },
+      "services": {
+        "badge": "Lo que hago",
+        "heading": "Analizar, Diseñar, Construir, Asegurar",
+        "lead": "Cada proyecto recibe los cuatro servicios.",
+        "learnMore": "Más información",
+        "cards": [
+          {
+            "icon": "lightbulb",
+            "title": "Análisis de requisitos",
+            "description": "Comprenda las necesidades de su negocio."
+          },
+          {
+            "icon": "layout",
+            "title": "Diseño Web",
+            "description": "Diseño centrado en el usuario.",
+            "url": "#diseño"
+          },
+          {
+            "icon": "code",
+            "title": "Desarrollo Web",
+            "description": "Construyó el software que su problema requiere.",
+            "url": "#desarrollo"
+          },
+          {
+            "icon": "list-checks",
+            "title": "Seguro de calidad",
+            "description": "El control de calidad le permite tener su negocio funcionando sin tantas preocupaciones.",
+            "url": "#qa"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Optimización Web",
+            "description": "SEO, Core Web Vitals y accesibilidad, integrados desde el primer día para que su sitio se clasifique, se cargue bien y funcione para todos los visitantes.",
+            "url": "#qa"
+          },
+          {
+            "icon": "bug",
+            "title": "Corrección de errores",
+            "description": "Existen errores, también se corrigen.",
+            "url": "#qa"
+          }
+        ]
+      },
+      "workWithMe": {
+        "badge": "Trabaja conmigo",
+        "heading": "Construyamos tu sitio web",
+        "lead": "Lo que obtienes cuando trabajamos juntos.",
+        "cards": [
+          {
+            "icon": "palette",
+            "title": "Diseño personalizado",
+            "description": "Diseñado en torno a su negocio, su contenido y sus clientes."
+          },
+          {
+            "icon": "zap",
+            "title": "Un sitio web ultrarrápido",
+            "description": "Páginas que se abren instantáneamente, en cada teléfono y en cada conexión."
+          },
+          {
+            "icon": "search",
+            "title": "Encontrado por Google y AI",
+            "description": "Cada página está diseñada para que los motores de búsqueda y los asistentes de inteligencia artificial la lean claramente y los clientes puedan encontrarte."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Mantenimiento cero",
+            "description": "Mantenido actualizado y seguro con el plan de atención, para que pueda concentrarse en su negocio."
+          }
+        ],
+        "cta": "Leer mi página de servicios"
+      },
+      "portfolio": {
+        "badge": "Trabajo seleccionado",
+        "heading": "Proyectos que he construido",
+        "lead": "Una selección de trabajos recientes.",
+        "viewAll": "Ver todos los proyectos"
+      },
+      "testimonials": {
+        "badge": "Testimonios",
+        "heading": "Lo que dicen los clientes",
+        "lead": "Palabras reales de proyectos terminados.",
+        "items": []
+      },
+      "aboutTeaser": {
+        "badge": "Acerca de mí",
+        "headingLine1": "Desarrollador",
+        "headingLine2": "y Blogger.",
+        "para1WithLocation": "Siete años de experiencia práctica, basados ​​en {location} y disponibles para clientes o empresas locales por ahora.",
+        "para1NoLocation": "Siete años de experiencia práctica y disponible para clientes o empresas locales por ahora.",
+        "para2": "En el blog comparto las ideas y decisiones que dan forma a mi trabajo, y opiniones sobre la actualidad del sector.",
+        "moreAboutMe": "Más sobre mi",
+        "statsIntro": "Algunas cosas sobre mí.",
+        "stat1": "7 años de experiencia",
+        "stat2": "Construyendo con Astro, Laravel, Vue.js y Spring",
+        "stat3": "Trabajando localmente",
+        "basedIn": "Con sede en"
+      },
+      "blog": {
+        "badge": "Del blog",
+        "heading": "Presentado",
+        "viewAll": "Ver todas las publicaciones"
+      },
+      "cta": {
+        "badge": "hablemos",
+        "heading": "Hablemos de lo que necesitas",
+        "description": "La primera charla es gratuita e informativa, sin compromisos.",
+        "primary": "Enviar un mensaje",
+        "secondary": "Más sobre mi"
+      }
+    }
+  }
+}
