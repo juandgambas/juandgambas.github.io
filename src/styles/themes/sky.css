@@ -14,16 +14,16 @@ html[data-theme="sky"] {
      Brand Scale Override — Sky Blue (hue 222)
      Inspired by Tailwind sky-*. Brighter and more open than blue.
      ------------------------------------------------------------------------- */
-  --brand-50:  oklch(97.5% 0.02  222);
-  --brand-100: oklch(95%   0.04  222);
-  --brand-200: oklch(88%   0.09  222);
-  --brand-300: oklch(78%   0.15  222);
-  --brand-400: oklch(71.0% 0.148 234);
-  --brand-500: oklch(66.5% 0.150 239);
-  --brand-600: oklch(56.7% 0.133 241);
-  --brand-700: oklch(48.1% 0.113 241);
-  --brand-800: oklch(39.3% 0.089 239);
-  --brand-900: oklch(28.2% 0.062 238);
+  --brand-50:  var(--color-sky-50);
+  --brand-100: var(--color-sky-100);
+  --brand-200: var(--color-sky-200);
+  --brand-300: var(--color-sky-300);
+  --brand-400: var(--color-sky-400);
+  --brand-500: var(--color-sky-500);
+  --brand-600: var(--color-sky-600);
+  --brand-700: var(--color-sky-700);
+  --brand-800: var(--color-sky-800);
+  --brand-900: var(--color-sky-900);
 
   /* -------------------------------------------------------------------------
      Semantic Tokens - Light Mode
