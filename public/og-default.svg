@@ -1,29 +1,45 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#4f39f6" />
+      <!-- Background -->
+      <rect width="1200" height="630" fill="#615fff" />
 
-  <!-- GhostForge Dev Logo -->
-  <g id="layer1" style="display:inline" transform="translate(540, 180)"><path id="path471" d="m121.18 98.57-53.447 30.837L14.287 98.57V36.897L67.733 6.06l53.447 30.837Z" style="display:inline;fill:#432dd7;fill-opacity:1;stroke:#727272;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1"/><path id="path12" d="M23.624 59.267h6.01m9.794 0h-7.144m7.144-7.702h-7.202M80.433 66.4h6.363m-6.363 8.344 6.353-.012m-7.639-1.318v2.01l-11.414 7.69-11.414-7.69V60.042l11.414-7.691 11.414 7.691v7.691m8.261 5.676v6.154l-19.675 11.83-19.675-11.83v-23.66l19.675-11.829 19.675 11.83v11.83m-.084-1.333h8.714m-56.61-13.513v-1.323l28.305-16.169 28.305 16.169v32.337L67.733 100.07 39.428 83.902V57.944m-8.456-5.041v-5.57L67.733 26.93l36.762 20.401v40.803l-36.762 20.4-36.76-20.4V57.939m-8.48-10.901v-4.142l45.24-24.837 45.24 24.837V92.57l-45.24 24.837-38.1-20.917m-7.14-3.92V47.038M67.733 6.06v12" style="display:inline;fill:none;fill-opacity:1;stroke:#727272;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1"/><circle id="circle225" cx="73.443" cy="15.367" r="3.307" style="opacity:1;fill:#727272;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.46416;stroke-dasharray:none;stroke-opacity:1"/></g>
+      <!-- GhostForge Dev Logo -->
+      <g id="layer1" style="display:inline" transform="translate(540, 180)">
+            <path id="path471"
+                  d="m121.18 98.57-53.447 30.837L14.287 98.57V36.897L67.733 6.06l53.447 30.837Z"
+                  style="display:inline;fill:#432dd7;fill-opacity:1;stroke:#727272;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1" />
+            <path id="path12"
+                  d="M23.624 59.267h6.01m9.794 0h-7.144m7.144-7.702h-7.202M80.433 66.4h6.363m-6.363 8.344 6.353-.012m-7.639-1.318v2.01l-11.414 7.69-11.414-7.69V60.042l11.414-7.691 11.414 7.691v7.691m8.261 5.676v6.154l-19.675 11.83-19.675-11.83v-23.66l19.675-11.829 19.675 11.83v11.83m-.084-1.333h8.714m-56.61-13.513v-1.323l28.305-16.169 28.305 16.169v32.337L67.733 100.07 39.428 83.902V57.944m-8.456-5.041v-5.57L67.733 26.93l36.762 20.401v40.803l-36.762 20.4-36.76-20.4V57.939m-8.48-10.901v-4.142l45.24-24.837 45.24 24.837V92.57l-45.24 24.837-38.1-20.917m-7.14-3.92V47.038M67.733 6.06v12"
+                  style="display:inline;fill:none;fill-opacity:1;stroke:#727272;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1" />
+            <circle id="circle225" cx="73.443" cy="15.367" r="3.307"
+                  style="opacity:1;fill:#727272;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.46416;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
 
-  <!-- Wordmark -->
-  <text x="600" y="410" font-size="96" text-anchor="middle" letter-spacing="-4"
-        fill="#e0e7ff"
-        font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-        font-weight="800">Juan Gamba Dev</text>
+      <!-- Wordmark -->
+      <text x="600" y="410" font-size="96" text-anchor="middle" letter-spacing="-4"
+            fill="#e0e7ff"
+            font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+            font-weight="800">Juan Gamba Dev</text>
 
-  <!-- Divider -->
-  <line x1="380" y1="436" x2="820" y2="436" stroke="#a3b3ff" stroke-width="1" stroke-opacity="0.35" />
+      <!-- Divider -->
+      <line x1="380" y1="436" x2="820" y2="436" stroke="#c6d2ff" stroke-width="1"
+            stroke-opacity="0.35" />
 
-  <!-- Domain pill -->
-  <rect x="450" y="464" width="300" height="38" rx="19"
-        fill="#615fff" fill-opacity="0.25" stroke="#a3b3ff" stroke-opacity="0.4" stroke-width="1"/>
-  <text x="600" y="488" font-size="13" text-anchor="middle" letter-spacing="1.5"
-        fill="#e0e7ff"
-        font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">jdgambas</text>
+      <!-- Domain pill -->
+      <rect x="450" y="464" width="300" height="38" rx="19"
+            fill="#4f39f6" fill-opacity="0.25" stroke="#a3b3ff" stroke-opacity="0.4"
+            stroke-width="1" />
+      <text x="600" y="488" font-size="13" text-anchor="middle" letter-spacing="1.5"
+            fill="#e0e7ff"
+            font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+            jdgambas</text>
 
-  <!-- Corner marks -->
-  <path d="M 36 60 L 36 36 L 60 36"     stroke="#a3b3ff" stroke-width="1.5" fill="none" stroke-opacity="0.45"/>
-  <path d="M 1140 36 L 1164 36 L 1164 60"   stroke="#a3b3ff" stroke-width="1.5" fill="none" stroke-opacity="0.45"/>
-  <path d="M 36 570 L 36 594 L 60 594"   stroke="#a3b3ff" stroke-width="1.5" fill="none" stroke-opacity="0.45"/>
-  <path d="M 1140 594 L 1164 594 L 1164 570" stroke="#c6d2ff" stroke-width="1.5" fill="none" stroke-opacity="0.45"/>
+      <!-- Corner marks -->
+      <path d="M 36 60 L 36 36 L 60 36" stroke="#c6d2ff" stroke-width="1.5" fill="none"
+            stroke-opacity="0.45" />
+      <path d="M 1140 36 L 1164 36 L 1164 60" stroke="#c6d2ff" stroke-width="1.5" fill="none"
+            stroke-opacity="0.45" />
+      <path d="M 36 570 L 36 594 L 60 594" stroke="#c6d2ff" stroke-width="1.5" fill="none"
+            stroke-opacity="0.45" />
+      <path d="M 1140 594 L 1164 594 L 1164 570" stroke="#c6d2ff" stroke-width="1.5" fill="none"
+            stroke-opacity="0.45" />
 </svg>
