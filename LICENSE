@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Hans Martens
+Copyright (c) 2026 Juan David Gamba Saenz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+---
+
+EXCLUSION OF PERSONAL CONTENT:
+
+All rights are reserved regarding the textual content, images, logos, blog articles, and personal branding contained in this repository. No permission is granted to reproduce, distribute, or modify these specific elements without the prior written consent of the owner.
+
+The content explicitly identified below:
+
+- All files and folders within `src/content/` (articles, projects, personal data).
+- Texts, descriptions, and translations of personal content included in the translation files `src/i18n/en.json` and `src/i18n/es.json`.
+- All images and visual assets within `src/assets/blog/` and `src/assets/projects/`.
+- All multimedia files, logos, images, and icons hosted in the root `public/` folder.
+
+And any other personal information that is implicit or not mentioned above.
