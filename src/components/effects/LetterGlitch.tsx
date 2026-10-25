@@ -43,7 +43,7 @@ const LetterGlitch = ({
   // tick (~215ms total reflow time on the homepage per Lighthouse Insights).
   const dimensions = useRef({ width: 0, height: 0 });
   const context = useRef<CanvasRenderingContext2D | null>(null);
-  const lastGlitchTime = useRef(Date.now());
+  const lastGlitchTime = useRef<number>(0);
   const activeColors = useRef<string[]>(glitchColors);
 
   const fontSize = 16;
@@ -211,12 +211,15 @@ const LetterGlitch = ({
     }
   };
 
-  const animate = () => {
-    const now = Date.now();
-    if (now - lastGlitchTime.current >= glitchSpeed) {
+    const animate = (timestamp: number) => {
+    if (!lastGlitchTime.current) lastGlitchTime.current = timestamp;
+
+    const elapsed = timestamp - lastGlitchTime.current;
+
+    if (elapsed >= glitchSpeed) {
       updateLetters();
       drawLetters();
-      lastGlitchTime.current = now;
+      lastGlitchTime.current = timestamp;
     }
 
     if (smooth) {
@@ -230,24 +233,39 @@ const LetterGlitch = ({
   // strings via a 1×1 canvas. Works for any CSS colour the browser can paint.
   const resolveBrandColors = (): string[] => {
     if (typeof document === 'undefined') return [];
-    const tmp = document.createElement('canvas');
-    tmp.width = 1;
-    tmp.height = 1;
-    const tmpCtx = tmp.getContext('2d');
-    if (!tmpCtx) return [];
     const root = getComputedStyle(document.documentElement);
     const resolved: string[] = [];
+
+    const tempElem = document.createElement('div');
+    tempElem.style.position = 'fixed';
+    tempElem.style.opacity = '0';
+    tempElem.style.pointerEvents = 'none';
+    document.body.appendChild(tempElem);
+
     for (const name of BRAND_VARS) {
       const raw = root.getPropertyValue(name).trim();
       if (!raw) continue;
-      tmpCtx.clearRect(0, 0, 1, 1);
-      tmpCtx.fillStyle = '#000';
-      tmpCtx.fillStyle = raw;
-      tmpCtx.fillRect(0, 0, 1, 1);
-      const [r, g, b] = tmpCtx.getImageData(0, 0, 1, 1).data;
-      resolved.push(`rgb(${r}, ${g}, ${b})`);
+
+      tempElem.style.color = raw;
+
+      const computed = getComputedStyle(tempElem).color;
+      const rgbMatch = /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/.exec(computed);
+      
+      if (rgbMatch) {
+        const r = parseInt(rgbMatch[1], 10);
+        const g = parseInt(rgbMatch[2], 10);
+        const b = parseInt(rgbMatch[3], 10);
+
+        const hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        resolved.push(hex);
+      } else if (raw.startsWith('#')) {
+        resolved.push(raw);
+      }
     }
-    return resolved;
+
+    document.body.removeChild(tempElem);
+
+    return resolved.length > 0 ? resolved : glitchColors;
   };
 
   useEffect(() => {
@@ -257,46 +275,30 @@ const LetterGlitch = ({
     context.current = canvas.getContext('2d');
 
     if (useBrandTokens) {
-      const brand = resolveBrandColors();
-      if (brand.length > 0) {
-        activeColors.current = brand;
-      }
+      activeColors.current = resolveBrandColors();
     }
 
     resizeCanvas();
 
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!prefersReducedMotion) {
-      animate();
-    }
-
-    let resizeTimeout: ReturnType<typeof setTimeout>;
-
-    const handleResize = () => {
+    let resizeTimeout: number;
+    const handleResizeWithDebounce = () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        if (animationRef.current !== null) {
-          cancelAnimationFrame(animationRef.current);
-        }
+      resizeTimeout = window.setTimeout(() => {
         resizeCanvas();
-        if (!prefersReducedMotion) {
-          animate();
-        }
-      }, 100);
+      }, 150);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResizeWithDebounce);
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (animationRef.current !== null) {
+      window.removeEventListener('resize', handleResizeWithDebounce);
+      clearTimeout(resizeTimeout);
+      if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      window.removeEventListener('resize', handleResize);
     };
-  }, [glitchSpeed, smooth, useBrandTokens]);
+  }, [useBrandTokens]);
 
   return (
     <div className="relative w-full h-full bg-[#101010] overflow-hidden">
