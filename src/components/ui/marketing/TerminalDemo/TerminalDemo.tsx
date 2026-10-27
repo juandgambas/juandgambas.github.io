@@ -180,7 +180,7 @@ export function TerminalDemo() {
       {/* Terminal Content */}
       <div
         ref={scrollRef}
-        className="h-[380px] overflow-y-auto p-4 font-mono text-xs leading-5"
+        className="h-95 overflow-y-auto p-4 font-mono text-xs leading-5"
       >
         {lines.map((line, idx) => (
           <div key={idx} className={getLineClass(line.type)}>

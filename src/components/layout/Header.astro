@@ -249,7 +249,7 @@ const buttonId = `${menuId}-button`;
                 resolves to exactly text-xl (20px). */}
             <span
               class={cn(
-                'font-display text-[clamp(1rem,16vw_-_2.2rem,1.25rem)] font-bold tracking-tight whitespace-nowrap',
+                'font-display text-[clamp(1rem,16vw-2.2rem,1.25rem)] font-bold tracking-tight whitespace-nowrap',
                 isFloating
                   ? 'hdr-logo-text'
                   : isInvert
@@ -422,7 +422,7 @@ const buttonId = `${menuId}-button`;
     effectiveShowScrollProgress &&
       (isFloating ? (
         <div
-          class={`absolute inset-x-3 h-[2px] overflow-hidden rounded-full ${scrollProgressPosition === 'top' ? 'top-[2px]' : 'bottom-[2px]'}`}
+          class={`absolute inset-x-3 h-0.5 overflow-hidden rounded-full ${scrollProgressPosition === 'top' ? 'top-0.5' : 'bottom-0.5'}`}
           aria-hidden="true"
         >
           <div
@@ -433,7 +433,7 @@ const buttonId = `${menuId}-button`;
       ) : (
         <div
           id="scroll-progress-bar"
-          class={`bg-brand-500 absolute left-0 h-[2px] w-0 transition-none ${scrollProgressPosition === 'top' ? 'top-0' : 'bottom-0'}`}
+          class={`bg-brand-500 absolute left-0 h-0.5 w-0 transition-none ${scrollProgressPosition === 'top' ? 'top-0' : 'bottom-0'}`}
           aria-hidden="true"
         />
       ))

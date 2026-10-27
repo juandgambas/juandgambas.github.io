@@ -436,10 +436,10 @@ export function FeatureTabs() {
   const [activeTab, setActiveTab] = useState('theming');
 
   return (
-    <section id="features" className="bg-background relative overflow-hidden py-[var(--space-section-md)]">
+    <section id="features" className="bg-background relative overflow-hidden py-(--space-section-md)">
       {/* Decorative logomark watermark */}
       <div
-        className="pointer-events-none absolute -top-8 right-8 hidden h-[28rem] w-[28rem] opacity-[0.04] grayscale md:block lg:top-10 lg:right-24 lg:h-[44rem] lg:w-[44rem] dark:opacity-[0.06]"
+        className="pointer-events-none absolute -top-8 right-8 hidden size-112 opacity-[0.04] grayscale md:block lg:top-10 lg:right-24 lg:size-176 dark:opacity-[0.06]"
         aria-hidden="true"
       >
         <svg viewBox="0 0 90 101" fill="none" className="h-full w-full">
@@ -460,7 +460,7 @@ export function FeatureTabs() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <div className="mb-[var(--space-section-header)]">
+        <div className="mb-(--space-section-header)">
           <h2 className="font-display text-foreground text-3xl font-bold md:text-4xl">
             Everything you need.
             <br />
@@ -476,7 +476,7 @@ export function FeatureTabs() {
         <VerticalTabs tabs={tabs} value={activeTab} onChange={setActiveTab} mobileVariant="sheet">
           {tabs.map((tab) => (
             <div key={tab.id} data-tab-content={tab.id}>
-              <div className="mb-[var(--space-heading-gap)]">
+              <div className="mb-(--space-heading-gap)">
                 <h3 className="text-foreground text-xl font-semibold">{tabContent[tab.id].title}</h3>
                 <p className="text-foreground-muted mt-2">{tabContent[tab.id].content}</p>
               </div>

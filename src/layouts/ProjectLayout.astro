@@ -62,7 +62,8 @@ const locale = getLocaleFromPath(Astro.url.pathname);
 // Prefer the project's own image; otherwise serve the per-project dynamic OG
 // image (see src/pages/og/projects/[slug].svg.ts). `slug` is the full
 // (locale-prefixed) project id, so strip the locale to match the OG route.
-const ogImage = image?.src || (slug ? getProjectOgPath(getProjectSlug(slug, locale)) : siteConfig.ogImage);
+const ogImage =
+  image?.src || (slug ? getProjectOgPath(getProjectSlug(slug, locale)) : siteConfig.ogImage);
 
 // Mirror the blog TOC wiring — projects use the same site-wide config.
 const tocConfig = siteConfig.articleFeatures?.toc;
@@ -130,53 +131,62 @@ const languageAlternates = Object.fromEntries(
       tags={tags}
     />
 
-    <article class="pt-8 pb-[var(--space-section-md)]">
-      <div class:list={[
-        'mx-auto px-6 max-w-7xl',
-        sidebarActive && (sidebarOnLeft
-          ? 'xl:grid xl:grid-cols-[15rem_minmax(0,1fr)] xl:gap-10'
-          : 'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10'),
-      ]}>
-        {sidebarActive && sidebarOnLeft && (
-          <aside class="hidden xl:block" aria-label={t('blog.tableOfContents', locale)}>
-            <TableOfContents
-              headings={headings}
-              maxDepth={tocConfig?.maxDepth ?? 3}
-              minHeadings={tocConfig?.minHeadings ?? 3}
-              sticky
-            />
-          </aside>
-        )}
+    <article class="pt-8 pb-(--space-section-md)">
+      <div
+        class:list={[
+          'mx-auto max-w-7xl px-6',
+          sidebarActive &&
+            (sidebarOnLeft
+              ? 'xl:grid xl:grid-cols-[15rem_minmax(0,1fr)] xl:gap-10'
+              : 'xl:grid xl:grid-cols-[minmax(0,1fr)_15rem] xl:gap-10'),
+        ]}
+      >
+        {
+          sidebarActive && sidebarOnLeft && (
+            <aside class="hidden xl:block" aria-label={t('blog.tableOfContents', locale)}>
+              <TableOfContents
+                headings={headings}
+                maxDepth={tocConfig?.maxDepth ?? 3}
+                minHeadings={tocConfig?.minHeadings ?? 3}
+                sticky
+              />
+            </aside>
+          )
+        }
 
-        <div class:list={['min-w-0 max-w-4xl w-full mx-auto', sidebarActive && 'xl:mx-0']}>
+        <div class:list={['mx-auto w-full max-w-4xl min-w-0', sidebarActive && 'xl:mx-0']}>
           <Breadcrumbs items={breadcrumbs} class="mb-8" />
 
-          {sidebarActive && (
-            <div class="xl:hidden mb-10">
-              <TableOfContents
-                headings={headings}
-                maxDepth={tocConfig?.maxDepth ?? 3}
-                minHeadings={tocConfig?.minHeadings ?? 3}
-                collapsible
-              />
-            </div>
-          )}
+          {
+            sidebarActive && (
+              <div class="mb-10 xl:hidden">
+                <TableOfContents
+                  headings={headings}
+                  maxDepth={tocConfig?.maxDepth ?? 3}
+                  minHeadings={tocConfig?.minHeadings ?? 3}
+                  collapsible
+                />
+              </div>
+            )
+          }
 
-          {inlineActive && (
-            <div class="mb-10 rounded-xl border border-border bg-background-secondary p-5">
-              <TableOfContents
-                headings={headings}
-                maxDepth={tocConfig?.maxDepth ?? 3}
-                minHeadings={tocConfig?.minHeadings ?? 3}
-              />
-            </div>
-          )}
+          {
+            inlineActive && (
+              <div class="border-border bg-background-secondary mb-10 rounded-xl border p-5">
+                <TableOfContents
+                  headings={headings}
+                  maxDepth={tocConfig?.maxDepth ?? 3}
+                  minHeadings={tocConfig?.minHeadings ?? 3}
+                />
+              </div>
+            )
+          }
 
           <div class="prose prose-lg max-w-none" data-reveal-content>
             <slot />
           </div>
 
-          <footer class="border-border mt-12 border-t pt-8 flex justify-center" data-reveal>
+          <footer class="border-border mt-12 flex justify-center border-t pt-8" data-reveal>
             <Button href={projectsHref} variant="brand-outline" size="sm">
               <Icon name="arrow-left" size="sm" />
               {t('projects.backToProjects', locale)}
@@ -184,81 +194,98 @@ const languageAlternates = Object.fromEntries(
           </footer>
         </div>
 
-        {sidebarActive && !sidebarOnLeft && (
-          <aside class="hidden xl:block" aria-label={t('blog.tableOfContents', locale)}>
-            <TableOfContents
-              headings={headings}
-              maxDepth={tocConfig?.maxDepth ?? 3}
-              minHeadings={tocConfig?.minHeadings ?? 3}
-              sticky
-            />
-          </aside>
-        )}
+        {
+          sidebarActive && !sidebarOnLeft && (
+            <aside class="hidden xl:block" aria-label={t('blog.tableOfContents', locale)}>
+              <TableOfContents
+                headings={headings}
+                maxDepth={tocConfig?.maxDepth ?? 3}
+                minHeadings={tocConfig?.minHeadings ?? 3}
+                sticky
+              />
+            </aside>
+          )
+        }
       </div>
     </article>
 
-    {related.length > 0 && (
-      <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border" data-reveal>
-        <div class="mx-auto max-w-7xl px-6">
-          <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">{t('projects.moreProjects', locale)}</h2>
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((project) => (
-              <Card
-                variant="elevated"
-                hover
-                padding="none"
-                href={project.data.placeholder ? undefined : getProjectUrl(project.id, locale)}
-                class="group flex flex-col"
-              >
-                <div class="flex flex-1 flex-col p-6">
-                  <div class="mb-3 flex items-start justify-between gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                      <Icon name="layers" size="sm" />
+    {
+      related.length > 0 && (
+        <section
+          class="bg-background-secondary border-border border-t py-(--space-section-md)"
+          data-reveal
+        >
+          <div class="mx-auto max-w-7xl px-6">
+            <h2 class="font-display text-foreground mb-8 text-center text-2xl font-bold md:text-3xl">
+              {t('projects.moreProjects', locale)}
+            </h2>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((project) => (
+                <Card
+                  variant="elevated"
+                  hover
+                  padding="none"
+                  href={project.data.placeholder ? undefined : getProjectUrl(project.id, locale)}
+                  class="group flex flex-col"
+                >
+                  <div class="flex flex-1 flex-col p-6">
+                    <div class="mb-3 flex items-start justify-between gap-4">
+                      <div class="from-brand-500/20 to-brand-500/5 text-brand-500 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br">
+                        <Icon name="layers" size="sm" />
+                      </div>
+                      <Icon
+                        name="arrow-up-right"
+                        size="sm"
+                        class="text-foreground-muted group-hover:text-brand-500 ml-auto shrink-0 transition-colors"
+                      />
                     </div>
-                    <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0 ml-auto" />
-                  </div>
-                  <div class="mb-2 flex items-baseline gap-2">
-                    <h3 class="font-display text-lg font-bold text-foreground">{project.data.title}</h3>
-                    {project.data.year && (
-                      <span class="text-xs text-foreground-muted">{project.data.year}</span>
+                    <div class="mb-2 flex items-baseline gap-2">
+                      <h3 class="font-display text-foreground text-lg font-bold">
+                        {project.data.title}
+                      </h3>
+                      {project.data.year && (
+                        <span class="text-foreground-muted text-xs">{project.data.year}</span>
+                      )}
+                    </div>
+                    <p class="text-foreground-muted mb-4 line-clamp-3 flex-1 text-sm leading-relaxed">
+                      {project.data.description}
+                    </p>
+                    {project.data.tags && project.data.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-1.5">
+                        {project.data.tags.map((tag, i) => (
+                          <>
+                            {i === 3 && <div class="basis-full" aria-hidden="true" />}
+                            <span class="text-brand-700 dark:text-brand-400 ring-brand-500/40 group-hover:ring-brand-500/80 inline-flex items-center rounded-full bg-transparent px-2.5 py-0.5 text-xs font-medium ring-1 transition-colors ring-inset">
+                              #{tag}
+                            </span>
+                          </>
+                        ))}
+                      </div>
                     )}
                   </div>
-                  <p class="text-sm text-foreground-muted leading-relaxed mb-4 flex-1 line-clamp-3">{project.data.description}</p>
-                  {project.data.tags && project.data.tags.length > 0 && (
-                    <div class="flex flex-wrap gap-1.5">
-                      {project.data.tags.map((tag, i) => (
-                        <>
-                          {i === 3 && <div class="basis-full" aria-hidden="true"></div>}
-                          <span class="inline-flex items-center rounded-full bg-transparent px-2.5 py-0.5 text-xs font-medium text-brand-700 dark:text-brand-400 ring-1 ring-inset ring-brand-500/40 transition-colors group-hover:ring-brand-500/80">
-                            #{tag}
-                          </span>
-                        </>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </Card>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    )}
+        </section>
+      )
+    }
 
     <!-- Closing CTA -->
-    <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+    <section class="bg-background border-border relative z-10 border-t py-(--space-section-md)">
       <!-- Mobile: flat section, no glitch band -->
       <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
         <Badge variant="brand" pill class="mb-6">
           <Icon name="message-circle" size="sm" />
           {t('projects.ctaBadge', locale)}
         </Badge>
-        <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
           {t('projects.closingHeading', locale)}
         </h2>
-        <p class="text-lg text-foreground-muted mb-8 text-balance">
+        <p class="text-foreground-muted mb-8 text-lg text-balance">
           {t('projects.closingLead', locale)}
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col justify-center gap-4 sm:flex-row">
           <Button size="lg" href={contactUrl} class="cta-btn-brand">
             {t('projects.ctaPrimary', locale)}
             <Icon name="arrow-right" size="sm" />
@@ -272,13 +299,13 @@ const languageAlternates = Object.fromEntries(
 
       <!-- Desktop: LetterGlitch band with glass card -->
       <LetterGlitchBand maxWidth="7xl">
-        <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
           {t('projects.closingHeading', locale)}
         </h2>
-        <p class="text-lg text-foreground-muted mb-8 text-balance">
+        <p class="text-foreground-muted mb-8 text-lg text-balance">
           {t('projects.closingLead', locale)}
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col justify-center gap-4 sm:flex-row">
           <Button size="lg" href={contactUrl} class="hero-btn-brand">
             {t('projects.ctaPrimary', locale)}
             <Icon name="arrow-right" size="sm" />
@@ -292,10 +319,5 @@ const languageAlternates = Object.fromEntries(
     </section>
   </div>
 
-  <Footer
-    slot="footer"
-    layout="centered"
-    background="secondary"
-    maxWidth="7xl"
-  />
+  <Footer slot="footer" layout="centered" background="secondary" maxWidth="7xl" />
 </BaseLayout>
