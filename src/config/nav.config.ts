@@ -84,7 +84,7 @@ export const footerNavItems: NavItem[] = [
   { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
   { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
-  { label: 'GitHub', href: 'https://github.com/hansmartensdev/Astro-Rocket', order: 6, external: true },
+  { label: 'GitHub', href: 'https://github.com/juandgambas/juandgambas.github.io', order: 6, external: true },
 ];
 
 export const legalLinks: LegalLink[] = [];
