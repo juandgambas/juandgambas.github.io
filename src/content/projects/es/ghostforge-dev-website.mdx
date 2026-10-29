@@ -1,0 +1,89 @@
+---
+title: "Sitio web de GhostForge Dev"
+locale: es
+description: "Sitio web de GhostForge Dev — mi sitio web de portafolio y blog, gratuito y de código abierto, basado en Astro 7, el framework ultrarrápido para sitios web orientados al contenido y optimizados para SEO. ¡Estás en él justo ahora!"
+url: "https://juandgambas.github.io"
+repo: "https://github.com/juandgambas/juandgambas.github.io"
+tags: ["Astro", "TypeScript", "Tailwind CSS", "Código Abierto", "Portafolio", "Blog", "Sitio web"]
+featured: true
+order: 0
+year: 2026
+role: "Designer & Developer"
+services: ["Análisis de sistemas", "Diseño de sistemas", "Software Implementation"]
+draft: false
+meta: ["Gratuito y de código abierto", "Licencia mixta", "Astro 7", "Lighthouse 4×100", "Portafolio", "Blog", "Sitio web personal", "Juan Gamba Saenz"]
+icon: "brand-astro"
+image: "../../../assets/projects/juandgambas-ghostforge-dev.png"
+imageAlt: "Sitio web de GhostForge Dev — mi sitio web en Astro 7 de código libre, desplegado en GitHub Pages."
+gallery:
+#  - video: "/videos/demo.mp4"
+#    poster: "../../../assets/projects/juandgambas-ghostforge-dev.png"
+#    alt: "Product demo video"
+  - src: "../../../assets/projects/juandgambas-ghostforge-dev.png"
+    alt: "La sección principal de la página de inicio de GhostForge Dev en color índigo, el tema predeterminado."
+  - src: "../../../assets/projects/juandgambas-ghostforge-dev-about.png"
+    alt: "La sección \"Acerca de\", que incluye una breve descripción del currículum de Juan Gamba Saenz."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+
+## Qué es
+
+**GhostForge Dev** es mi propio sitio web, gratuito y de código abierto, desarrollado con **Astro 7** y **Tailwind CSS v4**. GhostForge Dev es una marca personal no registrada que utilizo para mi trabajo como profesional independiente; crear este sitio ha sido toda una aventura.
+
+Lo he diseñado para quienes deseen conocer mi trabajo. Cuenta con un esquema de licencias mixto: una licencia MIT para la estructura del proyecto, mientras que todos los derechos están reservados para el contenido personal; el código está disponible en [GitHub](https://github.com/juandgambas/juandgambas.github.io). ¡Puedes visitar el sitio web justo [aquí](/)!
+
+## Iniciando La Aventura
+
+Decidí utilizar Astro porque es un framework extremadamente rápido, diseñado para aplicaciones web estáticas centradas en el contenido. Ofrece un alto rendimiento y una gran velocidad de acceso al sitio, emplea hidratación parcial, gracias a su conocida "arquitectura de islas", y permite integrar componentes de otros frameworks (como Vue, aunque todavía no los utilizo). Además, favorece la optimización SEO, ya que entrega desde el servidor elementos HTML limpios y listos para usar, lo que facilita la indexación y el cumplimiento de las mejores prácticas de posicionamiento web. También destaca por su independencia en el front-end, al no estar atado a ninguna tecnología específica, su compatibilidad con Markdown y MDX para la creación de contenido, y su bajo coste de alojamiento, lo que me permite hospedar el sitio en GitHub Pages de forma gratuita.
+
+Mi sitio web cobró vida gracias a la plantilla de [Hans Martens Dev](https://github.com/hansmartensdev).
+
+Tras clonar el repositorio en mi equipo, preparé el sitio para implementar una estrategia de CI/CD en GitHub Pages mediante GitHub Actions. Era la primera vez que intentaba algo así, pero logré llevarlo a cabo ajustando y probando las instrucciones contenidas en el archivo `deploy.yml`. ¡Aunque el proceso parecía deducible, tuve que investigar bastante para lograrlo!
+
+Posteriormente, preparé todas las traducciones y los elementos que quería mostrar en el sitio, adaptando los recursos a mi propio contenido. Y ahora, estoy redactando esta entrada del proyecto utilizando un archivo MDX, un formato cuya existencia ni siquiera conocía.
+
+## De Dónde Vino
+
+Puedes consultar el historial de la plantilla en su entrada de proyecto en <a href="https://astrorocket.dev/projects/astro-rocket#where-it-came-from" rel="noopener noreferer" target="_blank">Astro Rocket en Vivo.</a>
+
+Decidí utilizar una plantilla de Astro para no reinventar la rueda y porque —aunque conozco bien la tecnología— resulta mucho más sencillo empezar a partir de una base de código preconfigurada.
+
+Sentí una buena conexión con esta plantilla desde el primer momento, a pesar de que tuve que elegir entre varias otras opciones igualmente buenas y altamente personalizadas.
+
+## Lo Que Aprendí
+
+Aprendí sobre muchas cosas, como las funcionalidades de Astro, CI/CD con GitHub Pages y GitHub Actions, YAML, SEO, análisis de software, diseño, implementación y despliegue, el uso de Lighthouse, lo que es el Dependabot de GitHub, entre otras.
+
+<div class="flex justify-center gap-2">
+  <Card variant="elevated" padding="md">
+    <Icon name="folder-search" size="lg"/>
+  </Card>
+  <Card variant="elevated" padding="md">
+    <Icon name="folder-search" size="lg"/>
+  </Card>
+  <Card variant="elevated" padding="md">
+    <Icon name="scroll-text" size="lg"/>
+  </Card>
+</div>
+
+## Resultado del Puntaje de Lighthouse
+
+<div class="my-10">
+  <LighthouseScoresGrid />
+</div>
+
+Aparte de los problemas relacionados con el navegador (extensiones y similares), el sitio funciona, por lo general, muy bien.
+
+Cuando hablo de la puntuación de Lighthouse, me baso en la interpretación profesional de Hans Martens en [su artículo sobre Lighthouse](https://hansmartens.dev/blog/lighthouse-score-explained).
+
+## Gratuito y en GitHub
+
+Este sitio web cuenta con su propio repositorio en GitHub, por si quieres echarle un vistazo. Es gratuito, está [en GitHub](https://github.com/juandgambas/juandgambas.github.io) y, si te resulta útil o valioso, dejar una estrella es la mejor forma de dar las gracias o felicitarme.
+
+## Actualizaciones sobre el repositorio
+
+Acabo de notar que no tenía forma de actualizar dependencias para parches y lanzamientos menores, por lo que configuré el dependabot de GitHub para que lo haga por mí semanalmente con Pull Requests.

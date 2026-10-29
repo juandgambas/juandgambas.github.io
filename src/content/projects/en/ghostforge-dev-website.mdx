@@ -1,0 +1,97 @@
+---
+title: "GhostForge Dev Website"
+locale: en
+description: "GhostForge Dev Website — my free, open-source Astro 7 portfolio & blog website, made with Astro, the lightning-fast framework for content-driven and SEO optimized websites. You are in it right now!"
+url: "https://juandgambas.github.io"
+repo: "https://github.com/juandgambas/juandgambas.github.io"
+tags: ["Astro", "TypeScript", "Tailwind CSS", "Open Source", "Portfolio", "Blog", "Website"]
+featured: true
+order: 0
+year: 2026
+role: "Designer & Developer"
+services: ["Systems Analysis", "Systems Design", "Software Implementation"]
+draft: false
+meta: ["Free & open source", "Mixed license", "Astro 7", "Lighthouse 4×100", "Portfolio", "Blog", "Personal website", "Juan Gamba Saenz"]
+icon: "brand-astro"
+image: "../../../assets/projects/juandgambas-ghostforge-dev.png"
+imageAlt: "GhostForge Dev Website — my open-source Astro 7 website, deployed on GitHub Pages."
+# Multiple images? Add a `gallery` array and the hero swaps the single
+# `image` for a swipeable carousel. The first slide is the lead image.
+# (Galleries render on the project detail page, so a project with one has
+# to be routable — placeholder projects only appear as cards.)
+#
+# A slide can also be a self-hosted video: drop the file in `public/`
+# and give it a poster image (required — the slide costs zero bytes
+# until the visitor presses play). Uncomment the example below to try.
+gallery:
+#  - video: "/videos/demo.mp4"
+#    poster: "../../../assets/projects/juandgambas-ghostforge-dev.png"
+#    alt: "Product demo video"
+  - src: "../../../assets/projects/juandgambas-ghostforge-dev.png"
+    alt: "The GhostForge Dev homepage hero in indigo, the default colour theme."
+  - src: "../../../assets/projects/juandgambas-ghostforge-dev-about.png"
+    alt: "The about section with a brief description about the Juan Gamba Saenz CV."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+
+## What it is
+
+**GhostForge Dev** is my own free, open-source website, built on **Astro 7** and **Tailwind CSS v4**. GhostForge Dev is my own personal unregistered trademark for freelance working and building it was quite an adventure.
+
+I created it for people who want to get to know my work. It's mixed license arrangement: a MIT license for the project structure, and all rights reserved for the personal content, [up on GitHub](https://github.com/juandgambas/juandgambas.github.io). The website runs right [here](/)!
+
+## Initializing The Adventure
+
+I decided to use Astro because is the lightning-fast framework for content-driven static web applications, allowing a high performance and velocity for accessing to the website, the use of partial hydration, with the famous island architecture, and other framework components such as Vue components (although I do not use yet), allowing SEO optimization as it delivers clean, ready-to-use HTML elements from the server, facilitating indexing and adherence to web positioning best practices, the independence in the front-end, as it does not tie me to any specific frontend technology, the support of Markdown and MDX for content creation, and the low cost of hosting, which allows me to host the site on GitHub Pages at no cost.
+
+Thanks to [Hans Martens Dev](https://github.com/hansmartensdev)'s template my website came to life.
+
+After cloning the repository locally, I prepared the website for a CI/CD strategy on GitHub Pages using GitHub Actions —something I was attempting for the first time—, but which I managed accomplish by adjusting modifying and testing the instructions within the file ```deploy.yml```. I Although it was possible to deduce that it was done that way, I had to do a lot of research!
+
+Afterwards, I prepared all the translations and elements I wanted to display on my website and adjusted the resources to align with my personal content. And now, I am writing this project entry with a MDX file, a file type I did not even know existed.
+
+## Where It Came from
+
+You can see the template history on its Project Entry on the <a href="https://astrorocket.dev/projects/astro-rocket#where-it-came-from" rel="noopener noreferer" target="_blank">Astro Rocket Live.</a>
+
+I chose to use an Astro template so as not to reinvent the wheel, and because —while I am familiar with the technology— it is much easier to start with a pre-designed code boilerplate.
+
+I felt a good connection with this template front the start, event though I had to choose between several other equally good and highly customized options.
+
+## What I Learned
+
+I learned about a lot of things, such as Astro features, CI/CD with GitHub Pages and GitHub Actions, YAML, SEO, software analysis, design, implementation, and deployment, Lighthouse using, what is the GitHub Dependabot, among others.
+
+<div class="flex justify-center gap-2">
+  <Card variant="elevated" padding="md">
+    <Icon name="folder-search" size="lg"/>
+  </Card>
+  <Card variant="elevated" padding="md">
+    <Icon name="brand-astro" size="lg"/>
+  </Card>
+  <Card variant="elevated" padding="md">
+    <Icon name="scroll-text" size="lg"/>
+  </Card>
+</div>
+
+## Lighthouse score result
+
+<div class="my-10">
+  <LighthouseScoresGrid />
+</div>
+
+Aside from browser-related issues (extensions and the like), the site generally works very well.
+
+When I talk about the Lighthouse score, I rely on the professional interpretation of Hans Martens in [its Lighthouse post](https://hansmartens.dev/blog/lighthouse-score-explained).
+
+## Free, and on GitHub
+
+This website has its own GitHub repository if you would like to take a look. It's free, is [on GitHub](https://github.com/juandgambas/juandgambas.github.io) and if it is useful or rewarding for you, a star is the nicest way to say thanks or show your appreciation.
+
+## Repository Updates
+
+I just realized I had no way to update dependencies for patches and minor releases, so I set up GitHub Dependabot to handle this for me on a weekly basis via Pull Requests.
