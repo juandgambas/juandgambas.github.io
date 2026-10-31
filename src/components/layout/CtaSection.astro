@@ -1,0 +1,41 @@
+---
+import CtaBand from '@/components/patterns/CtaBand.astro';
+import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import { cn } from '@/lib/cn';
+
+interface Props {
+  class?: string;
+  /** Classes for the section wrapping the band — background, spacing. */
+  sectionClass?: string;
+  /** Inner width of the band. Matches CtaBand's own prop. */
+  maxWidth?: '6xl' | '7xl';
+  /**
+   * Swap the gradient band for the LetterGlitch canvas on desktop.
+   *
+   * Off everywhere but the post that documents the effect, which is the one
+   * page where a reader is there for it. Below `glitch` — 1024px and a fine
+   * pointer — the canvas cannot run, so those screens keep the gradient band
+   * and the page still closes on something.
+   */
+  glitch?: boolean;
+}
+
+const { class: extraClasses = '', maxWidth = '6xl', glitch = false } = Astro.props;
+const combinedClasses = cn('relative z-10 py-(--space-section-md)', extraClasses);
+---
+
+<section class={combinedClasses}>
+  <div class="ctx-normal">
+    <CtaBand maxWidth={maxWidth} class="glitch:hidden">
+      <slot name="normal" />
+    </CtaBand>
+  </div>
+  {glitch && (
+    <div class="ctx-glitch">
+      <LetterGlitchBand maxWidth={maxWidth}>
+        <slot name="glitch" />
+      </LetterGlitchBand>
+    </div>
+  )}
+  <slot />
+</section>

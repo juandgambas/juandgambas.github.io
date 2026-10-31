@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="16" height="16" viewBox="0 0 512 512"
+    fill="none">
+    <g id="layer1" class="sh-marble-run" style="display:inline"
+        transform="translate(500 56) scale(1.666666666666667)" stroke="currentColor">
+        <path id="path471"
+            d="m121.18 98.57-53.447 30.837L14.287 98.57V36.897L67.733 6.06l53.447 30.837Z"
+            style="display:inline;fill-opacity:1;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1" />
+        <path id="path12"
+            d="M23.624 59.267h6.01m9.794 0h-7.144m7.144-7.702h-7.202M80.433 66.4h6.363m-6.363 8.344 6.353-.012m-7.639-1.318v2.01l-11.414 7.69-11.414-7.69V60.042l11.414-7.691 11.414 7.691v7.691m8.261 5.676v6.154l-19.675 11.83-19.675-11.83v-23.66l19.675-11.829 19.675 11.83v11.83m-.084-1.333h8.714m-56.61-13.513v-1.323l28.305-16.169 28.305 16.169v32.337L67.733 100.07 39.428 83.902V57.944m-8.456-5.041v-5.57L67.733 26.93l36.762 20.401v40.803l-36.762 20.4-36.76-20.4V57.939m-8.48-10.901v-4.142l45.24-24.837 45.24 24.837V92.57l-45.24 24.837-38.1-20.917m-7.14-3.92V47.038M67.733 6.06v12"
+            style="display:inline;fill:none;fill-opacity:1;stroke-width:2.64583;stroke-dasharray:none;stroke-opacity:1" />
+        <circle id="circle225" cx="73.443" cy="15.367" r="3.307"
+            style="opacity:1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.46416;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+</svg>
