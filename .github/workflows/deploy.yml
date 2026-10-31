@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   push:
@@ -13,79 +13,78 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 jobs:
-  build:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  quality:
+    name: Lint, type check and tests
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint
+      - run: pnpm run check
+      - run: pnpm run test:run
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: pnpm run lint
-
-      - name: Type check
-        run: pnpm run check
+  build:
+    name: Build (${{ matrix.target }})
+    needs: quality
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [vercel, netlify, cloudflare]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm run build --output static
+        run: pnpm run build
+        env:
+          DEPLOY_TARGET: ${{ matrix.target != 'vercel' && matrix.target || '' }}
+          SITE_URL: ${{ secrets.SITE_URL || 'https://example.com' }}
+
+      - name: Verify the output is a usable site
+        run: pnpm run verify
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    needs: [quality, build]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build for GitHub Pages
+        run: pnpm run build
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Le indica a GitHub que empaquete la carpeta de salida generada por Astro
-          path: ./dist/client
-      - name: Upload to GitHub Pages
+          path: './dist' # Cámbialo a './dist/client' si usas SSR con salida estática
+
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      # Uncomment and configure for your deployment platform
-      #
-      # Vercel deployment:
-      # - name: Deploy to Vercel
-      #   if: github.ref == 'refs/heads/main'
-      #   uses: amondnet/vercel-action@v25
-      #   with:
-      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
-      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-      #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-      #     vercel-args: '--prod'
-      #
-      # Netlify deployment:
-      # - name: Deploy to Netlify
-      #   if: github.ref == 'refs/heads/main'
-      #   uses: nwtgck/actions-netlify@v2
-      #   with:
-      #     publish-dir: './dist'
-      #     production-branch: main
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #
-      # Cloudflare Pages deployment:
-      # - name: Deploy to Cloudflare Pages
-      #   if: github.ref == 'refs/heads/main'
-      #   uses: cloudflare/wrangler-action@v3
-      #   with:
-      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      #     command: pages deploy dist --project-name=astro-rocket
