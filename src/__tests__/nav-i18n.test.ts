@@ -8,8 +8,8 @@ vi.mock('@/config/i18n.config', () => ({
   default: {
     enabled: true,
     defaultLocale: 'en',
-    locales: ['en', 'es', 'nl'],
-    localeNames: { en: 'English', es: 'Spanish', nl: 'Nederlands' },
+    locales: ['en', 'nl'],
+    localeNames: { en: 'English', nl: 'Nederlands' },
     detectBrowserLocale: false,
   },
 }));
@@ -26,12 +26,6 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
   it('prefixes secondary-locale hrefs with the locale', () => {
     const items = getNavItems('nl');
     expect(items.map((i) => i.href)).toEqual([
-      '/es',
-      '/es/services',
-      '/es/projects',
-      '/es/blog',
-      '/es/about',
-      '/es/contact',
       '/nl',
       '/nl/services',
       '/nl/projects',
