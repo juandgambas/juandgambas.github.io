@@ -4,10 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "saturday"   # Revisa los sábados
+      day: "saturday"
       time: "09:00"
-      timezone: "America/Bogota" # Tu hora local
-    # Configuración global para ignorar versiones mayores en todos los paquetes
+      timezone: "America/Bogota"
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
