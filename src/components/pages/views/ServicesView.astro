@@ -397,20 +397,16 @@ const aboutUrl = localizedPath('/about', locale);
   <!-- CTA -->
   <CtaSection class="bg-background border-t border-border" maxWidth="7xl" glitch>
     <Fragment slot="normal">
-      <Badge variant="brand" pill class="mb-6">
-        <Icon name="message-circle" size="sm" />
-        {cta.badge}
-      </Badge>
       <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
         {cta.heading}
       </h2>
       <p class="text-foreground-muted mb-8 text-lg text-balance">{cta.description}</p>
       <div class="flex flex-col justify-center gap-4 sm:flex-row">
-        <Button size="lg" href={contactUrl} class="cta-btn-brand">
+        <Button size="lg" href={contactUrl}>
           {cta.primary}
           <Icon name="arrow-right" size="sm" />
         </Button>
-        <Button size="lg" variant="brand-outline" href={aboutUrl}>
+        <Button size="lg" variant="brand-outline" class="cta-btn-brand" href={aboutUrl}>
           {cta.secondary}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -422,11 +418,11 @@ const aboutUrl = localizedPath('/about', locale);
       </h2>
       <p class="text-foreground-muted mb-8 text-lg text-balance">{cta.description}</p>
       <div class="flex flex-col justify-center gap-4 sm:flex-row">
-        <Button size="lg" href={contactUrl} class="hero-btn-brand">
+        <Button size="lg" href={contactUrl}>
           {cta.primary}
           <Icon name="arrow-right" size="sm" />
         </Button>
-        <Button size="lg" variant="outline" href={aboutUrl}>
+        <Button size="lg" variant="outline" class="cta-btn-brand" href={aboutUrl}>
           {cta.secondary}
           <Icon name="arrow-right" size="sm" />
         </Button>
