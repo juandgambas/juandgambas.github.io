@@ -53,7 +53,7 @@
   "blog": {
     "title": "Bloggen",
     "description": "Laatste artikelen en updates",
-    "readingTime": "{minutes} min gelezen",
+    "readingTime": "{minutes} min leestijd",
     "publishedOn": "Gepubliceerd op {date}",
     "updatedOn": "Bijgewerkt op {date}",
     "writtenBy": "Geschreven door {author}",

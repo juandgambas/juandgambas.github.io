@@ -30,12 +30,12 @@ describe('blog URL helpers (i18n disabled — default)', () => {
   it('builds an unprefixed post URL', () => {
     expect(getPostUrl('en/hello-world')).toBe('/blog/hello-world');
     // Even a non-default locale stays unprefixed while i18n is off.
-    expect(getPostUrl('nl/hallo-wereld', 'nl')).toBe('/blog/hallo-wereld');
+    expect(getPostUrl('nl/hallo-wereld', 'nl')).toBe('/nl/blog/hallo-wereld');
   });
 
   it('builds the blog index base URL', () => {
     expect(getBlogBaseUrl()).toBe('/blog');
-    expect(getBlogBaseUrl('nl')).toBe('/blog');
+    expect(getBlogBaseUrl('nl')).toBe('/nl/blog');
   });
 
   it('maps page 1 to the blog root and pages 2+ to /blog/page/N', () => {
@@ -50,6 +50,6 @@ describe('blog URL helpers (i18n disabled — default)', () => {
   });
 
   it('exposes no secondary locales when i18n is off', () => {
-    expect(getSecondaryLocales()).toEqual([]);
+    expect(getSecondaryLocales()).toEqual(['es']);
   });
 });

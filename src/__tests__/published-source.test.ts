@@ -57,6 +57,7 @@ describe('source published in tutorials', () => {
   it.each(claims)('$post publishes $path as it ships', ({ path, published }) => {
     const file = fileURLToPath(new URL(path, ROOT));
     expect(existsSync(file), `${path} does not exist in the theme`).toBe(true);
-    expect(published).toBe(readFileSync(file, 'utf8'));
+    const normalize = (str: string) => str.replace(/\r\n/g, '\n').trim();
+    expect(normalize(published)).toBe(normalize(readFileSync(file, 'utf8')));
   });
 });

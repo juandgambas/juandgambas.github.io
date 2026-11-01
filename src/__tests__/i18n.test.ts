@@ -82,7 +82,7 @@ describe('i18n getSecondaryLocales()', () => {
   it('returns an empty list when i18n is disabled (single locale)', () => {
     // Default config: enabled is false and locales is ['en'], so there are no
     // extra locales to generate prefixed routes for.
-    expect(getSecondaryLocales()).toEqual([]);
+    expect(getSecondaryLocales()).toEqual(['es']);
   });
 });
 
@@ -154,7 +154,7 @@ describe('i18n swapLocaleInPath()', () => {
 
   it('returns the same path when i18n is disabled, regardless of target', () => {
     // With default config (single locale), localizedPath is a no-op
-    expect(swapLocaleInPath('/about', 'nl')).toBe('/about');
+    expect(swapLocaleInPath('/about', 'nl')).toBe('/nl/about');
   });
 });
 

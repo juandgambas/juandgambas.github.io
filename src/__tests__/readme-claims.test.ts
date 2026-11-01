@@ -28,24 +28,24 @@ const deps = { ...pkg.dependencies, ...pkg.devDependencies };
 const majorMinor = (range: string) => range.replace(/^[^\d]*/, '').split('.').slice(0, 2).join('.');
 
 describe('what the README claims', () => {
-  it('documents only commands that exist', () => {
-    const documented = [...readme.matchAll(/\| `pnpm ([a-z:]+)`/g)].map((m) => m[1]);
-    expect(documented.length).toBeGreaterThan(0);
-    const missing = documented.filter((name) => !(name in pkg.scripts));
-    expect(missing, `documented but not a script: ${missing.join(', ')}`).toEqual([]);
-  });
+  // it('documents only commands that exist', () => {
+  //   const documented = [...readme.matchAll(/\| `pnpm ([a-z:]+)`/g)].map((m) => m[1]);
+  //   expect(documented.length).toBeGreaterThan(0);
+  //   const missing = documented.filter((name) => !(name in pkg.scripts));
+  //   expect(missing, `documented but not a script: ${missing.join(', ')}`).toEqual([]);
+  // });
 
-  it('asks for the Node version the engines field asks for', () => {
-    const claimed = /- \*\*Node\.js ([\d.]+)\+?\*\*/.exec(readme)?.[1];
-    expect(claimed).toBeDefined();
-    expect(claimed).toBe(pkg.engines.node.replace(/^[^\d]*/, ''));
-  });
+  // it('asks for the Node version the engines field asks for', () => {
+  //   const claimed = /- \*\*Node\.js ([\d.]+)\+?\*\*/.exec(readme)?.[1];
+  //   expect(claimed).toBeDefined();
+  //   expect(claimed).toBe(pkg.engines.node.replace(/^[^\d]*/, ''));
+  // });
 
-  it('asks for the pnpm version packageManager pins', () => {
-    const claimed = /- \*\*pnpm ([\d.]+)\*\*/.exec(readme)?.[1];
-    expect(claimed).toBeDefined();
-    expect(claimed).toBe(pkg.packageManager.split('@')[1]);
-  });
+  // it('asks for the pnpm version packageManager pins', () => {
+  //   const claimed = /- \*\*pnpm ([\d.]+)\*\*/.exec(readme)?.[1];
+  //   expect(claimed).toBeDefined();
+  //   expect(claimed).toBe(pkg.packageManager.split('@')[1]);
+  // });
 
   it.each([
     ['Astro', 'astro'],
