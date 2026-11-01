@@ -35,15 +35,10 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run check
       - run: pnpm run test:run
-
-  build:
-    name: Build (${{ matrix.target }})
+  build-verify:
+    name: Build & Verify
     needs: quality
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        target: [vercel, netlify, cloudflare]
     steps:
       - uses: actions/checkout@v4
 
@@ -58,19 +53,19 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm run build --output static
+      - name: Build Astro App
+        run: pnpm run build
         env:
-          DEPLOY_TARGET: ${{ matrix.target != 'vercel' && matrix.target || '' }}
           SITE_URL: ${{ secrets.SITE_URL || 'https://example.com' }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || 'dummy_key_for_ci' }}
 
-      - name: Verify the output is a usable site
+      - name: Verify the output
         run: pnpm run verify
 
   deploy-pages:
     name: Deploy to GitHub Pages
-    needs: [quality, build]
-    if: github.ref == 'refs/heads/main'
+    needs: [quality, build-verify]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
