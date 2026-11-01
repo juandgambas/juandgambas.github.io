@@ -11,10 +11,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
   quality:
     name: Lint, type check and tests
@@ -35,6 +31,7 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run check
       - run: pnpm run test:run
+
   build-verify:
     name: Build & Verify
     needs: quality
@@ -59,7 +56,7 @@ jobs:
           SITE_URL: ${{ secrets.SITE_URL || 'https://example.com' }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || 'dummy_key_for_ci' }}
 
-      - name: Verify the output
+      - name: Verify output
         run: pnpm run verify
 
   deploy-pages:
@@ -67,6 +64,10 @@ jobs:
     needs: [quality, build-verify]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    concurrency:
+      group: 'pages'
+      cancel-in-progress: true
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
