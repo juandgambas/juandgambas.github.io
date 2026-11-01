@@ -1,7 +1,7 @@
 ---
 /**
  * ThemeSelector
- * A row of twelve colour swatches that switches the active colour theme at
+ * A row of colour swatches that switches the active colour theme at
  * runtime by writing `data-theme` on <html> and persisting to sessionStorage.
  *
  * Usage in Header:  <ThemeSelector />
@@ -23,18 +23,16 @@ const locale = getLocaleFromPath(Astro.url.pathname);
   role="group"
   aria-label={t('theme.selectColourTheme', locale)}
 >
-  {
-    themes.map((theme) => (
-      <button
-        type="button"
-        class="theme-swatch relative h-3.5 w-3.5 rounded-full transition-transform duration-150 focus-visible:outline-none"
-        data-theme-id={theme.id}
-        style={`background-color:${theme.color};--swatch:${theme.color}`}
-        title={theme.name}
-        aria-label={t('theme.swatchLabel', locale, { name: theme.name })}
-      />
-    ))
-  }
+  {themes.map((theme) => (
+    <button
+      type="button"
+      class="theme-swatch relative h-3.5 w-3.5 rounded-full transition-transform duration-150 focus-visible:outline-none"
+      data-theme-id={theme.id}
+      style={`background-color:${theme.color};--swatch:${theme.color}`}
+      title={theme.name}
+      aria-label={t('theme.swatchLabel', locale, { name: theme.name })}
+    />
+  ))}
 </div>
 
 <style>

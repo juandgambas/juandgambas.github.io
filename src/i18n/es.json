@@ -32,6 +32,23 @@
     "next": "Próximo",
     "previous": "Anterior",
     "home": "Inicio",
+    "map": "Mapa",
+    "mapConsentPrompt": "Acepta las cookies para cargar el mapa interactivo.",
+    "viewOnGoogleMaps": "Ver en Google Maps",
+    "themeModeTitle": "Tema: {mode} (haz clic para cambiar)",
+    "googleMaps": "Google Maps",
+    "progress": "Progreso",
+    "themeMode": "Tema: {mode}",
+    "browseByTag": "Navegar por etiqueta",
+    "techStack": "Tecnologías",
+    "togglePassword": "Mostrar/ocultar la contraseña",
+    "breadcrumb": "Ruta de navegación",
+    "copyCode": "Copiar código al portapapeles",
+    "dismiss": "Descartar",
+    "notifications": "Notificaciones",
+    "closeDialog": "Cerrar diálogo",
+    "tabs": "Pestañas",
+    "verticalTabs": "Pestañas verticales",
     "avatarAlt": "Imagen de perfil de Juan David Gamba Saenz."
   },
   "blog": {
@@ -69,14 +86,18 @@
     "tagEmpty": "No se encontraron publicaciones para esta etiqueta.",
     "tagBackToAll": "Volver a todas las publicaciones",
     "onThisPage": "En esta pagina",
-    "tocShow": "Espectáculo",
-    "tocHide": "Esconder",
+    "tocShow": "Mostrar",
+    "tocHide": "Ocultar",
     "backToBlog": "Volver al blog",
     "updated": "Actualizado",
     "followAlong": "Siga adelante",
     "followAlongLead": "Manténgase informado: nuevos artículos, pensamientos y actualizaciones.",
     "rssFeed": "Fuente RSS",
-    "emailLabel": "Correo electrónico"
+    "cta": {
+      "heading": "¿Listo para construir?",
+      "description": "Verifica las mejores prácticas para un sitio web estático con Astro y el repositorio GhostForge Dev.",
+      "button": "Comenzar"
+    }
   },
   "comments": {
     "title": "Comentarios",
@@ -89,10 +110,25 @@
     "viewProject": "Ver proyecto",
     "viewSource": "Ver fuente",
     "noProjectsFound": "No se encontraron proyectos.",
+    "noProjectsFoundDescription": "En cuanto haya proyectos, podrá verlos aquí.",
+    "carouselChooseSlide": "Seleccionar diapositiva",
+    "carouselNextSlide": "Siguiente diapositiva",
+    "carouselPreviousSlide": "Diapositiva anterior",
+    "galleryLabel": "Ventana multimedia",
+    "galleryClose": "Cerrar ventana",
+    "galleryNextImage": "Siguiente imagen",
+    "galleryPreviousImage": "Imagen anterior",
     "metaTitle": "Proyectos",
     "metaDescription": "Trabajo seleccionado: sitios web, herramientas y proyectos de código abierto creados por GhostForge Dev y Juan D. Gamba S.",
     "heroBadge": "Trabajo seleccionado",
     "heroDescription": "Obra seleccionada para compartir.",
+    "heroProject": {
+      "ghost-forge-dev": {
+        "title": "Lanza tu próximo sitio con GhostForge Dev: la marca del tablero de la pista de canicas.",
+        "kicker": "Lanza tu próximo sitio con",
+        "word": "GhostForge Dev"
+      }
+    },
     "allProjects": "Todos los proyectos",
     "pageMetaTitle": "Proyectos: página {page}",
     "pageMetaDescription": "Página {page} de {total}: trabajos, herramientas y proyectos de código abierto seleccionados de Astro Rocket.",
@@ -118,7 +154,8 @@
     "page": "Página {current} de {total}",
     "label": "Paginación",
     "previousPage": "Pagina anterior",
-    "nextPage": "Página siguiente"
+    "nextPage": "Página siguiente",
+    "morePages": "Más páginas"
   },
   "errors": {
     "pageNotFound": "Página no encontrada",
@@ -145,7 +182,9 @@
     "subscribe": "Suscribir",
     "subscribing": "Suscribiéndose…",
     "success": "¡Gracias por suscribirte!",
-    "genericError": "algo salió mal",
+    "genericError": "Algo salió mal",
+    "notConfigured": "Aún no está configurado. Configure RESEND_API_KEY y RESEND_AUDIENCE_ID para activarlo. Solo usted puede ver esta línea.",
+    "unavailable": "Los registros no están disponibles en este momento.",
     "error": "La suscripción falló."
   },
   "contact": {
@@ -158,6 +197,8 @@
     "sending": "Envío…",
     "success": "¡Mensaje enviado exitosamente!",
     "genericError": "Algo salió mal",
+    "notConfigured": "Aún no está configurado; configure RESEND_API_KEY para activarlo. Solo usted puede ver esta línea.",
+    "unavailable": "Este formulario no está disponible en este momento.",
     "error": "No se pudo enviar el mensaje."
   },
   "theme": {
@@ -188,6 +229,12 @@
     "copyright": "© {year} {siteName} por {author}",
     "credit": "Tema por <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
     "builtWith": "Construido con Astro Rocket",
+    "groups": {
+      "site": "Sitio",
+      "topics": "Temas",
+      "projects": "Proyectos",
+      "questions": "¿Tienes preguntas?"
+    },
     "followOn": "Síguenos en {platform}"
   },
   "pages": {
@@ -222,6 +269,7 @@
         "heading": "Cordial saludo, soy Juan David Gamba",
         "lead": "De los fundamentos de ADSI a la Ingeniería de Sistemas en la UNAD: una evolución constante a través de GhostForge Dev.",
         "description": "Mi trayectoria en el mundo de la tecnología no es solo una lista de lenguajes de programación, sino la historia de la curiosidad transformada en ingeniería.",
+        "timeLineHeading": "Cronología profesional de Juan D. Gamba S.",
         "items": [
           {
             "title": "El pasado: la fundación",
@@ -334,7 +382,7 @@
           },
           {
             "title": "Plantilla hecha por Hans Martens Dev",
-            "text": "Astro Rocket fue diseñado y construido por <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> – un desarrollador independiente de Astro que lo utiliza como base para los proyectos de los clientes."
+            "texto": "Astro Rocket fue diseñado y construido por <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — un desarrollador de temas Astro en Veghel, Países Bajos, que lo utiliza como base para proyectos de clientes."
           },
           {
             "title": "Licencia MIT",
@@ -343,9 +391,9 @@
         ]
       },
       "cta": {
-        "badge": "empezar",
+        "badge": "Empezar",
         "heading": "¿Listo para construir?",
-        "description": "Verifique las mejores prácticas para un sitio web estático con Astro y la plantilla Astro Rocket.",
+        "description": "Verifique las mejores prácticas para un sitio web estático con Astro y el repositorio de GhostForge Dev.",
         "button": "Empezar"
       }
     },
@@ -669,6 +717,10 @@
         "badge": "Testimonios",
         "heading": "Lo que dicen los clientes",
         "lead": "Palabras reales de proyectos terminados.",
+        "noTestimonialsYet": {
+          "title": "Aún no hay Testimonios.",
+          "description": "En cuanto haya testimonios, podrá verlos aquí."
+        },
         "items": []
       },
       "aboutTeaser": {

@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const headerVariants = cva('z-50 max-h-[calc(100dvh-32px)] overflow-y-auto md:overflow-y-visible', {
+export const headerVariants = cva('z-50 max-h-[calc(100dvh-32px)] overflow-y-auto lg:overflow-y-visible', {
   variants: {
     position: {
       fixed: 'fixed top-0 left-0 right-0',
@@ -19,13 +19,16 @@ export const headerVariants = cva('z-50 max-h-[calc(100dvh-32px)] overflow-y-aut
   },
   compoundVariants: [
     // Floating + fixed: centered with gap
-    { shape: 'floating', position: 'fixed', class: '!left-1/2 !right-auto -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl my-4 animate-header-drop' },
+    { shape: 'floating', position: 'fixed', class: '!left-1/2 !right-auto -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl mt-4 animate-header-drop' },
     // Floating + sticky: centered with gap
     { shape: 'floating', position: 'sticky', class: '!top-4 mx-auto max-w-6xl' },
     // Floating + static: centered
     { shape: 'floating', position: 'static', class: 'mx-auto max-w-6xl' },
-    // Floating + transparent: glass effect
-    { shape: 'floating', variant: 'transparent', class: 'bg-white/[0.08] border border-white/[0.1]' },
+    // Floating + transparent: frosted glass. The backdrop blur is for
+    // readability, not for looks — at rest this header sits over a hero, and
+    // whatever the hero draws behind the nav links is detail beside small
+    // text. Clear glass looks better and reads worse.
+    { shape: 'floating', variant: 'transparent', class: 'bg-white/[0.08] backdrop-blur-md border border-white/[0.1]' },
     // Floating + default: semi-transparent with blur
     { shape: 'floating', variant: 'default', class: '!bg-background/90 backdrop-blur-xl !border border-border/50 !border-b-border/50' },
     // Floating + solid: opaque
@@ -45,11 +48,11 @@ export const headerInnerVariants = cva(
       size: {
         sm: 'h-12',
         md: 'h-14',
-        lg: 'h-16',
+        lg: 'h-16 lg:h-20 xl:h-16',
       },
       shape: {
-        bar: 'mx-auto max-w-6xl px-4',
-        floating: 'px-4',
+        bar: 'mx-auto max-w-6xl px-6',
+        floating: 'px-3 xl:px-6',
       },
     },
     defaultVariants: {

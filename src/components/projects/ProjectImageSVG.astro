@@ -35,22 +35,15 @@ const {
   locale,
 } = Astro.props;
 let svgContent = svgs[`/src/assets/projects/${slug}.svg`] ?? '';
-if (svgContent) {
-  const heroProjectsKey = 'projects.heroProjects';
-  // Obtener las traducciones con i18next
-  const kickerText =
-    t(`${heroProjectsKey}.${slug}.kicker`, locale) !== `${heroProjectsKey}.${slug}.kicker` &&
-    slug !== defaultSlug
-      ? t(`${heroProjectsKey}.${slug}.kicker`, locale)
-      : 'Launch your next site with';
-  const wordText =
-    t(`${heroProjectsKey}.${slug}.word`, locale) !== `${heroProjectsKey}.${slug}.word` &&
-    slug !== defaultSlug
-      ? t(`${heroProjectsKey}.${slug}.word`, locale)
-      : 'Astro Rocket';
+if (svgContent && slug !== defaultSlug) {
+  const kickerKey = `projects.heroProject.${slug}.kicker`;
+  const kickerTransl = t(kickerKey, locale);
+  const kicker = kickerTransl !== kickerKey ? kickerTransl : 'Launch your next site with';
+  const wordKey = `projects.heroProject.${slug}.word`;
+  const wordTransl = t(wordKey, locale);
+  const word = wordTransl !== wordKey ? wordTransl : 'Astro Rocket';
 
-  // Reemplazar los marcadores en el marcado SVG plano
-  svgContent = svgContent.replaceAll('{kicker}', kickerText).replaceAll('{word}', wordText);
+  svgContent = svgContent.replaceAll('{kicker}', kicker).replaceAll('{word}', word);
 }
 ---
 

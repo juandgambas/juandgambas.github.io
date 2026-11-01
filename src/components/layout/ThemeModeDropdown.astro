@@ -136,8 +136,10 @@ const triggerLabel = t('theme.modeTrigger', locale, { mode: modeNames.system.toL
         <span
           class="ttg-system-sub"
           data-sub-light={t('theme.currentlyLight', locale)}
-          data-sub-dark={t('theme.currentlyDark', locale)}>{t('theme.currentlyLight', locale)}</span
+          data-sub-dark={t('theme.currentlyDark', locale)}
         >
+          {t('theme.currentlyLight', locale)}
+        </span>
       </span>
       <svg
         class="ttg-check h-4 w-4"
@@ -502,8 +504,7 @@ const triggerLabel = t('theme.modeTrigger', locale, { mode: modeNames.system.toL
       // Bootstrap already toggles .dark for 'system' mode — we just refresh text.
       const mql = window.matchMedia('(prefers-color-scheme: dark)');
       const onSchemeChange = () => syncSystemSubLine();
-      if (mql.addEventListener) mql.addEventListener('change', onSchemeChange);
-      else if (mql.addListener) mql.addListener(onSchemeChange);
+      mql.addEventListener('change', onSchemeChange);
     }
   }
 

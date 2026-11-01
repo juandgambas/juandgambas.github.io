@@ -1,151 +1,188 @@
 {
   "nav": {
-    "skipToContent": "Naar inhoud",
+    "skipToContent": "Ga naar de inhoud",
     "openMenu": "Menu openen",
     "closeMenu": "Menu sluiten",
     "selectLanguage": "Selecteer taal",
     "currentLanguage": "Huidige taal",
     "mainNav": "Hoofdnavigatie",
     "mobileNav": "Mobiele navigatie",
-    "toggleMenu": "Menu wisselen",
-    "sectionNavigate": "Navigatie",
-    "searchSite": "Doorzoek deze site",
+    "toggleMenu": "Schakelmenu",
+    "sectionNavigate": "Navigeren",
+    "searchSite": "Zoek op deze site",
     "sectionTheme": "Thema",
     "sectionLanguage": "Taal",
-    "sectionConnect": "Volgen",
+    "sectionConnect": "Verbinden",
     "items": {
-      "home": "Home",
+      "home": "Thuis",
       "services": "Diensten",
       "projects": "Projecten",
-      "blog": "Blog",
+      "blog": "Bloggen",
       "about": "Over",
       "contact": "Contact"
     }
   },
   "common": {
     "readMore": "Lees meer",
-    "loading": "Laden…",
+    "loading": "Laden...",
     "backToTop": "Terug naar boven",
-    "search": "Zoeken",
-    "submit": "Verzenden",
+    "search": "Zoekopdracht",
+    "submit": "Indienen",
     "cancel": "Annuleren",
     "next": "Volgende",
-    "previous": "Vorige",
-    "home": "Home"
+    "previous": "Vorig",
+    "map": "Kaart",
+    "mapConsentPrompt": "Accepteer cookies om de interactieve kaart te laden.",
+    "viewOnGoogleMaps": "Bekijk op Google Maps",
+    "themeModeTitle": "Thema: {mode} (klik om te fietsen)",
+    "googleMaps": "Google Maps",
+    "progress": "Voortgang",
+    "themeMode": "Thema: {mode}",
+    "browseByTag": "Blader op label",
+    "techStack": "Technische stapel",
+    "togglePassword": "Schakel de zichtbaarheid van wachtwoorden in",
+    "breadcrumb": "Broodkruimel",
+    "copyCode": "Kopieer code naar klembord",
+    "dismiss": "Afwijzen",
+    "notifications": "Meldingen",
+    "closeDialog": "Dialoogvenster sluiten",
+    "tabs": "Tabbladen",
+    "verticalTabs": "Verticale tabbladen",
+    "avatarAlt": "Juan David Gamba Saenz-profielafbeelding."
   },
   "blog": {
-    "title": "Blog",
-    "description": "Recente artikelen en updates",
-    "readingTime": "{minutes} min leestijd",
+    "title": "Bloggen",
+    "description": "Laatste artikelen en updates",
+    "readingTime": "{minutes} min gelezen",
     "publishedOn": "Gepubliceerd op {date}",
     "updatedOn": "Bijgewerkt op {date}",
     "writtenBy": "Geschreven door {author}",
-    "tagsLabel": "Tags",
+    "tagsLabel": "Labels",
     "featured": "Uitgelicht",
-    "draft": "Concept",
+    "draft": "Voorlopige versie",
     "noPostsFound": "Geen berichten gevonden.",
     "tableOfContents": "Inhoudsopgave",
     "shareThisPost": "Deel dit bericht",
     "relatedPosts": "Gerelateerde berichten",
-    "share": "Delen:",
+    "share": "Deel:",
     "shareOn": "Deel op {platform}",
-    "copyLink": "Link kopiëren",
-    "metaTitle": "Blog",
-    "metaDescription": "De Astro Rocket-blog: praktische gidsen voor het instellen, configureren en bouwen met het thema.",
+    "copyLink": "Kopieer link",
+    "metaTitle": "Bloggen",
+    "metaDescription": "GhostForge Dev blog: Een plek voor het delen van ideeën en beslissingen die mijn werk vormgeven, en meningen over actuele gebeurtenissen in de sector.",
     "heroBadge": "Alle berichten",
-    "heroDescription": "Alles wat je over Astro\u00a0Rocket moet weten, uitgelegd in praktische gidsen.",
+    "heroDescription": "Een plek voor het delen van ideeën en beslissingen die mijn werk vormgeven, en meningen over actuele gebeurtenissen in de sector.",
     "allPosts": "Alle berichten",
     "noPosts": "Geen berichten gevonden",
     "pageMetaTitle": "Blog — Pagina {page}",
-    "pageMetaDescription": "Pagina {page} van {total} — praktische gidsen voor het instellen, configureren en bouwen met Astro Rocket.",
+    "pageMetaDescription": "Pagina {page} van {total} — praktische handleidingen voor het opzetten, configureren en bouwen met Astro Rocket.",
     "pageBadge": "Pagina {page} van {total}",
     "newestPosts": "Nieuwste berichten",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Berichten met tag \"{tag}\".",
-    "tagBadge": "Tag",
-    "tagCountOne": "{count} bericht met tag \"{tag}\".",
-    "tagCountOther": "{count} berichten met tag \"{tag}\".",
-    "tagEmpty": "Geen berichten gevonden voor deze tag.",
+    "tagMetaDescription": "Berichten met de tag \"{tag}\".",
+    "tagBadge": "Label",
+    "tagCountOne": "{count} bericht getagd met \"{tag}\".",
+    "tagCountOther": "{count} berichten met de tag \"{tag}\".",
+    "tagEmpty": "Er zijn geen berichten gevonden voor deze tag.",
     "tagBackToAll": "Terug naar alle berichten",
     "onThisPage": "Op deze pagina",
-    "tocShow": "Toon",
-    "tocHide": "Verberg",
-    "backToBlog": "Terug naar blog",
+    "tocShow": "Show",
+    "tocHide": "Verbergen",
+    "backToBlog": "Terug naar Blog",
     "updated": "Bijgewerkt",
-    "followAlong": "Blijf op de hoogte",
-    "followAlongLead": "Blijf op de hoogte — nieuwe artikelen, ideeën en updates.",
     "rssFeed": "RSS-feed",
-    "emailLabel": "E-mail"
+    "cta": {
+      "heading": "Klaar om te bouwen?",
+      "description": "Controleer de best practices voor een statische website met Astro en de GhostForge Dev-repository.",
+      "button": "Aan de slag"
+    }
   },
   "comments": {
-    "title": "Reacties",
-    "loadError": "Reacties konden niet worden geladen. Vernieuw de pagina en probeer het opnieuw.",
-    "requiresJs": "Reacties vereisen JavaScript om te laden."
+    "title": "Opmerkingen",
+    "loadError": "Reacties kunnen niet worden geladen. Vernieuw de pagina en probeer het opnieuw.",
+    "requiresJs": "Opmerkingen vereisen JavaScript om te laden."
   },
   "projects": {
     "title": "Projecten",
     "description": "Dingen die ik heb gebouwd",
     "viewProject": "Bekijk project",
-    "viewSource": "Bekijk broncode",
+    "viewSource": "Bron bekijken",
     "noProjectsFound": "Geen projecten gevonden.",
+    "noProjectsFoundDescription": "Zodra er projecten zijn, kunt u deze hier bekijken.",
+    "carouselChooseSlide": "Kies dia",
+    "carouselNextSlide": "Volgende dia",
+    "carouselPreviousSlide": "Vorige dia",
+    "galleryLabel": "Media-lightbox",
+    "galleryClose": "Lightbox sluiten",
+    "galleryNextImage": "Volgende afbeelding",
+    "galleryPreviousImage": "Vorige afbeelding",
     "metaTitle": "Projecten",
-    "metaDescription": "Geselecteerd werk — websites, tools en open-source projecten gebouwd door Astro Rocket.",
+    "metaDescription": "Geselecteerd werk: websites, tools en open-sourceprojecten gebouwd door GhostForge Dev en Juan D. Gamba S.",
     "heroBadge": "Geselecteerd werk",
-    "heroDescription": "Werk waar ik het meest trots op ben.",
+    "heroDescription": "Werk geselecteerd om te delen.",
+    "heroProject": {
+      "ghost-forge-dev": {
+        "title": "Lanceer uw volgende site met GhostForge Dev – de knikkerbaanmarkering.",
+        "kicker": "Lanceer uw volgende site met",
+        "word": "GhostForge Dev"
+      }
+    },
     "allProjects": "Alle projecten",
     "pageMetaTitle": "Projecten — Pagina {page}",
-    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en open-source projecten door Astro Rocket.",
+    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en open-sourceprojecten van Astro Rocket.",
     "pageBadge": "Pagina {page} van {total}",
     "tagMetaTitle": "#{tag} — Projecten",
-    "tagMetaDescription": "Projecten met tag \"{tag}\".",
-    "tagBadge": "Tag",
-    "tagCountOne": "{count} project met tag \"{tag}\".",
-    "tagCountOther": "{count} projecten met tag \"{tag}\".",
-    "tagEmpty": "Geen projecten gevonden voor deze tag.",
+    "tagMetaDescription": "Projecten met de tag \"{tag}\".",
+    "tagBadge": "Label",
+    "tagCountOne": "{count} project met de tag \"{tag}\".",
+    "tagCountOther": "{count} projecten met de tag \"{tag}\".",
+    "tagEmpty": "Er zijn geen projecten gevonden voor deze tag.",
     "tagBackToAll": "Terug naar alle projecten",
-    "backToProjects": "Terug naar projecten",
+    "backToProjects": "Terug naar Projecten",
     "moreProjects": "Meer projecten",
     "ctaBadge": "Laten we praten",
-    "ctaHeading": "Laten we het over jouw wensen hebben",
-    "ctaLead": "Elke website die ik bouw is een eigen custom ontwerp, gemaakt met de zorg die je hier ziet. Vertel me wat je in gedachten hebt.",
+    "ctaHeading": "Laten we praten over wat je nodig hebt",
+    "ctaLead": "Ik sta klaar om softwareoplossingen voor u te bouwen in uw bedrijf. Vertel me wat je in gedachten hebt.",
     "ctaPrimary": "Stuur een bericht",
     "ctaSecondary": "Meer over mij",
-    "closingHeading": "Heb je een project in gedachten?",
-    "closingLead": "Of het nu een nieuwe build is of iets dat een frisse blik nodig heeft — ik hoor er graag over."
+    "closingHeading": "Heeft u een project in gedachten?",
+    "closingLead": "Of het nu om een ​​nieuwbouw gaat of om iets dat een nieuw perspectief nodig heeft: ik hoor het graag."
   },
   "pagination": {
     "page": "Pagina {current} van {total}",
     "label": "Paginering",
     "previousPage": "Vorige pagina",
-    "nextPage": "Volgende pagina"
+    "nextPage": "Volgende pagina",
+    "morePages": "Meer pagina's"
   },
   "errors": {
     "pageNotFound": "Pagina niet gevonden",
-    "pageNotFoundMessage": "De pagina die je zoekt bestaat niet of is verplaatst.",
-    "goHome": "Naar de homepagina",
+    "pageNotFoundMessage": "De pagina die u zoekt bestaat niet of is verplaatst.",
+    "goHome": "Ga naar de startpagina",
     "metaTitle": "Pagina niet gevonden",
     "metaDescription": "Deze pagina is verplaatst, verwijderd of heeft nooit bestaan.",
     "badge": "404 — pagina niet gevonden",
     "titleLead": "Pagina niet",
     "titleHighlight": "gevonden.",
-    "description": "Deze pagina is verplaatst, verwijderd of heeft nooit bestaan. Laten we je weer op weg helpen.",
-    "backHome": "Terug naar home",
-    "browseBlog": "Bekijk de blog",
-    "tryInstead": "Probeer een van deze",
-    "projectsDesc": "Geselecteerd werk en casestudy's.",
-    "blogDesc": "Aantekeningen over ontwerp, code en het vak.",
+    "description": "Deze pagina is verplaatst, verwijderd of heeft nooit bestaan. Laten we je weer op het goede spoor krijgen.",
+    "backHome": "Terug naar huis",
+    "browseBlog": "Blader door de blog",
+    "tryInstead": "Probeer in plaats daarvan een van deze",
+    "projectsDesc": "Geselecteerd werk en casestudies.",
+    "blogDesc": "Opmerkingen over ideeën, beslissingen en meningen.",
     "contactTitle": "Contact",
-    "contactDesc": "Begin een gesprek over je project."
+    "contactDesc": "Begin een gesprek over uw project of uw jobaanbieding."
   },
   "newsletter": {
-    "heading": "Abonneer op de nieuwsbrief",
-    "description": "Ontvang de nieuwste berichten in je inbox.",
-    "emailPlaceholder": "Voer je e-mailadres in",
+    "heading": "Abonneer u op de nieuwsbrief",
+    "description": "Ontvang de nieuwste berichten in uw inbox.",
+    "emailPlaceholder": "Voer uw e-mailadres in",
     "subscribe": "Abonneren",
-    "subscribing": "Bezig met abonneren…",
-    "success": "Bedankt voor je aanmelding!",
-    "genericError": "Er ging iets mis",
-    "error": "Aanmelding mislukt. Probeer het opnieuw."
+    "subscribing": "Abonneren…",
+    "success": "Bedankt voor het abonneren!",
+    "genericError": "Er is iets misgegaan",
+    "notConfigured": "Nog niet geconfigureerd: stel RESEND_API_KEY en RESEND_AUDIENCE_ID in om dit in te schakelen. Alleen jij kunt deze lijn zien.",
+    "unavailable": "Aanmeldingen zijn momenteel niet mogelijk.",
+    "error": "Abonnement mislukt. Probeer het opnieuw."
   },
   "contact": {
     "heading": "Neem contact op",
@@ -153,15 +190,17 @@
     "email": "E-mail",
     "subject": "Onderwerp",
     "message": "Bericht",
-    "send": "Verstuur bericht",
-    "sending": "Bezig met verzenden…",
+    "send": "Bericht verzenden",
+    "sending": "Verzenden…",
     "success": "Bericht succesvol verzonden!",
-    "genericError": "Er ging iets mis",
-    "error": "Verzenden mislukt. Probeer het opnieuw."
+    "genericError": "Er is iets misgegaan",
+    "notConfigured": "Nog niet geconfigureerd: stel RESEND_API_KEY in om dit in te schakelen. Alleen jij kunt deze lijn zien.",
+    "unavailable": "Dit formulier is momenteel niet beschikbaar.",
+    "error": "Kan bericht niet verzenden. Probeer het opnieuw."
   },
   "theme": {
     "selectColourTheme": "Selecteer kleurthema",
-    "colourTheme": "Kleurthema",
+    "colourTheme": "Kleur thema",
     "colourMode": "Kleurmodus",
     "modeTrigger": "Thema: {mode}. Klik om te wijzigen.",
     "system": "Systeem",
@@ -169,303 +208,393 @@
     "dark": "Donker",
     "currentlyLight": "Momenteel licht",
     "currentlyDark": "Momenteel donker",
-    "swatchLabel": "{name}-thema"
+    "swatchLabel": "{name} thema"
   },
   "search": {
-    "placeholder": "Zoek berichten, projecten en pagina's…",
-    "inputLabel": "Zoekopdracht",
+    "placeholder": "Zoek berichten, projecten en pagina's...",
+    "inputLabel": "Zoekvraag",
     "resultsLabel": "Zoekresultaten",
-    "hint": "Begin met typen om de site te doorzoeken.",
+    "hint": "Begin met typen om op de site te zoeken.",
     "noResults": "Geen resultaten voor “{query}”",
-    "unavailable": "De zoekindex wordt tijdens de build gegenereerd en is niet beschikbaar in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Voer <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> uit om het lokaal te proberen."
+    "unavailable": "De zoekindex wordt gegenereerd tijdens het bouwen en is niet beschikbaar in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Voer <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build && pnpm preview</code> uit om het lokaal te proberen."
   },
   "video": {
     "playLabel": "Video afspelen: {title}",
-    "watchOn": "Bekijk op YouTube"
+    "watchOn": "Kijk op YouTube"
   },
   "footer": {
-    "copyright": "© {year} {siteName}",
-    "credit": "Thema door <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
+    "copyright": "© {year} {siteName} door {author}",
+    "credit": "Thema door <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Ontwikkelaar</a>",
     "builtWith": "Gebouwd met Astro Rocket",
+    "groups": {
+      "site": "Locatie",
+      "topics": "Onderwerpen",
+      "projects": "Projecten",
+      "questions": "Heeft u vragen?"
+    },
     "followOn": "Volg ons op {platform}"
   },
   "pages": {
     "about": {
       "meta": {
-        "title": "Over — Gratis open-source Astro 7 thema",
-        "description": "Wat Astro Rocket is en hoe het gebouwd is: een gratis, razendsnel Astro 7 starter-thema met 57 ontworpen componenten, 12 kleurthema's, ingebouwde i18n en donkere modus."
+        "title": "Over - Dit ben ik",
+        "description": "GhostForge Dev door Juan Gamba Saenz-website. Krachtige full-stack webontwikkeling met PHP (Laravel, Vue.js) en Java (Spring Boot). Studentenportfolio en blog voor systeemtechniek."
       },
       "hero": {
         "badge": "Over",
-        "titleLead": "Astro Rocket —",
-        "typingWords": ["Razendsnel", "Starter-thema", "57 Componenten", "12 Thema's", "Donkere modus", "Ingebouwde i18n"],
-        "typingWordsMobile": ["Razendsnel", "Starter-thema", "12 Thema's", "Donkere modus", "Ingebouwde i18n"],
-        "description": "Een gratis, open-source Astro 7 starter-thema om alles op te bouwen."
+        "titleLead": "GhostForge Dev\nDoor\nJuan D. Gamba\n—",
+        "typingWords": [
+          "Webontwikkelaar met volledige stack",
+          "Student systeemtechniek",
+          "Laravel",
+          "Vue.js",
+          "Lente laars",
+          "Softwareanalyse en ontwerp"
+        ],
+        "typingWordsMobile": [
+          "Full-stack-ontwikkelaar",
+          "Sys. Eng. Student",
+          "Laravel",
+          "Vue.js",
+          "Lente laars",
+          "Analyse & Ontwerp"
+        ],
+        "description": "Het maken van krachtige webapplicaties, van concept tot implementatie. Gespecialiseerd in Laravel, Spring Boot en Vue.js."
       },
-      "whatYouGet": {
-        "badge": "Wat je krijgt",
-        "heading": "Alles wat een echte website nodig heeft",
-        "lead": "De componentenbibliotheek is het hart van het thema. Al het andere dat een echte website nodig heeft, is al aan boord.",
+      "whoAmI": {
+        "badge": "Wie ben ik?",
+        "heading": "Hartelijke groeten, ik ben Juan David Gamba",
+        "lead": "Van ISAD-fundamentals tot Systems Engineering bij UNAD: een constante evolutie via GhostForge Dev.",
+        "description": "Mijn pad in technologie is niet alleen een lijst met talen, het is het verhaal van nieuwsgierigheid getransformeerd in techniek.",
+        "timeLineHeading": "Professionele tijdlijn van Juan D. Gamba S.",
         "items": [
           {
-            "icon": "component",
-            "title": "57 ontworpen componenten",
-            "description": "Van knoppen tot complete hero-secties: getypeerd, toegankelijk, consistent en gedocumenteerd in een live showcase."
+            "title": "Het verleden: de stichting",
+            "description": "Als ADSI-technoloog heb ik geleerd dat software begint met onberispelijke logica en rigoureuze documentatie (UML, IEEE-830)."
           },
           {
-            "icon": "layout",
-            "title": "Pagina's om mee te starten",
-            "description": "Home, over, diensten, contact, blog, projecten en 404, volledig ontworpen en responsive, klaar om je eigen te maken."
+            "title": "Het heden: de smederij",
+            "description": "Momenteel bij UNAD is GhostForge Dev geboren als mijn kwaliteitsstandaard voor het bouwen van Full-Stack-oplossingen met Laravel en Spring Boot."
           },
           {
-            "icon": "palette",
-            "title": "12 kleurthema's",
-            "description": "Wissel het complete kleurenpalet live vanuit de header. Inclusief lichte en donkere modus."
+            "title": "De toekomst: de visie",
+            "description": "Ik streef ernaar mijn 'smeedkunst'-mentaliteit over te brengen naar krachtige teams om software te bouwen die schaalbaar is en lang meegaat."
+          }
+        ]
+      },
+      "whatYouGet": {
+        "badge": "Waardepropositie",
+        "heading": "Wat je krijgt",
+        "lead": "Full-Stack-oplossingen gebouwd met een technische mentaliteit, waarbij prioriteit wordt gegeven aan schaalbaarheid en professionele implementatie.",
+        "items": [
+          {
+            "icon": "lagen",
+            "title": "Robuuste architecturen",
+            "description": "Solide systemen met Laravel en Spring Boot, ontworpen om complexe processen naadloos te schalen en af ​​te handelen"
           },
           {
-            "icon": "book-open",
-            "title": "Blog met inhoudsopgave",
-            "description": "MDX, RSS, tags, reacties, gerelateerde posts en een scroll-spy inhoudsopgave. Schrijven en publiceren."
+            "icon": "monitor",
+            "title": "Reactieve interfaces",
+            "description": "Smooth gericht op bruikbaarheid en prestaties"
           },
           {
-            "icon": "image",
-            "title": "Projecten met galerijen",
-            "description": "Een portfoliosectie met fotogalerijen, videoslides, tags en een eigen inhoudsopgave."
+            "icon": "werkstroom",
+            "title": "CI/CD-cultuur",
+            "description": "Productieklare software Professioneel versiebeheer en geautomatiseerde implementaties met Git- en GitHub-acties"
           },
           {
-            "icon": "globe",
-            "title": "Volledige i18n, opt-in",
-            "description": "Blog, projecten, navigatie, formulieren en 404: allemaal per taal gelokaliseerd. Standaard uit, zonder kosten als je het niet gebruikt."
-          },
-          {
-            "icon": "search",
-            "title": "Zoeken op de site",
-            "description": "Snelle statische zoekfunctie (Pagefind) met een ⌘K-venster: nul JavaScript tot het opent."
-          },
-          {
-            "icon": "trending-up",
-            "title": "SEO-toolkit",
-            "description": "Metadata, sitemaps, structured data en OG-afbeeldingen, direct goed uit de doos."
-          },
-          {
-            "icon": "server",
-            "title": "Formulieren & deploy",
-            "description": "Spam-beschermde contact- en nieuwsbriefformulieren, en met één schakelaar deployen naar Vercel, Netlify of Cloudflare."
+            "icon": "schildcontrole",
+            "title": "Standaardgestuurde code",
+            "description": "Toepassing van best practices en technische documentatie"
           }
         ]
       },
       "principles": {
-        "badge": "Ontwerpprincipes",
-        "heading": "Met intentie gebouwd",
-        "lead": "Elke keuze in Astro Rocket, van componentstructuur tot standaardconfiguratie, komt voort uit dezelfde drie principes.",
+        "badge": "Technische filosofie",
+        "heading": "Gebouwd met intentie",
+        "lead": "Elke coderegel bij GhostForge Dev, van de database tot de gebruikersinterface, wordt aangestuurd door drie kernprincipes.",
         "items": [
-          { "icon": "zap", "title": "Prestaties eerst", "description": "Standaard nul JavaScript. Elk component is geoptimaliseerd voor snelheid, Core Web Vitals en compacte output." },
-          { "icon": "award", "title": "Ontwikkelaarservaring", "description": "Overal TypeScript, verstandige standaardinstellingen en een componentbibliotheek die je zo in elke pagina laat vallen." },
-          { "icon": "rocket", "title": "Modern vanaf de basis", "description": "Astro 7, Tailwind CSS 4 en een schone architectuur die eenvoudig uit te breiden en te onderhouden is." }
+          {
+            "icon": "zap",
+            "title": "Prestaties eerst",
+            "description": "Volledige optimalisatie tussen server en client. Gericht op maximale reactiesnelheid en een slanke, schone code-uitvoer."
+          },
+          {
+            "icon": "onderscheiding",
+            "title": "Schone architectuur",
+            "description": "Gebruik ontwerppatronen en industriestandaarden (SOLID, DRY) om software te bouwen die schaalbaar, onderhoudbaar en eenvoudig uit te breiden is."
+          },
+          {
+            "icon": "raket",
+            "title": "Modern en robuust",
+            "description": "Vaardigheid in moderne stacks zoals Laravel/Inertia en Spring Boot, waarbij altijd de nieuwste beveiligings- en implementatiepraktijken worden geïntegreerd."
+          }
         ]
       },
       "stack": {
-        "badge": "Tools & techniek",
-        "title": "De stack",
-        "description": "De technologieën achter Astro Rocket, gekozen voor prestaties, een uitstekende ontwikkelaarservaring en betrouwbaarheid op de lange termijn."
+        "badge": "Technische stapel",
+        "title": "Gereedschap smeden",
+        "description": "Ik beheers een modern ecosysteem gericht op bedrijfsrobuustheid en frontend-flexibiliteit. Mijn stack is ontworpen om schaalbare end-to-end applicaties te bouwen."
       },
       "faq": {
         "badge": "Goed om te weten",
         "heading": "Veelgestelde vragen",
-        "lead": "Alles wat je moet weten voordat je begint.",
+        "lead": "Alles wat u moet weten over GhostForge Dev en deze repository.",
         "cards": [
           {
-            "icon": "rocket",
-            "title": "Over Astro",
+            "icon": "gebouw-2",
+            "title": "Over GhostForge Dev",
             "items": [
-              { "question": "Wat is Astro?", "answer": "Astro is een modern webframework gebouwd voor content-gedreven sites. Het levert standaard nul JavaScript — er wordt alleen verstuurd wat de pagina echt nodig heeft. Het resultaat: snelle laadtijden, uitstekende Core Web Vitals-scores en compacte, onderhoudbare code." },
-              { "question": "Waarom bouwen met Astro?", "answer": "Astro is de juiste keuze voor content-rijke sites: minimale JavaScript, schone HTML, standaard goede SEO en een ontwikkelaarservaring die je niet in de weg zit. Het is compact, doelgericht en gebouwd om lang mee te gaan." },
-              { "question": "Wat kan ik bouwen met Astro Rocket?", "answer": "Portfolio's, zakelijke sites, marketingpagina's, blogs, documentatiesites — elk content-gedreven project. Astro Rocket geeft je de structuur, componenten en standaardinstellingen om direct van start te gaan." },
-              { "question": "Staat Astro Rocket in de officiële Astro-themamap?", "answer": "Ja. <a href=\"https://astro.build/themes/details/astro-rocket/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Astro Rocket</a> staat in de officiële Astro-themamap als een gratis, productieklaar thema." },
-              { "question": "Blijft Astro Rocket nieuwe Astro-releases volgen?", "answer": "Ja. Astro Rocket wordt actief onderhouden en bijgewerkt om nieuwe Astro-releases te volgen. Volg de blog of houd de GitHub-repository in de gaten voor updates." }
+              {
+                "question": "Wat is GhostForge Dev?",
+                "answer": "Het is een merknaam die ik gebruik voor freelance projectontwikkeling."
+              },
+              {
+                "question": "Waarom mijn website bouwen met GhostForge Dev?",
+                "answer": "GhostForge Dev beleeft momenteel zijn geboorte als een commercieel merk met een groot potentieel voor groei en ontwikkeling van projecten met hoge capaciteit."
+              }
             ]
           },
           {
-            "icon": "code-2",
-            "title": "Het thema gebruiken",
+            "icon": "zoekcontrole",
+            "title": "Dit project verifiëren",
             "items": [
-              { "question": "Is het gratis te gebruiken?", "answer": "Ja, volledig gratis. Astro Rocket is MIT-gelicentieerd — gebruik het voor persoonlijke en commerciële projecten, geen naamsvermelding vereist." },
-              { "question": "Hoe wissel ik van thema?", "answer": "Wijzig één regel in je configuratie. Astro Rocket wordt geleverd met 12 met de hand gemaakte kleurthema's — wissel er direct tussen zonder ook maar één regel CSS aan te raken." },
-              { "question": "Ondersteunt het TypeScript?", "answer": "Ja, TypeScript wordt overal gebruikt. Alle componenten, configuraties en hulpprogramma's zijn volledig getypeerd." },
-              { "question": "Hoe voeg ik mijn eigen taal toe voor i18n?", "answer": "De i18n van Astro Rocket is config-gedreven. Voeg je locale toe aan het i18n-configuratiebestand, maak een bijbehorend vertaalbestand aan en de routering en interface passen zich automatisch aan." },
-              { "question": "Waar meld ik bugs of stel ik functies voor?", "answer": "Open een issue of start een discussie op de <a href=\"https://github.com/hansmartensdev/astro-rocket\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub-repository</a>. Bijdragen en feedback zijn altijd welkom." }
+              {
+                "question": "Waarom is de repository openbaar?",
+                "answer": "De repository is openbaar voor jobrecruiters zoals LinkedIn-recruiters."
+              }
             ]
           }
         ]
       },
       "openSource": {
-        "badge": "Open source",
-        "heading": "In de openbaarheid gebouwd",
-        "description": "Astro Rocket is gratis, open source en MIT-gelicentieerd. Bekijk de broncode, open issues, dien PR's in, of kloon het gewoon en bouw iets moois.",
+        "badge": "Open bron",
+        "heading": "Deze website is in de open lucht gebouwd",
+        "description": "GhostForge Dev Website is gratis, open source en MIT-gelicentieerd. Blader door de bron, open problemen, dien PR's in, of klonen deze gewoon en bouwen iets geweldigs.",
         "button": "Bekijk op GitHub",
         "cards": [
-          { "title": "Gemaakt door Hans Martens Dev", "text": "Astro Rocket is ontworpen en gebouwd door <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — een freelance Astro-developer die het als basis voor klantprojecten gebruikt." },
-          { "title": "MIT-licentie", "text": "Gratis te gebruiken in persoonlijke en commerciële projecten. Geen naamsvermelding vereist, al wordt een ster op GitHub altijd gewaardeerd." },
-          { "title": "Actief onderhouden", "text": "Het thema wordt up-to-date gehouden met nieuwe Astro-releases en regelmatig verbeterd op basis van feedback uit de community." }
+          {
+            "title": "Gewijzigd door Juan Gamba",
+            "text": "De structuur en inhoud zijn gemaakt en aangepast door Juan Gamba <a href=\"https://github.com/juandgambas\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Juan D. Gamba S.</a> — een full-stack ontwikkelaar die een breed scala aan softwareprojecten kan maken met Laravel, Spring Boot en Vue.js."
+          },
+          {
+            "title": "Sjabloon gemaakt door Hans Martens Dev",
+            "text": "Astro Rocket is ontworpen en gebouwd door <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — een Astro-thema-ontwikkelaar in Veghel, Nederland, die het gebruikt als basis voor klantprojecten."
+          },
+          {
+            "title": "MIT-licentie",
+            "text": "Gratis te gebruiken in persoonlijke en commerciële projecten. Geen toeschrijving vereist, hoewel een ster op GitHub altijd op prijs wordt gesteld."
+          }
         ]
       },
       "cta": {
-        "badge": "Aan de slag",
+        "badge": "Ga aan de slag",
         "heading": "Klaar om te bouwen?",
-        "description": "Kloon Astro Rocket, kies een thema en lanceer je volgende project in enkele minuten.",
+        "description": "Controleer de best practices voor een statische website met Astro en de GhostForge Dev-repository.",
         "button": "Aan de slag"
       }
     },
     "services": {
       "meta": {
-        "title": "Diensten — Webdesign, webdevelopment & weboptimalisatie",
-        "description": "Freelance webdesign, webdevelopment en weboptimalisatie: strakke, razendsnelle custom Astro-websites. Een gratis eerste gesprek, één helder voorstel, één vaste prijs."
+        "title": "Diensten — Analyse, ontwerp, ontwikkeling en kwaliteitscontrole",
+        "description": "Freelance of gecontracteerde diensten, webdesign, ontwikkeling en optimalisatie: strakke, razendsnelle Astro-websites op maat. Een gratis eerste gesprek, één helder voorstel, één vaste prijs."
       },
       "includedLabel": "Wat je krijgt",
       "hero": {
         "badge": "Diensten",
-        "titleLead": "Webdesign, webdevelopment,",
-        "titleHighlight": "en weboptimalisatie",
-        "description": "Drie diensten, één product: een strakke, razendsnelle custom Astro-website waar je trots je naam op zet.",
-        "jumpLabels": ["Webdesign", "Webdevelopment", "Weboptimalisatie"]
+        "titleLead": "Analyse, webdesign, ontwikkeling",
+        "titleHighlight": "en kwaliteitsborging (QA)",
+        "description": "Vier diensten, één product: een strakke, razendsnelle maatwerk Astro-, Laravel- of Spring Boot-website waar u met trots uw naam op kunt zetten.",
+        "jumpLabels": [
+          "Analyse van vereisten",
+          "Webontwerp",
+          "Webontwikkeling",
+          "Kwaliteitsborging"
+        ]
       },
-      "design": {
-        "badge": "Design",
-        "heading": "Webdesign",
+      "analysis": {
+        "badge": "Analyse",
+        "heading": "Bedrijfsanalyse",
         "paragraphs": [
-          "Webdesign is hoe je website eruitziet en aanvoelt: de lay-out, de kleuren, de beelden en de manier waarop bezoekers hun weg vinden.",
-          "Ik ontwerp elke website rond jouw bedrijf — je merk, je content en de klanten die je wilt bereiken — zodat hij een sterke eerste indruk maakt en mensen direct naar de kern leidt. Strak, modern en gemaakt om te werken op elk scherm, van beeldscherm tot telefoon."
+          "Bedrijfsanalyse is wat we eerst doen: analyseer de context, uw bedrijf en de behoeften van uw klanten en gebruikers.",
+          "We moeten dezelfde taal spreken over belangrijke aspecten van uw bedrijf, anders werkt de oplossing die wij bedenken niet voor u."
         ],
         "included": [
           {
-            "lead": "Een ontwerp dat van jou is",
-            "text": "gevormd rond je bedrijf, je merk en de klanten die je wilt bereiken."
+            "lead": "Planning",
+            "text": "Verbind wat u weet met wat ik weet en met wat ik niet weet, en wat uw gebruikers en klanten nodig hebben."
           },
           {
-            "lead": "Een sterke eerste indruk",
-            "text": "een strakke, moderne uitstraling die mensen meteen laat zien wie je bent."
+            "lead": "Informatie verzamelen",
+            "text": "praat met u, uw gebruikers en klanten om uw gedrag in uw echte omgeving te observeren met betrekking tot uw zakelijke behoeften."
           },
           {
-            "lead": "Heldere navigatie",
-            "text": "een lay-out die bezoekers direct naar wat voor hen belangrijk is leidt."
+            "lead": "Mezelf verdiepen in jouw behoeften",
+            "text": "inzicht in de ervaring van uw gebruikers en klanten om verborgen details vast te leggen."
           },
           {
-            "lead": "Een ontwerp voor elk scherm",
-            "text": "oogt en werkt prachtig op telefoon, tablet en desktop."
+            "lead": "Organiseer en analyseer de verzamelde gegevens",
+            "text": "Organiseer de interviewinformatie en aantekeningen in een besluitvormingspanel, groepeer ze op thema en identificeer patronen."
           },
           {
-            "lead": "Jouw content op z'n best",
-            "text": "je woorden en beelden in een lay-out die prettig leest en er goed uitziet."
+            "lead": "Inzichten verkrijgen en focussen op het probleem",
+            "text": "zoeken naar onthullingen of verborgen waarheden over gebruikers en focussen op het probleem dat echt opgelost moet worden."
+          }
+        ],
+        "ctaLabel": "Laten we uw ideeën en behoeften analyseren"
+      },
+      "design": {
+        "badge": "Ontwerp",
+        "heading": "Webontwerp",
+        "paragraphs": [
+          "Webdesign is hoe uw website eruit ziet en aanvoelt: de lay-out, de kleuren, de afbeeldingen en de manier waarop bezoekers hun weg vinden.",
+          "We moeten ideeën diversifiëren, dat wil zeggen, onszelf openstellen voor opties met betrekking tot ons probleem, en vervolgens ideeën convergeren, dat wil zeggen ideeën filteren en de mogelijke oplossing definiëren."
+        ],
+        "included": [
+          {
+            "lead": "Een brainstorm",
+            "text": "Als ik er mijn zinnen op zet, kan ik heel creatief zijn. Gebruik brainstorming om het creatieve proces te ondersteunen."
+          },
+          {
+            "lead": "Expansief denken",
+            "text": "vind onconventionele alternatieven voor uw behoeften."
+          },
+          {
+            "lead": "Ondersteunende technieken",
+            "text": "gebruik mindmaps, plaknotities en andere hulpmiddelen om over oplossingen te brainstormen."
+          },
+          {
+            "lead": "Groeperen en filteren",
+            "text": "sorteer de voorstellen en controleer of ze aansluiten bij uw bedrijfsidee."
+          },
+          {
+            "lead": "Stem en stel prioriteiten",
+            "text": "gebruik zelfklevende stippen of impactmatrices om de meest veelbelovende opties te kiezen."
+          },
+          {
+            "lead": "Definitieve selectie",
+            "text": "selecteer een of twee ideeën met de grootste reële waarde voor uw zakelijke gebruikers en klanten"
           }
         ],
         "ctaLabel": "Bespreek een ontwerpproject"
       },
       "development": {
-        "badge": "Development",
-        "heading": "Webdevelopment",
+        "badge": "Ontwikkeling",
+        "heading": "Webontwikkeling",
         "paragraphs": [
-          "Webdevelopment is het bouwen van je website: het ontwerp omzetten in de code die in de browser van je bezoeker draait.",
-          "Ik bouw met Astro, een modern framework dat vertrouwd wordt voor een aantal van de snelste websites online. Dat maakt je site snel, veilig en jarenlang eenvoudig te onderhouden. En hij is vanaf dag één van jou, met de code, het domein en de hosting op jouw naam."
+          "Webontwikkeling is het bouwen van uw website: het ontwerp omzetten in de code die in de browser van uw bezoeker draait.",
+          "Ik bouw met Astro, een modern raamwerk dat wordt vertrouwd voor enkele van de snelste websites online. Dat zorgt ervoor dat uw site snel laadt, veilig is en jarenlang gemakkelijk te onderhouden is. En vanaf dag één is het van jou, met de code, het domein en de hosting allemaal op jouw naam."
         ],
         "included": [
           {
             "lead": "Een razendsnelle website",
-            "text": "gebouwd met Astro, het framework achter een aantal van de snelste websites online."
+            "text": "gebouwd met Astro, Laravel, Vue.js en/of Spring Boot, de raamwerken achter enkele van de snelste statische en dynamische websites online."
           },
           {
             "lead": "Een veilige, betrouwbare website",
-            "text": "eentje die veilig blijft en blijft werken, jaar na jaar."
+            "text": "een die veilig blijft en blijft werken, jaar na jaar."
           },
           {
-            "lead": "Volledig eigendom",
-            "text": "de code, het domein en de hosting vanaf dag één op jouw naam."
-          },
-          {
-            "lead": "Zorg na de lancering",
-            "text": "je website bijgehouden en beveiligd met het maandelijkse onderhoudsplan, terwijl jij onderneemt."
+            "lead": "Volledige eigendom",
+            "text": "de code, het domein en de hosting staan ​​vanaf dag één allemaal op uw naam."
           },
           {
             "lead": "Ruimte om te groeien",
-            "text": "plek voor nieuwe pagina's en functies wanneer je bedrijf ze nodig heeft."
+            "text": "ruimte om nieuwe pagina's en functies toe te voegen wanneer uw bedrijf deze nodig heeft."
           }
         ],
-        "ctaLabel": "Bekijk recente projecten"
+        "ctaLabel": "Zie recente projecten"
       },
-      "performance": {
-        "badge": "Optimalisatie",
-        "heading": "Weboptimalisatie",
+      "sqa": {
+        "badge": "Kwaliteitscontrole (QA)",
+        "heading": "Softwarekwaliteitscontrole (SQA)",
         "paragraphs": [
-          "Weboptimalisatie is het werk dat je website laat presteren: snel laden, goed scoren in zoekmachines en werken voor iedereen.",
-          "Ik bouw snelheid, SEO en toegankelijkheid vanaf de allereerste regel in, niet als sluitstuk. Zo is je website makkelijk te vinden en te begrijpen voor Google, opent hij snel voor elke bezoeker en kan iedereen die binnenkomt hem gebruiken."
+          "Softwarekwaliteitsborging (SQA) is het werk dat ervoor zorgt dat uw website blijft functioneren waar, wanneer en waar u dat nodig heeft, en dat problemen worden voorkomen voordat ze zich voordoen.",
+          "Ik anticipeer op problemen, beoordeel ontwikkelingsprocessen, verifieer en valideer software en pas continue verbeteringsprocessen toe zodat uw website vrijwel altijd volgens uw behoeften zal functioneren."
         ],
         "included": [
           {
-            "lead": "Een website die Google en AI vinden",
-            "text": "gebouwd zodat zoekmachines en AI-assistenten je pagina's kunnen lezen, begrijpen en aanraden."
+            "lead": "Verwachte problemen",
+            "text": "Softwareproblemen kunnen zich voordoen, maar komen vaker voor als er geen werkstandaarden, coderingsrichtlijnen, methodologieën en een goede beschrijving van de behoeften van uw bedrijf, gebruikers en klanten zijn."
           },
           {
-            "lead": "Snelheid op elk apparaat",
-            "text": "pagina's die snel blijven, ook op een telefoon of een tragere verbinding."
+            "lead": "Ontwikkelprocessen beoordeeld",
+            "text": "het is noodzakelijk om gedurende het hele proces te verifiëren dat de software voldoet aan de technische vereisten en gebruikersbehoeften en voldoet aan de behoeften van uw bedrijf."
           },
           {
-            "lead": "Een website voor iedereen",
-            "text": "toegankelijk voor elke bezoeker, welk apparaat of welke beperking dan ook."
+            "lead": "Continue verbetering",
+            "text": "analyseer statistieken en foutrapporten om teamprocessen aan te passen"
           },
           {
-            "lead": "Hoge prestatiescores",
-            "text": "sterke resultaten op Googles eigen snelheids- en kwaliteitschecks (Lighthouse)."
-          },
-          {
-            "lead": "Optimalisatie vanaf dag één",
-            "text": "snelheid, SEO en toegankelijkheid vanaf de allereerste regel ingebouwd."
+            "lead": "Kwaliteitscontrole (QC)",
+            "text": "proactief verifiëren dat de oplossing werkt."
           }
         ],
-        "ctaLabel": "Start een project"
-      },
-      "process": {
-        "badge": "Hoe het werkt",
-        "heading": "Hoe een project verloopt",
-        "lead": "Van je eerste bericht tot een live website.",
-        "steps": [
-          { "title": "Eerste contact", "description": "Je stuurt een bericht via het contactformulier. Ik reageer binnen een werkdag en we plannen een gratis, informatief gesprek over wat je nodig hebt. Vrijblijvend." },
-          { "title": "Voorstel", "description": "Na ons gesprek krijg je één helder document: wat ik bouw, wanneer het klaar is en de vaste prijs. Jij beslist met alles op tafel." },
-          { "title": "Ontwerp & bouw", "description": "Ik werk in korte cycli. Je volgt de voortgang op een staging-link en ziet je website vorm krijgen." },
-          { "title": "Lancering & ondersteuning", "description": "Je website gaat live op je eigen domein en hosting, op jouw naam. Daarna blijf ik bereikbaar, en voor regelmatige updates is er het maandelijkse onderhoudsplan." }
-        ]
+        "ctaLabel": "Neem contact met mij op"
       },
       "faq": {
         "badge": "Vragen",
-        "heading": "Vragen en antwoorden",
+        "heading": "Vragen en antwoorden (freelance werken)",
         "lead": "De dingen die klanten vragen voordat we beginnen.",
         "cards": [
           {
-            "icon": "tag",
+            "icon": "label",
             "title": "Voordat we beginnen",
             "items": [
-              { "question": "Wat kost een website?", "answer": "Elk project krijgt één vaste prijs, afgesproken voordat we beginnen. Geen uurtje-factuurtje, geen verrassingen achteraf. Het gratis gesprek — en de gratis check, als er al een website is — vertelt me wat je project nodig heeft, en je krijgt de prijs in één helder voorstel." },
-              { "question": "Hoe lang duurt een project?", "answer": "Dat hangt af van de omvang van de website. Het voorstel noemt de planning samen met de prijs, zodat je beide kent voordat we beginnen." },
-              { "question": "Wat gebeurt er met mijn huidige website?", "answer": "Die blijft online tot de nieuwe klaar is. Je content, je webadres en je Google-posities gaan mee. Ik bekijk je huidige website vóór ons eerste gesprek, zodat je vanaf het begin duidelijke antwoorden krijgt." },
-              { "question": "Moet ik zelf hosting of een domein regelen?", "answer": "Nee. Ik zet de hosting en het domein voor je op, op jouw eigen naam. Heb je al een domein, dan houden we dat gewoon." },
-              { "question": "Moeten we elkaar in persoon ontmoeten?", "answer": "Dat hoeft niet. De meeste projecten verlopen volledig via telefoon, video en e-mail. Ik werk met klanten wereldwijd, en tijdzones zijn zelden een probleem." }
+              {
+                "question": "Wat kost een website?",
+                "answer": "Elk project krijgt één vaste prijs, overeengekomen voordat we beginnen. Geen uurfacturering, geen verrassingen achteraf. Het gratis gesprek – en de gratis cheque, als er al een website is – vertelt mij wat uw project nodig heeft, en u krijgt de prijs in één duidelijk voorstel."
+              },
+              {
+                "question": "Hoe lang duurt een project?",
+                "answer": "Dat hangt af van de grootte van de website. Het voorstel vermeldt de tijdlijn samen met de prijs, zodat u beide weet voordat we beginnen."
+              },
+              {
+                "question": "Wat gebeurt er met mijn huidige website?",
+                "answer": "Het blijft online totdat de nieuwe klaar is. Uw inhoud, uw webadres en uw Google-ranglijst komen mee. Vóór ons eerste gesprek controleer ik uw huidige website, zodat u vanaf het begin duidelijke antwoorden krijgt."
+              },
+              {
+                "question": "Moet ik hosting of een domein regelen?",
+                "answer": "Nee. Ik heb de hosting en het domein voor je geregeld, op je eigen naam. Als u al een domein heeft, behouden wij deze gewoon."
+              },
+              {
+                "question": "Moeten we elkaar persoonlijk ontmoeten?",
+                "answer": "Het is niet nodig. De meeste projecten verlopen volledig via telefoon, video en e-mail. Momenteel werk ik lokaal met klanten in Bogota (Colombia)."
+              }
             ]
           },
           {
-            "icon": "user",
-            "title": "Samenwerken met mij",
+            "icon": "gebruiker",
+            "title": "Werken met mij",
             "items": [
-              { "question": "Ben je een bedrijf of bureau?", "answer": "Ik ben een eenmansbedrijf: een freelancer, geen bureau. Je werkt rechtstreeks met degene die het werk doet, van het eerste gesprek tot de afgeronde website. Geen salesteam, geen accountmanagers, geen overdrachten." },
-              { "question": "Kan ik de website zelf aanpassen na de lancering?", "answer": "Je kunt je wijzigingen simpelweg naar mij sturen, en daar is het maandelijkse onderhoudsplan precies voor. Wil je de website zelf bewerken, zeg het dan in het eerste gesprek en ik richt de site daarop in." },
-              { "question": "Bouw je ook webshops?", "answer": "Nee. Grote webwinkels zijn het enige dat ik niet bouw. Al het andere dat een custom Astro-website nodig heeft, bouw ik: vertel me in het eerste gesprek wat je voor ogen hebt, en ik ben eerlijk over of ik de juiste bouwer ervoor ben." },
-              { "question": "Is de website echt van mij?", "answer": "Helemaal. Het domein, de hosting en de code staan vanaf dag één op jouw naam. Wil je ooit verder, dan neem je alles mee: je zit nergens aan vast." },
-              { "question": "Wat als er na de lancering iets kapotgaat?", "answer": "Er kan maar weinig kapot: de website heeft geen plugins en geen database die kunnen falen. En ik blijf bereikbaar na de lancering; voor regelmatige updates en monitoring is er het maandelijkse onderhoudsplan." }
+              {
+                "question": "Bent u een bedrijf of instantie?",
+                "answer": "Ik ben een eenmanszaak: een freelancer, geen bureau. Je werkt rechtstreeks samen met de persoon die het werk doet, vanaf het eerste gesprek tot aan de voltooide website. Geen verkoopteam, geen accountmanagers, geen overdrachten."
+              },
+              {
+                "question": "Kan ik de website na lancering zelf wijzigen?",
+                "answer": "U kunt mij eenvoudig uw wijzigingen doorgeven, en daar bestaat het maandelijkse zorgplan (als we akkoord mee zijn) precies voor. Als je de website zelf wilt bewerken, zeg dat dan in het eerste gesprek en ik zet de site daarvoor klaar."
+              },
+              {
+                "question": "Bouwen jullie ook webshops?",
+                "answer": "Nee. Grote online winkels zijn het enige dat ik niet bouw. Al het andere dat een aangepaste Astro-, Laravel-, Vue.js- en/of Spring Boot-website nodig heeft, bouw ik: vertel me in het eerste gesprek wat je in gedachten hebt, en ik zal eerlijk zijn of ik er de juiste bouwer voor ben."
+              },
+              {
+                "question": "Is de website echt van mij?",
+                "answer": "Volledig. Het domein, de hosting en de code staan ​​vanaf dag één op jouw naam. Als je ooit verder wilt, neem je alles mee: je zit nooit opgesloten."
+              },
+              {
+                "question": "Wat gebeurt er als er iets kapot gaat na de lancering?",
+                "answer": "Er kan heel weinig kapot gaan als de website met Astro is gebouwd: de website heeft geen plug-ins en geen database die kan falen. En ik blijf bereikbaar na de lancering; voor regelmatige updates en monitoring is er het maandelijkse zorgplan. Als de website is gebouwd met Laravel, Vue.js of Spring Boot, kunnen er meer dingen misgaan, maar het zorgplan kan, als we het ermee eens zijn, ook elk probleem oplossen, door databases, services, afhankelijkheden, runtime-fouten, enz. te verifiëren."
+              }
             ]
           }
         ]
       },
       "cta": {
         "badge": "Laten we praten",
-        "heading": "Laten we het over jouw wensen hebben",
-        "description": "Het eerste gesprek is gratis en informatief, geheel vrijblijvend: per telefoon, video of e-mail. Je krijgt eerlijke antwoorden, en na het gesprek één helder voorstel met een planning en een vaste prijs.",
+        "heading": "Laten we praten over wat je nodig hebt",
+        "description": "Het eerste gesprek is gratis en informatief, vrijblijvend: per telefoon, video of e-mail, als er vacatures of freelance werk zijn.",
         "primary": "Stuur een bericht",
         "secondary": "Meer over mij"
       }
@@ -473,57 +602,105 @@
     "contact": {
       "meta": {
         "title": "Contact",
-        "description": "Iets nieuws van plan? Ik ontwerp en bouw nieuwe websites vanaf nul — vertel me over je project en ik reageer binnen 1 werkdag."
+        "description": "Ik wil met je samenwerken, vertel het me gewoon. Ik help je graag, wat je maar wilt."
       },
       "hero": {
         "badge": "Start een project",
-        "titleLead": "Vertel me over je",
-        "titleHighlight": "nieuwe project",
-        "description": "Ik hoor graag van je. Stuur een bericht via het formulier hieronder, of gebruik een van de andere kanalen hieronder."
+        "titleLead": "Vertel me over jouw",
+        "titleHighlight": "nieuw project",
+        "description": "Ik wil met je samenwerken, vertel het me gewoon. Ik help je graag, wat je maar wilt. Stuur een bericht via onderstaand formulier, of neem contact op via een van de andere onderstaande kanalen."
       },
       "formTitle": "Projectdetails",
       "channelsTitle": "Andere kanalen",
       "channelsSubtitle": "Liever een direct kanaal? Kies wat het beste werkt.",
       "emailLabel": "E-mail",
-      "emailNote": "Stuur een bericht",
+      "emailNote": "Stuur ons een bericht",
       "socialNote": "Volg mee",
       "basedIn": "Gevestigd in {country}"
     },
     "home": {
       "meta": {
-        "title": "Gratis open-source Astro 7 thema",
-        "description": "Astro Rocket is een gratis, razendsnel Astro 7 starter-thema om alles op te bouwen — met 57+ ontworpen componenten, 12 kleurthema's, donkere modus en ingebouwde i18n aan boord."
+        "title": "Fullstack-ontwikkelaar",
+        "description": "Het maken van krachtige webapplicaties, van concept tot implementatie. Gespecialiseerd in Laravel, Spring Boot en Vue.js."
       },
       "hero": {
         "badge": "Beschikbaar voor nieuwe projecten",
-        "titleLine1": "Astro Rocket —",
-        "titleLine2": "Webdesigner",
-        "titleLine3": "& Ontwikkelaar",
-        "description": "Een gratis, razendsnel Astro 7 starter-thema om alles op te bouwen: 57+ ontworpen componenten, 12 kleurthema's en donkere modus.",
-        "descriptionMobile": "Een gratis, razendsnel Astro 7 starter-thema om alles op te bouwen, met 57+ ontworpen componenten.",
-        "github": "Bekijk op GitHub",
-        "getStarted": "Aan de slag"
+        "titleLine1": "GhostForge Dev —",
+        "titleLine2": "Webontwerp",
+        "titleLine3": "& Ontwikkeling",
+        "description": "Het maken van krachtige webapplicaties, van concept tot implementatie. Gespecialiseerd in Laravel, Spring Boot en Vue.js.",
+        "descriptionMobile": "Het maken van krachtige webapplicaties, van concept tot implementatie. Laravel, Spring Boot en Vue.js",
+        "github": "Download het op GitHub",
+        "getStarted": "Ga aan de slag"
       },
       "services": {
         "badge": "Wat ik doe",
-        "heading": "Ontwerpen, bouwen, optimaliseren",
-        "lead": "Elk project krijgt alle drie de diensten.",
-        "learnMore": "Meer weten",
+        "heading": "Analyseren, ontwerpen, bouwen, verzekeren",
+        "lead": "Elk project krijgt alle vier de diensten.",
+        "learnMore": "Meer informatie",
         "cards": [
-          { "icon": "layout", "title": "Webdesign", "description": "Interfaces die vanzelfsprekend aanvoelen. Lay-outs gevormd rond je content, je merk en hoe mensen echt lezen op een scherm." },
-          { "icon": "code", "title": "Webdevelopment", "description": "Sites gebouwd om lang mee te gaan. Astro, Tailwind en een schone architectuur: snel op dag één, eenvoudig te onderhouden op dag 500." },
-          { "icon": "trending-up", "title": "Weboptimalisatie", "description": "SEO, Core Web Vitals en toegankelijkheid, vanaf dag één ingebouwd, zodat je site scoort, snel laadt en werkt voor elke bezoeker." }
+          {
+            "icon": "gloeilamp",
+            "title": "Analyse van vereisten",
+            "description": "Begrijp uw zakelijke behoeften. Wij begeleiden u bij het structureren en bedenken van de oplossing die nodig is voor uw probleem."
+          },
+          {
+            "icon": "indeling",
+            "title": "Webontwerp",
+            "description": "Gebruikersgericht ontwerp. Ontwerp door de behoeften van uw gebruikers, klanten en uw bedrijf met elkaar te verbinden.",
+            "url": "#ontwerp"
+          },
+          {
+            "icon": "code",
+            "title": "Webontwikkeling",
+            "description": "Bouw de software die uw probleem vereist. Concentreer het idee dat in de analyse is bedacht, zodat het aansluit bij uw behoeften en correct werkt.",
+            "url": "#ontwikkeling"
+          },
+          {
+            "icon": "lijst-controles",
+            "title": "Kwaliteitsborging",
+            "description": "Dankzij kwaliteitsborging kunt u uw bedrijf zonder al te veel zorgen soepel laten draaien.",
+            "url": "#qa"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Weboptimalisatie",
+            "description": "SEO, Core Web Vitals en toegankelijkheid, vanaf de eerste dag ingebouwd, zodat uw site scoort, goed laadt en voor elke bezoeker werkt.",
+            "url": "#qa"
+          },
+          {
+            "icon": "beestje",
+            "title": "Bugfixing",
+            "description": "Er bestaan ​​bugs, maar ook oplossingen. Wij mensen kunnen fouten maken, maar we kunnen ze ook herstellen, onder welke omstandigheden dan ook.",
+            "url": "#qa"
+          }
         ]
       },
       "workWithMe": {
-        "badge": "Samenwerken",
-        "heading": "Laten we jouw website bouwen",
+        "badge": "Werk met mij",
+        "heading": "Laten we uw website bouwen",
         "lead": "Wat je krijgt als we samenwerken.",
         "cards": [
-          { "icon": "palette", "title": "Custom design", "description": "Ontworpen rond je bedrijf, je content en je klanten." },
-          { "icon": "zap", "title": "Een razendsnelle website", "description": "Pagina's die direct openen, op elke telefoon en elke verbinding." },
-          { "icon": "search", "title": "Gevonden door Google en AI", "description": "Elke pagina zo gebouwd dat zoekmachines en AI-assistenten hem goed lezen en klanten je vinden." },
-          { "icon": "shield-check", "title": "Geen onderhoud", "description": "Bijgehouden en beveiligd met het onderhoudsplan, zodat jij je op je bedrijf kunt richten." }
+          {
+            "icon": "palet",
+            "title": "Aangepast ontwerp",
+            "description": "Ontworpen rond uw bedrijf, uw inhoud en uw klanten."
+          },
+          {
+            "icon": "zap",
+            "title": "Een razendsnelle website",
+            "description": "Pagina's die direct openen, op elke telefoon en elke verbinding."
+          },
+          {
+            "icon": "zoekopdracht",
+            "title": "Gevonden door Google en AI",
+            "description": "Elke pagina is zo gebouwd dat zoekmachines en AI-assistenten deze netjes kunnen lezen en dat klanten u kunnen vinden."
+          },
+          {
+            "icon": "schildcontrole",
+            "title": "Geen onderhoud",
+            "description": "Blijf up-to-date en veilig met het zorgplan, zodat u zich kunt concentreren op uw bedrijf."
+          }
         ],
         "cta": "Lees mijn dienstenpagina"
       },
@@ -534,26 +711,27 @@
         "viewAll": "Bekijk alle projecten"
       },
       "testimonials": {
-        "badge": "Aanbevelingen",
+        "badge": "Getuigenissen",
         "heading": "Wat klanten zeggen",
-        "lead": "Echte woorden uit afgeronde projecten.",
-        "items": [
-          { "quote": "De nieuwe site werd op tijd gelanceerd en haalde elk doel dat we stelden. De prestaties verbeterden enorm — laadtijden daalden en de reacties van onze klanten zijn overweldigend positief.", "name": "Alex Morgan", "role": "Oprichter, Bright Studio" },
-          { "quote": "Helder van het eerste gesprek tot de uiteindelijke oplevering. De juiste vragen werden gesteld, we werden overal bij betrokken en het eindresultaat overtrof wat we ons hadden voorgesteld. Een aanrader zonder twijfel.", "name": "Sarah Chen", "role": "CEO, Luma Agency" }
-        ]
+        "lead": "Echte woorden van voltooide projecten.",
+        "noTestimonialsYet": {
+          "title": "Er zijn nog geen getuigenissen.",
+          "description": "Zodra er getuigenissen zijn, kunt u deze hier inzien."
+        },
+        "items": []
       },
       "aboutTeaser": {
         "badge": "Over mij",
-        "headingLine1": "Designer, ontwikkelaar,",
+        "headingLine1": "Ontwikkelaar",
         "headingLine2": "en blogger.",
-        "para1WithLocation": "Zestien jaar praktijkervaring, gevestigd in {location} en beschikbaar voor klanten wereldwijd. Ik bouw met Astro omdat het aansluit bij hoe ik over het web denk: compact, doelgericht en gebouwd om lang mee te gaan.",
-        "para1NoLocation": "Zestien jaar praktijkervaring en beschikbaar voor klanten wereldwijd. Ik bouw met Astro omdat het aansluit bij hoe ik over het web denk: compact, doelgericht en gebouwd om lang mee te gaan.",
-        "para2": "Op de blog deel ik de ideeën en keuzes die mijn werk vormgeven.",
+        "para1WithLocation": "Zeven jaar praktische ervaring, gevestigd in {location} en voorlopig beschikbaar voor lokale klanten of ondernemingen. Ik bouw met Astro, statische websites, omdat het aansluit bij hoe ik over internet denk: slank, doelgericht en gebouwd om lang mee te gaan, en ik bouw dynamische websites met Laravel met Vue.js-stack, voor snelle monolithische websites, en een Spring-stack met Spring Boot en Spring MVC, voor stabiele websites met microservices.",
+        "para1NoLocation": "Zeven jaar praktijkervaring en voorlopig beschikbaar voor lokale klanten of ondernemingen. Ik bouw met Astro b, statische websites, omdat het aansluit bij hoe ik over internet denk: slank, doelgericht en gebouwd om lang mee te gaan, en ik bouw dynamische websites met Laravel met Vue.js-stack, voor snelle monolithische websites, en een Spring-stack met Spring Boot en Spring MVC, voor stabiele websites met microservices.",
+        "para2": "Op de blog deel ik de ideeën en beslissingen die mijn werk vormgeven, en meningen over actuele gebeurtenissen in de sector.",
         "moreAboutMe": "Meer over mij",
         "statsIntro": "Een paar dingen over mij.",
-        "stat1": "16 jaar ervaring",
-        "stat2": "Bouwen met Astro",
-        "stat3": "Wereldwijd werkzaam",
+        "stat1": "7 jaar ervaring",
+        "stat2": "Bouwen met Astro, Laravel, Vue.js en Spring",
+        "stat3": "Lokaal werken",
         "basedIn": "Gevestigd in"
       },
       "blog": {
@@ -563,8 +741,8 @@
       },
       "cta": {
         "badge": "Laten we praten",
-        "heading": "Laten we het over jouw wensen hebben",
-        "description": "Het eerste gesprek is gratis en informatief, geheel vrijblijvend. En van het eerste gesprek tot de uiteindelijke oplevering: je werkt met mij.",
+        "heading": "Laten we praten over wat je nodig hebt",
+        "description": "Het eerste gesprek is gratis, informatief en zonder verplichtingen. En ik sta klaar om softwareoplossingen voor u te bouwen in uw bedrijf.",
         "primary": "Stuur een bericht",
         "secondary": "Meer over mij"
       }

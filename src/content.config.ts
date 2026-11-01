@@ -107,8 +107,15 @@ const projects = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      url: z.string().url().optional(),
-      repo: z.string().url().optional(),
+      /**
+       * Lucide icon shown on the project card, e.g. "rocket", "book-open",
+       * "shopping-bag". Give each project its own: the card is mostly text,
+       * and one repeated icon across every card makes them read as
+       * placeholders. Falls back to "layers" when unset.
+       */
+      icon: z.string().optional(),
+      url: z.url().optional(),
+      repo: z.url().optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
       /**
@@ -162,7 +169,7 @@ const stack = defineCollection({
     name: z.string(),
     description: z.string(),
     version: z.string(),
-    url: z.string().url(),
+    url: z.url(),
     icon: z.string(), // icon name, e.g. 'brand-astro'
     colorOklch: z.string(), // OKLCH params, e.g. '62.5% 0.22 38'
     order: z.number().default(0),

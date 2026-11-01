@@ -31,7 +31,23 @@
     "cancel": "Cancel",
     "next": "Next",
     "previous": "Previous",
-    "home": "Home",
+    "map": "Map",
+    "mapConsentPrompt": "Accept cookies to load the interactive map.",
+    "viewOnGoogleMaps": "View on Google Maps",
+    "themeModeTitle": "Theme: {mode} (click to cycle)",
+    "googleMaps": "Google Maps",
+    "progress": "Progress",
+    "themeMode": "Theme: {mode}",
+    "browseByTag": "Browse by tag",
+    "techStack": "Tech stack",
+    "togglePassword": "Toggle password visibility",
+    "breadcrumb": "Breadcrumb",
+    "copyCode": "Copy code to clipboard",
+    "dismiss": "Dismiss",
+    "notifications": "Notifications",
+    "closeDialog": "Close dialog",
+    "tabs": "Tabs",
+    "verticalTabs": "Vertical tabs",
     "avatarAlt": "Juan David Gamba Saenz Profile Image."
   },
   "blog": {
@@ -73,10 +89,12 @@
     "tocHide": "Hide",
     "backToBlog": "Back to Blog",
     "updated": "Updated",
-    "followAlong": "Follow along",
-    "followAlongLead": "Stay in the loop — new articles, thoughts, and updates.",
     "rssFeed": "RSS Feed",
-    "emailLabel": "Email"
+    "cta": {
+      "heading": "Ready to build?",
+      "description": "Verify the best practices for a static website with Astro and the GhostForge Dev repository.",
+      "button": "Get Started"
+    }
   },
   "comments": {
     "title": "Comments",
@@ -89,10 +107,25 @@
     "viewProject": "View project",
     "viewSource": "View source",
     "noProjectsFound": "No projects found.",
+    "noProjectsFoundDescription": "As soon as there are projects, you will be able to see them here.",
+    "carouselChooseSlide": "Choose slide",
+    "carouselNextSlide": "Next slide",
+    "carouselPreviousSlide": "Previous slide",
+    "galleryLabel": "Media lightbox",
+    "galleryClose": "Close lightbox",
+    "galleryNextImage": "Next image",
+    "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
     "metaDescription": "Selected work — websites, tools, and open-source projects built by GhostForge Dev and Juan D. Gamba S.",
     "heroBadge": "Selected work",
     "heroDescription": "Work selected to share.",
+    "heroProject": {
+      "ghost-forge-dev": {
+        "title": "Launch your next site with GhostForge Dev — the marble run board mark.",
+        "kicker": "Launch your next site with",
+        "word": "GhostForge Dev"
+      }
+    },
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
     "pageMetaDescription": "Page {page} of {total} — selected work, tools, and open-source projects by Astro Rocket.",
@@ -118,7 +151,8 @@
     "page": "Page {current} of {total}",
     "label": "Pagination",
     "previousPage": "Previous page",
-    "nextPage": "Next page"
+    "nextPage": "Next page",
+    "morePages": "More pages"
   },
   "errors": {
     "pageNotFound": "Page not found",
@@ -146,6 +180,8 @@
     "subscribing": "Subscribing…",
     "success": "Thanks for subscribing!",
     "genericError": "Something went wrong",
+    "notConfigured": "Not configured yet — set RESEND_API_KEY and RESEND_AUDIENCE_ID to switch this on. Only you can see this line.",
+    "unavailable": "Signups are not available right now.",
     "error": "Subscription failed. Please try again."
   },
   "contact": {
@@ -158,6 +194,8 @@
     "sending": "Sending…",
     "success": "Message sent successfully!",
     "genericError": "Something went wrong",
+    "notConfigured": "Not configured yet — set RESEND_API_KEY to switch this on. Only you can see this line.",
+    "unavailable": "This form is not available right now.",
     "error": "Failed to send message. Please try again."
   },
   "theme": {
@@ -188,6 +226,12 @@
     "copyright": "© {year} {siteName} by {author}",
     "credit": "Theme by <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
     "builtWith": "Built with Astro Rocket",
+    "groups": {
+      "site": "Site",
+      "topics": "Topics",
+      "projects": "Projects",
+      "questions": "Got questions?"
+    },
     "followOn": "Follow us on {platform}"
   },
   "pages": {
@@ -199,8 +243,22 @@
       "hero": {
         "badge": "About",
         "titleLead": "GhostForge Dev\nBy\nJuan D. Gamba\n—",
-        "typingWords": ["Web Full-stack Developer", "Systems Engineering Student", "Laravel", "Vue.js", "Spring Boot", "Software Analysis & Design"],
-        "typingWordsMobile": ["Full-stack Dev", "Sys. Eng. Student", "Laravel", "Vue.js", "Spring Boot", "Analysis & Design"],
+        "typingWords": [
+          "Web Full-stack Developer",
+          "Systems Engineering Student",
+          "Laravel",
+          "Vue.js",
+          "Spring Boot",
+          "Software Analysis & Design"
+        ],
+        "typingWordsMobile": [
+          "Full-stack Dev",
+          "Sys. Eng. Student",
+          "Laravel",
+          "Vue.js",
+          "Spring Boot",
+          "Analysis & Design"
+        ],
         "description": "Crafting high-performance web applications from concept to deployment. Specialized in Laravel, Spring Boot, and Vue.js."
       },
       "whoAmI": {
@@ -208,6 +266,7 @@
         "heading": "Warm Greetings, I am Juan David Gamba",
         "lead": "From ISAD fundamentals to Systems Engineering at UNAD: a constant evolution through GhostForge Dev.",
         "description": "My path in tech is not just a list of languages, it's the story of curiosity transformed into engineering.",
+        "timeLineHeading": "Profesional timeline of Juan D. Gamba S.",
         "items": [
           {
             "title": "The Past: The Foundation",
@@ -255,9 +314,21 @@
         "heading": "Built with intention",
         "lead": "Every line of code at GhostForge Dev, from the database to the UI, is driven by three core principles.",
         "items": [
-          { "icon": "zap", "title": "Performance First", "description": "Full optimization across server and client. Aiming for maximum response speed and a lean, clean code output." },
-          { "icon": "award", "title": "Clean architecture", "description": "Using design patterns and industry standards (SOLID, DRY) to build software that is scalable, maintainable, and easy to extend." },
-          { "icon": "rocket", "title": "Modern and Robust", "description": "Proficiency in modern stacks like Laravel/Inertia and Spring Boot, always integrating the latest security and deployment practices." }
+          {
+            "icon": "zap",
+            "title": "Performance First",
+            "description": "Full optimization across server and client. Aiming for maximum response speed and a lean, clean code output."
+          },
+          {
+            "icon": "award",
+            "title": "Clean architecture",
+            "description": "Using design patterns and industry standards (SOLID, DRY) to build software that is scalable, maintainable, and easy to extend."
+          },
+          {
+            "icon": "rocket",
+            "title": "Modern and Robust",
+            "description": "Proficiency in modern stacks like Laravel/Inertia and Spring Boot, always integrating the latest security and deployment practices."
+          }
         ]
       },
       "stack": {
@@ -274,15 +345,24 @@
             "icon": "building-2",
             "title": "About GhostForge Dev",
             "items": [
-              { "question": "What is GhostForge Dev?", "answer": "It is a brand name I use for freelance project development." },
-              { "question": "Why building my website with GhostForge Dev?", "answer": "GhostForge Dev is currently experiencing its birth, as a commercial brand with great potential of growth and development of high-capacity projects." }
+              {
+                "question": "What is GhostForge Dev?",
+                "answer": "It is a brand name I use for freelance project development."
+              },
+              {
+                "question": "Why building my website with GhostForge Dev?",
+                "answer": "GhostForge Dev is currently experiencing its birth, as a commercial brand with great potential of growth and development of high-capacity projects."
+              }
             ]
           },
           {
             "icon": "search-check",
             "title": "Verifying this project",
             "items": [
-              { "question": "Why is the repository public?", "answer": "The repository is public for job recruiters such as LinkedIn recruiters." }
+              {
+                "question": "Why is the repository public?",
+                "answer": "The repository is public for job recruiters such as LinkedIn recruiters."
+              }
             ]
           }
         ]
@@ -293,15 +373,24 @@
         "description": "GhostForge Dev Website is free, open source, and MIT licensed. Browse the source, open issues, submit PRs, or can just clone it and build something great.",
         "button": "View on GitHub",
         "cards": [
-          { "title": "Modified by Juan Gamba", "text": "The structure and content was created and modified by Juan Gamba <a href=\"https://github.com/juandgambas\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Juan D. Gamba S.</a> — a full-stack developer who can create a wide variety of software projects with Laravel, Spring Boot, and Vue.js." },
-          { "title": "Template made by Hans Martens Dev", "text": "Astro Rocket was designed and built by <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — a freelance Astro developer who uses it as the foundation for client projects." },
-          { "title": "MIT License", "text": "Free to use in personal and commercial projects. No attribution required, though a star on GitHub is always appreciated." }
+          {
+            "title": "Modified by Juan Gamba",
+            "text": "The structure and content was created and modified by Juan Gamba <a href=\"https://github.com/juandgambas\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Juan D. Gamba S.</a> — a full-stack developer who can create a wide variety of software projects with Laravel, Spring Boot, and Vue.js."
+          },
+          {
+            "title": "Template made by Hans Martens Dev",
+            "text": "Astro Rocket was designed and built by <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — an Astro theme developer in Veghel, the Netherlands, who uses it as the foundation for client projects."
+          },
+          {
+            "title": "MIT License",
+            "text": "Free to use in personal and commercial projects. No attribution required, though a star on GitHub is always appreciated."
+          }
         ]
       },
       "cta": {
         "badge": "Get started",
         "heading": "Ready to build?",
-        "description": "Verify the best practices for a static website with Astro and the Astro Rocket template.",
+        "description": "Verify the best practices for a static website with Astro and the GhostForge Dev repository.",
         "button": "Get Started"
       }
     },
@@ -316,7 +405,12 @@
         "titleLead": "Analysis, web design, development",
         "titleHighlight": "and quality assurance (QA)",
         "description": "Four services, one product: a sleek, lightning-fast custom Astro, Laravel or Spring Boot website you're proud to put your name on.",
-        "jumpLabels": ["Requirements Analysis", "Web Design", "Web Development", "Quality assurance"]
+        "jumpLabels": [
+          "Requirements Analysis",
+          "Web Design",
+          "Web Development",
+          "Quality assurance"
+        ]
       },
       "analysis": {
         "badge": "Analysis",
@@ -447,22 +541,52 @@
             "icon": "tag",
             "title": "Before we start",
             "items": [
-              { "question": "What does a website cost?", "answer": "Every project gets one fixed price, agreed before we start. No hourly billing, no surprises afterwards. The free talk — and the free check, if there's already a website — tells me what your project needs, and you get the price in one clear proposal." },
-              { "question": "How long does a project take?", "answer": "That depends on the size of the website. The proposal names the timeline together with the price, so you know both before we start." },
-              { "question": "What happens with my current website?", "answer": "It stays online until the new one is ready. Your content, your web address, and your Google rankings come along. I check your current website before our first talk, so you get clear answers from the start." },
-              { "question": "Do I need to arrange hosting or a domain?", "answer": "No. I set up the hosting and the domain for you, in your own name. If you already have a domain, we simply keep it." },
-              { "question": "Do we need to meet in person?", "answer": "It's not needed. Most projects run entirely by phone, video, and email. Currently, I am working with clients locally in Bogota (Colombia)." }
+              {
+                "question": "What does a website cost?",
+                "answer": "Every project gets one fixed price, agreed before we start. No hourly billing, no surprises afterwards. The free talk — and the free check, if there's already a website — tells me what your project needs, and you get the price in one clear proposal."
+              },
+              {
+                "question": "How long does a project take?",
+                "answer": "That depends on the size of the website. The proposal names the timeline together with the price, so you know both before we start."
+              },
+              {
+                "question": "What happens with my current website?",
+                "answer": "It stays online until the new one is ready. Your content, your web address, and your Google rankings come along. I check your current website before our first talk, so you get clear answers from the start."
+              },
+              {
+                "question": "Do I need to arrange hosting or a domain?",
+                "answer": "No. I set up the hosting and the domain for you, in your own name. If you already have a domain, we simply keep it."
+              },
+              {
+                "question": "Do we need to meet in person?",
+                "answer": "It's not needed. Most projects run entirely by phone, video, and email. Currently, I am working with clients locally in Bogota (Colombia)."
+              }
             ]
           },
           {
             "icon": "user",
             "title": "Working with me",
             "items": [
-              { "question": "Are you a company or agency?", "answer": "I'm a one-person business: a freelancer, not an agency. You work directly with the person doing the work, from the first talk to the finished website. No sales team, no account managers, no handoffs." },
-              { "question": "Can I change the website myself after launch?", "answer": "You can simply send me your changes, and the monthly care plan (if we agree) exists exactly for that. If you want to edit the website yourself, say so in the first talk and I set the site up for it." },
-              { "question": "Do you also build webshops?", "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro, Laravel, Vue.js, and/or a Spring Boot website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it." },
-              { "question": "Is the website really mine?", "answer": "Completely. The domain, the hosting, and the code are in your name from day one. If you ever want to move on, you take everything with you: you're never locked in." },
-              { "question": "What happens if something breaks after launch?", "answer": "Very little can break if the website is build with Astro: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan. If the website is build with Laravel, Vue.js or Spring Boot, there are more things can go wrong, but the care plan, if we agree, can fix any issue too, verifying databases, services, dependencies, runtime errors, etc." }
+              {
+                "question": "Are you a company or agency?",
+                "answer": "I'm a one-person business: a freelancer, not an agency. You work directly with the person doing the work, from the first talk to the finished website. No sales team, no account managers, no handoffs."
+              },
+              {
+                "question": "Can I change the website myself after launch?",
+                "answer": "You can simply send me your changes, and the monthly care plan (if we agree) exists exactly for that. If you want to edit the website yourself, say so in the first talk and I set the site up for it."
+              },
+              {
+                "question": "Do you also build webshops?",
+                "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro, Laravel, Vue.js, and/or a Spring Boot website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it."
+              },
+              {
+                "question": "Is the website really mine?",
+                "answer": "Completely. The domain, the hosting, and the code are in your name from day one. If you ever want to move on, you take everything with you: you're never locked in."
+              },
+              {
+                "question": "What happens if something breaks after launch?",
+                "answer": "Very little can break if the website is build with Astro: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan. If the website is build with Laravel, Vue.js or Spring Boot, there are more things can go wrong, but the care plan, if we agree, can fix any issue too, verifying databases, services, dependencies, runtime errors, etc."
+              }
             ]
           }
         ]
@@ -502,7 +626,7 @@
       "hero": {
         "badge": "Available for new projects",
         "titleLine1": "GhostForge Dev —",
-        "titleLine2": "Web Design ",
+        "titleLine2": "Web Design",
         "titleLine3": "& Development",
         "description": "Crafting high-performance web applications from concept to deployment. Specialized in Laravel, Spring Boot, and Vue.js.",
         "descriptionMobile": "Crafting high-performance web applications from concept to deployment. Laravel, Spring Boot, and Vue.js",
@@ -515,13 +639,41 @@
         "lead": "Every project gets all four services.",
         "learnMore": "Learn more",
         "cards": [
-          { "icon": "lightbulb", "title": "Requirements Analysis", "description": "Understand your business needs. Accompanying you in structuring and devising the solution required for your problem." },
-          { "icon": "layout", "title": "Web Design", "description": "User-centered design. Design by connecting the needs of your users, customers, and your business.", "url": "#design" },
-          { "icon": "code", "title": "Web Development", "description": "Built the software that your problem requires. Focus the idea devised in the analysis so that it aligns with your needs and works correctly.", "url": "#development" },
-          { "icon": "list-checks", "title": "Quality assurance", "description": "Quality assurance allows you to have your business running smoothly without so many worries.", "url": "#qa" },
-          { "icon": "trending-up", "title": "Web Optimization", "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor.", "url": "#qa" },
-          { "icon": "bug", "title": "Bug Fixing", "description": "Bugs exists, fixes too. We humans can make mistakes, but we can also fix them, under any circumstances.", "url": "#qa" }
-
+          {
+            "icon": "lightbulb",
+            "title": "Requirements Analysis",
+            "description": "Understand your business needs. Accompanying you in structuring and devising the solution required for your problem."
+          },
+          {
+            "icon": "layout",
+            "title": "Web Design",
+            "description": "User-centered design. Design by connecting the needs of your users, customers, and your business.",
+            "url": "#design"
+          },
+          {
+            "icon": "code",
+            "title": "Web Development",
+            "description": "Built the software that your problem requires. Focus the idea devised in the analysis so that it aligns with your needs and works correctly.",
+            "url": "#development"
+          },
+          {
+            "icon": "list-checks",
+            "title": "Quality assurance",
+            "description": "Quality assurance allows you to have your business running smoothly without so many worries.",
+            "url": "#qa"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Web Optimization",
+            "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor.",
+            "url": "#qa"
+          },
+          {
+            "icon": "bug",
+            "title": "Bug Fixing",
+            "description": "Bugs exists, fixes too. We humans can make mistakes, but we can also fix them, under any circumstances.",
+            "url": "#qa"
+          }
         ]
       },
       "workWithMe": {
@@ -529,10 +681,26 @@
         "heading": "Let's build your website",
         "lead": "What you get when we work together.",
         "cards": [
-          { "icon": "palette", "title": "Custom design", "description": "Designed around your business, your content, and your customers." },
-          { "icon": "zap", "title": "A lightning-fast website", "description": "Pages that open instantly, on every phone and every connection." },
-          { "icon": "search", "title": "Found by Google and AI", "description": "Every page built so search engines and AI assistants read it cleanly and customers can find you." },
-          { "icon": "shield-check", "title": "Zero maintenance", "description": "Kept up to date and secure with the care plan, so you can focus on your business." }
+          {
+            "icon": "palette",
+            "title": "Custom design",
+            "description": "Designed around your business, your content, and your customers."
+          },
+          {
+            "icon": "zap",
+            "title": "A lightning-fast website",
+            "description": "Pages that open instantly, on every phone and every connection."
+          },
+          {
+            "icon": "search",
+            "title": "Found by Google and AI",
+            "description": "Every page built so search engines and AI assistants read it cleanly and customers can find you."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Zero maintenance",
+            "description": "Kept up to date and secure with the care plan, so you can focus on your business."
+          }
         ],
         "cta": "Read my services page"
       },
@@ -546,6 +714,10 @@
         "badge": "Testimonials",
         "heading": "What clients say",
         "lead": "Real words from finished projects.",
+        "noTestimonialsYet": {
+          "title": "There are no testimonials yet.",
+          "description": "As soon as there are testimonies, you will be able to see them here."
+        },
         "items": []
       },
       "aboutTeaser": {

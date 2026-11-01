@@ -1,5 +1,7 @@
 import { SITE_URL, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION } from 'astro:env/server';
 import i18nConfig, { type I18nConfig } from './i18n.config';
+import { SITE_URL_FALLBACK } from './site-url';
+import { SITE_NAME, THEME_COLOR } from './branding';
 
 export { i18nConfig };
 export type { I18nConfig };
@@ -22,10 +24,7 @@ export interface SiteConfig {
     state: string;
     zip: string;
     country: string;
-    countryAbbr: string;
   };
-  /** Job title for JSON LD */
-  jobTitle: string;
   socialLinks: string[];
   /**
    * Header options. Set `showSocialLinks: true` to render an icon link in the
@@ -37,8 +36,8 @@ export interface SiteConfig {
     showSocialLinks?: boolean;
   };
   twitter?: {
-    site?: string;
-    creator?: string;
+    site: string;
+    creator: string;
   };
   verification?: {
     google?: string;
@@ -188,6 +187,20 @@ export interface SiteConfig {
     };
   };
   /**
+   * Newsletter signup, shown in the "follow along" section of the blog index
+   * and the foot of every post.
+   *
+   * Off by default, and deliberately so: the form posts to `/api/newsletter`,
+   * which needs `RESEND_API_KEY` and `RESEND_AUDIENCE_ID`. Without those the
+   * endpoint answers "Newsletter service is not configured", so a site that
+   * showed the form before its owner had a mailing list would be collecting
+   * failures. Set your keys, then turn this on.
+   */
+  newsletter?: {
+    /** Master switch — set to true to show the signup site-wide */
+    enabled: boolean;
+  };
+  /**
    * Blog listing configuration. Counts that were previously hard-coded across
    * `lib/blog.ts` and the route files live here so they're tunable in one
    * place. (The existing `blogImageOverlay` / `articleFeatures` keys are left
@@ -247,12 +260,17 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'GhostForge Dev',
+  // Read from ./branding so the build-time favicon generator, which cannot
+  // import this file, uses the same values. Change them there.
+  name: SITE_NAME,
   description:
     'GhostForge Dev by Juan Gamba Saenz. High-performance full-stack web development with PHP (Laravel, Vue.js) & Java (Spring Boot). Systems engineering student portfolio & blog.',
   tagline: 'Crafting high-performance web applications from concept to deployment.',
   footerNote: 'GhostForge Dev by Juan Gamba Website, Portfolio & Blog',
-  url: SITE_URL || 'https://jdgambas.github.io',
+  url: SITE_URL || SITE_URL_FALLBACK,
+  // Generated at build time from `name`, `tagline` and the brand colour below.
+  // Point this at a file in `public/` to use your own — it has to be a raster
+  // (PNG or JPEG): social platforms don't render SVG share images.
   ogImage: '/og-default.svg',
   author: 'Juan D. Gamba S.',
   email: 'jdgambas.desarrollador@gmail.com',
@@ -261,10 +279,8 @@ const siteConfig: SiteConfig = {
     city: 'Bogota',
     state: 'Bogota D.C.',
     zip: '',
-    country: 'Colombia',
-    countryAbbr: 'CO'
+    country: 'Colombia'
   },
-  jobTitle: 'Web Designer & Developer',
   socialLinks: [
     'https://github.com/juandgambas',
     // 'https://x.com/juandgambas_dev',
@@ -275,10 +291,10 @@ const siteConfig: SiteConfig = {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: true,
   },
-  twitter: {
-    // site: 'https://x.com/juandgambas_dev',
-    // creator: '@juandgambas_dev',
-  },
+  // twitter: {
+  //   site: 'https://x.com/juandgambas_dev',
+  //   creator: '@juandgambas_dev',
+  // },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     bing: BING_SITE_VERIFICATION,
@@ -292,7 +308,7 @@ const siteConfig: SiteConfig = {
     toc: {
       enabled: true,
       layout: 'auto',
-      sidebarPosition: 'left',
+      sidebarPosition: 'right',
       minHeadings: 3,
       maxDepth: 3,
     },
@@ -340,6 +356,11 @@ const siteConfig: SiteConfig = {
       },
     },
   },
+  newsletter: {
+    // On by default: the form knows whether it has keys and says so itself,
+    // in dev only. Set RESEND_API_KEY and RESEND_AUDIENCE_ID to make it work.
+    enabled: true,
+  },
   blog: {
     postsPerPage: 12,
     tagCloudLimit: 10,
@@ -359,7 +380,7 @@ const siteConfig: SiteConfig = {
       svg: '/favicon.svg',
     },
     colors: {
-      themeColor: '#432DD7',
+      themeColor: THEME_COLOR,
       backgroundColor: '#030712',
     },
   },

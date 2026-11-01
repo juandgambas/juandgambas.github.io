@@ -30,20 +30,20 @@ export function createPersonSchema(): WithContext<Person> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: siteConfig.author,
-    jobTitle: siteConfig.jobTitle,
+    name: 'Juan David Gamba Saenz',
+    jobTitle: 'Web Designer & Developer',
     url: siteConfig.url,
     email: siteConfig.email,
     ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
     ...(siteConfig.address?.city
       ? {
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: siteConfig.address.city,
-            addressRegion: siteConfig.address.state,
-            addressCountry: siteConfig.address.countryAbbr,
-          },
-        }
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: siteConfig.address.city,
+          addressRegion: 'Bogota D.C.',
+          addressCountry: 'CO',
+        },
+      }
       : {}),
     sameAs: siteConfig.socialLinks,
   };
@@ -63,13 +63,13 @@ export function createProfessionalServiceSchema(): WithContext<LocalBusiness> {
     ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
     ...(siteConfig.address?.city
       ? {
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: siteConfig.address.city,
-            addressRegion: siteConfig.address.state,
-            addressCountry: siteConfig.address.countryAbbr,
-          },
-        }
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: siteConfig.address.city,
+          addressRegion: 'Bogota D.C.',
+          addressCountry: 'CO',
+        },
+      }
       : {}),
     areaServed: [
       { '@type': 'Country', name: 'Colombia' },
@@ -95,10 +95,10 @@ export function createOrganizationSchema(): WithContext<Organization> {
     sameAs: siteConfig.socialLinks,
     contactPoint: siteConfig.phone
       ? {
-          '@type': 'ContactPoint',
-          telephone: siteConfig.phone,
-          contactType: 'customer service',
-        }
+        '@type': 'ContactPoint',
+        telephone: siteConfig.phone,
+        contactType: 'customer service',
+      }
       : undefined,
   };
 }
@@ -134,11 +134,11 @@ export function createBlogPostSchema(post: {
       name: siteConfig.name,
       ...(siteConfig.branding.logo.imageUrl
         ? {
-            logo: {
-              '@type': 'ImageObject',
-              url: `${siteConfig.url}${siteConfig.branding.logo.imageUrl}`,
-            },
-          }
+          logo: {
+            '@type': 'ImageObject',
+            url: `${siteConfig.url}${siteConfig.branding.logo.imageUrl}`,
+          },
+        }
         : {}),
     },
     mainEntityOfPage: {

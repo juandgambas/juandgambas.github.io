@@ -10,21 +10,23 @@
  * yet. Each card links to the URL of the locale the content actually belongs
  * to, so a fallback (default-locale) item still points at a real page.
  */
-import LandingLayout from '@/layouts/LandingLayout.astro';
+import BlogCard from '@/components/blog/BlogCard.astro';
 import { Hero } from '@/components/hero';
-import Button from '@/components/ui/form/Button/Button.astro';
+import StackMarquee from '@/components/landing/StackMarquee.astro';
+import CtaSection from '@/components/layout/CtaSection.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Card from '@/components/ui/data-display/Card/Card.astro';
 import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import BlogCard from '@/components/blog/BlogCard.astro';
-import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
-import StackMarquee from '@/components/landing/StackMarquee.astro';
-import { getCollection } from 'astro:content';
 import siteConfig from '@/config/site.config';
+import { defaultLocale, localizedPath, t, tData } from '@/i18n';
+import LandingLayout from '@/layouts/LandingLayout.astro';
 import { getPostUrl, getPublishedPosts } from '@/lib/blog';
-import { getProjectUrl, getVisibleProjects } from '@/lib/projects';
-import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { getCollection } from 'astro:content';
+import { getVisibleProjects } from '@/lib/projects';
+import ProjectCard from '@/components/projects/ProjectCard.astro';
+import EmptyState from '@/components/patterns/EmptyState.astro';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -94,19 +96,31 @@ const hero = tData<{
   github: string;
   getStarted: string;
 }>('pages.home.hero', locale)!;
-const workWithMe = tData<{ badge: string; heading: string; lead: string; cards: IconCard[]; cta: string }>(
-  'pages.home.workWithMe',
+const workWithMe = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  cards: IconCard[];
+  cta: string;
+}>('pages.home.workWithMe', locale)!;
+const servicesSection = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  learnMore: string;
+  cards: IconCard[];
+}>('pages.home.services', locale)!;
+const portfolio = tData<{ badge: string; heading: string; lead: string; viewAll: string }>(
+  'pages.home.portfolio',
   locale
 )!;
-const servicesSection = tData<{ badge: string; heading: string; lead: string; learnMore: string; cards: IconCard[] }>(
-  'pages.home.services',
-  locale
-)!;
-const portfolio = tData<{ badge: string; heading: string; lead: string; viewAll: string }>('pages.home.portfolio', locale)!;
-const testimonials = tData<{ badge: string; heading: string; lead: string; items: Testimonial[] }>(
-  'pages.home.testimonials',
-  locale
-)!;
+const testimonials = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  noTestimonialsYet: { title: string; description: string };
+  items: Testimonial[];
+}>('pages.home.testimonials', locale)!;
 const aboutTeaser = tData<{
   badge: string;
   headingLine1: string;
@@ -119,11 +133,17 @@ const aboutTeaser = tData<{
   stat3: string;
   basedIn: string;
 }>('pages.home.aboutTeaser', locale)!;
-const blogSection = tData<{ badge: string; heading: string; viewAll: string }>('pages.home.blog', locale)!;
-const cta = tData<{ badge: string; heading: string; description: string; primary: string; secondary: string }>(
-  'pages.home.cta',
+const blogSection = tData<{ badge: string; heading: string; viewAll: string }>(
+  'pages.home.blog',
   locale
 )!;
+const cta = tData<{
+  badge: string;
+  heading: string;
+  description: string;
+  primary: string;
+  secondary: string;
+}>('pages.home.cta', locale)!;
 
 const servicesUrl = localizedPath('/services', locale);
 const projectsUrl = localizedPath('/projects', locale);
@@ -148,29 +168,55 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
 <LandingLayout
   title={t('pages.home.meta.title', locale)}
   description={t('pages.home.meta.description', locale)}
-  image="/og-default.svg"
   includePersonSchema={true}
   includeProfessionalServiceSchema={true}
 >
   <!-- Hero -->
-  <Hero layout="centered" size="xl" class="hero-dark-gradient" fullHeight>
-    <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">{hero.badge}</Badge>
+  <!-- data-header-flip-anchor: the floating header keeps its over-the-hero
+       look until this section is nearly out from under it. See the flip
+       threshold in Header.astro.
 
+       data-bar-color: Safari on iOS floats a translucent toolbar over the foot
+       of the screen and tints it from the BODY's background. This hero is dark
+       in both colour modes while the body under it is white in light mode,
+       which draws a white strip across the foot of it. The theme script paints
+       the body this colour while the hero covers that edge, and clears it
+       after. Same value as --bar-color in global.css, which ends the hero's
+       gradient. See `paintBody` in BaseLayout.astro. -->
+  <Hero
+    layout="centered"
+    size="xl"
+    class="hero-dark-gradient"
+    fullHeight
+    data-header-flip-anchor
+    data-bar-color="#000"
+  >
+    <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">
+      {hero.badge}
+    </Badge>
     {/* 12.6vw fills the mobile column (~95-98% at 320-390px), sized to the
         English demo strings — translated hero copy is the site owner's to
         refit. The 3rem cap keeps the size continuous with sm:text-5xl at
         the 640px boundary. */}
-    <h1 slot="title" class="text-[clamp(2rem,12.6vw,3rem)]! sm:text-5xl md:!text-6xl! lg:text-7xl!">
-      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor] whitespace-pre-line">{hero.titleLine1}</span><br />
-      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLine2}</span><br class="md:hidden" /><span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{' '}{hero.titleLine3}</span>
+    <h1 slot="title" class="text-[clamp(2rem,12.6vw,3rem)]! sm:text-5xl! md:text-6xl! lg:text-7xl!">
+      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor] whitespace-pre-line">
+        {hero.titleLine1}
+      </span>
+      <br />
+      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">
+        {hero.titleLine2}
+      </span>
+      <br class="md:hidden" />
+      <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">
+        {' '}
+        {hero.titleLine3}
+      </span>
     </h1>
-
     <p slot="description" class="text-balance!">
       <span class="sm:hidden">{hero.descriptionMobile}</span>
       <span class="hidden sm:inline">{hero.description}</span>
     </p>
-
-   <Fragment slot="actions">
+    <Fragment slot="actions">
       <Button size="lg" href="https://github.com/juandgambas/juandgambas.github.io">
         {hero.github}
         <Icon name="arrow-right" size="sm" />
@@ -181,7 +227,6 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         <Icon name="arrow-right" size="sm" />
       </Button>
     </Fragment>
-
     <!-- Tech-stack marquee floored into the hero in place of the scroll indicator:
          the content stays at the top and the marquee sits low near the bottom, with
          a roomy gap above it (a guaranteed minimum gap, so it never crowds the
@@ -192,7 +237,15 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     <div slot="bottom" class="mx-auto w-full max-w-6xl px-6">
       <!-- Tablet & up: the animated tech-stack marquee. -->
       <div class="hp-hero-marquee" aria-hidden="true">
-        <StackMarquee items={heroStackItems} rows={1} duration={55} pauseOnHover={false} linked={false} cardWidth="auto" gap="1rem" />
+        <StackMarquee
+          items={heroStackItems}
+          rows={1}
+          duration={55}
+          pauseOnHover={false}
+          linked={false}
+          cardWidth="auto"
+          gap="1rem"
+        />
       </div>
       <!-- Portrait phone: a static, non-animated row of the four core-stack logos.
            No marquee machinery — no duplicated track and no infinite animation — so
@@ -221,15 +274,13 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             {servicesSection.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          {servicesSection.lead}
-        </p>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">{servicesSection.lead}</p>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-3">
         {servicesSection.cards.map((card, i) => (
           <ProofTile
-            href={servicesUrl + (card.url?? '')}
+            href={servicesUrl + (card.url ?? '')}
             icon={card.icon}
             title={card.title}
             data-reveal
@@ -262,7 +313,12 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {workWithMe.cards.map((card, i) => (
-          <ProofTile icon={card.icon} title={card.title} data-reveal data-reveal-delay={i || undefined}>
+          <ProofTile
+            icon={card.icon}
+            title={card.title}
+            data-reveal
+            data-reveal-delay={i || undefined}
+          >
             {card.description}
           </ProofTile>
         ))}
@@ -278,7 +334,10 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   </section>
 
   <!-- Portfolio -->
-  <section id="work" class="relative z-10 py-(--space-section-md) bg-background-secondary border-t border-border">
+  <section
+    id="work"
+    class="relative z-10 py-(--space-section-md) bg-background-secondary border-t border-border"
+  >
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">
@@ -290,47 +349,16 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             {portfolio.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          {portfolio.lead}
-        </p>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">{portfolio.lead}</p>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
+        {/* One card component for the homepage, the projects index, the
+            paginated pages and the tag archive. The homepage used to carry
+            its own copy of this markup, so a change to the card reached three
+            of the four places and quietly skipped this one. */}
         {featuredProjects.map((project, i) => (
-          <Card
-            variant="elevated"
-            hover
-            padding="none"
-            href={project.data.placeholder ? undefined : getProjectUrl(project.id, project.data.locale)}
-            class="group flex flex-col"
-            data-reveal
-            data-reveal-delay={i || undefined}
-          >
-            <div class="flex flex-1 flex-col p-6">
-              <div class="mb-3 flex items-start justify-between gap-4">
-                <div class="w-10 h-10 rounded-xl bg-linear-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                  <Icon name="layers" size="sm" />
-                </div>
-                <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0 ml-auto" />
-              </div>
-              <div class="mb-2 flex items-baseline gap-2">
-                <h3 class="font-display text-lg font-bold text-foreground">{project.data.title}</h3>
-                {project.data.year && (
-                  <span class="text-xs text-foreground-muted">{project.data.year}</span>
-                )}
-              </div>
-              <p class="text-sm text-foreground-muted leading-relaxed mb-4 flex-1">{project.data.description}</p>
-              {project.data.tags && project.data.tags.length > 0 && (
-                <div class="flex flex-wrap gap-1.5">
-                  {project.data.tags.map((tag) => (
-                    <span class="inline-flex items-center rounded-full bg-transparent px-2.5 py-0.5 text-xs font-medium text-brand-700 dark:text-brand-400 ring-1 ring-inset ring-brand-500/40 transition-colors group-hover:ring-brand-500/80">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </Card>
+          <ProjectCard project={project} index={i} locale={project.data.locale} />
         ))}
       </div>
 
@@ -356,38 +384,50 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             {testimonials.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted">
-          {testimonials.lead}
-        </p>
+        <p class="text-lg text-foreground-muted">{testimonials.lead}</p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2">
-        {testimonials.items.map((item, i) => (
-          <Card variant="elevated" padding="lg" hover data-reveal data-reveal-delay={i || undefined}>
-            <div class="flex flex-col h-full gap-4">
-              <div class="flex gap-1 text-brand-500" role="img" aria-label="5 out of 5 stars">
-                {[...Array(5)].map(() => (
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <blockquote class="flex-1 text-foreground-muted leading-relaxed">
-                {item.quote}
-              </blockquote>
-              <div class="flex items-center gap-3 pt-4 border-t border-border">
-                <div class="w-9 h-9 rounded-full bg-linear-to-br from-brand-500/30 to-brand-500/10 flex items-center justify-center text-brand-500 font-bold text-sm shrink-0">
-                  {item.name.charAt(0)}
+      {testimonials.items.length > 0 ? (
+        <div class="grid gap-6 md:grid-cols-2">
+          {testimonials.items.map((item, i) => (
+            <Card
+              variant="elevated"
+              padding="lg"
+              hover
+              data-reveal
+              data-reveal-delay={i || undefined}
+            >
+              <div class="flex flex-col h-full gap-4">
+                <div class="flex gap-1 text-brand-500" role="img" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map(() => (
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
-                <div>
-                  <p class="text-sm font-semibold text-foreground">{item.name}</p>
-                  <p class="text-xs text-foreground-muted">{item.role}</p>
+                <blockquote class="flex-1 text-foreground-muted leading-relaxed">
+                  {item.quote}
+                </blockquote>
+                <div class="flex items-center gap-3 pt-4 border-t border-border">
+                  <div class="w-9 h-9 rounded-full bg-linear-to-br from-brand-500/30 to-brand-500/10 flex items-center justify-center text-brand-500 font-bold text-sm shrink-0">
+                    {item.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-foreground">{item.name}</p>
+                    <p class="text-xs text-foreground-muted">{item.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Card>
-        ))}
-      </div>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          icon="users-round-collaboration"
+          title={testimonials.noTestimonialsYet.title}
+          description={testimonials.noTestimonialsYet.description}
+        />
+      )}
     </div>
   </section>
 
@@ -395,54 +435,132 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   <section class="relative z-10 py-(--space-section-md) bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12">
-        <div class="flex flex-col justify-center sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
+        <div
+          class="flex flex-col justify-center sm:items-center sm:text-center glitch:items-start glitch:text-left"
+          data-reveal
+          data-reveal-ease="smooth"
+        >
           <div class="flex flex-col gap-6 mb-6 sm:items-center glitch:items-start">
             <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
               <Icon name="user" size="sm" />
               {aboutTeaser.badge}
             </Badge>
             <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-              {aboutTeaser.headingLine1}<br />
+              {aboutTeaser.headingLine1}
+              <br />
               <span class="text-brand-500">{aboutTeaser.headingLine2}</span>
             </h2>
           </div>
           <p class="text-lg text-foreground-muted leading-relaxed mb-4 sm:mb-0 sm:max-w-xl glitch:mb-4 glitch:max-w-none">
-           {aboutPara1}
+            {aboutPara1}
           </p>
           <p class="text-lg text-foreground-muted leading-relaxed mb-8 sm:max-w-xl glitch:max-w-none sm:hidden glitch:block">
-           {aboutTeaser.para2}
+            {aboutTeaser.para2}
           </p>
-           <Button variant="brand-outline" href={aboutUrl} class="self-start sm:self-center glitch:self-start sm:hidden glitch:inline-flex">
+          <Button
+            variant="brand-outline"
+            href={aboutUrl}
+            class="self-start sm:self-center glitch:self-start sm:hidden glitch:inline-flex"
+          >
             {aboutTeaser.moreAboutMe}
             <Icon name="arrow-right" size="sm" />
           </Button>
         </div>
-        <Card variant="elevated" padding="lg" class="h-full flex flex-col" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
-          <p class="text-sm font-bold text-brand-500 mb-5 text-center sm:hidden glitch:block">{aboutTeaser.statsIntro}</p>
+        <Card
+          variant="elevated"
+          padding="lg"
+          class="h-full flex flex-col"
+          data-reveal
+          data-reveal-delay="1"
+          data-reveal-ease="smooth"
+        >
+          <p class="text-sm font-bold text-brand-500 mb-5 text-center sm:hidden glitch:block">
+            {aboutTeaser.statsIntro}
+          </p>
           <div class="grid grid-cols-2 sm:grid-cols-4 glitch:grid-cols-2 gap-3 flex-1 auto-rows-fr">
             <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
               <Icon name="history" class="w-10 h-10 text-brand-500" />
               <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat1}</p>
             </div>
-            <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 h-full">
+            <a
+              href="https://astro.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 h-full"
+            >
               <div class="grid grid-cols-2 grid-rows-2 justify-items-center-safe text-center gap-2">
-                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M815.039 94.6439C824.758 106.709 829.714 122.99 839.626 155.553L1056.17 866.901C976.107 825.368 889.072 795.413 797.281 779.252L656.29 302.798C653.983 295.002 646.822 289.654 638.693 289.654C630.542 289.654 623.368 295.03 621.08 302.853L481.795 779.011C389.579 795.1 302.146 825.109 221.741 866.793L439.347 155.388L439.348 155.388C449.291 122.882 454.262 106.629 463.982 94.5853C472.562 83.9531 483.723 75.6958 496.4 70.6002C510.76 64.8284 527.756 64.8284 561.749 64.8284H717.174C751.212 64.8284 768.23 64.8284 782.603 70.6123C795.292 75.7184 806.459 83.9923 815.039 94.6439Z" fill="currentColor"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M840.951 900.754C805.253 931.279 734.002 952.097 651.929 952.097C551.197 952.097 466.767 920.737 444.363 878.561C436.354 902.732 434.558 930.396 434.558 948.068C434.558 948.068 429.281 1034.84 489.636 1095.2C489.636 1063.86 515.042 1038.46 546.381 1038.46C600.097 1038.46 600.036 1085.32 599.987 1123.34C599.986 1124.48 599.984 1125.61 599.984 1126.73C599.984 1184.44 635.255 1233.91 685.416 1254.77C677.924 1239.36 673.721 1222.05 673.721 1203.77C673.721 1148.73 706.034 1128.23 743.588 1104.41L743.588 1104.41C773.469 1085.46 806.668 1064.41 829.548 1022.17C841.486 1000.13 848.265 974.893 848.265 948.068C848.265 931.573 845.702 915.676 840.951 900.754Z" fill="currentColor"/>
+                <svg
+                  class="w-5 h-5 md:w-10 md:h-10 text-brand-500"
+                  viewBox="0 0 1280 1280"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M815.039 94.6439C824.758 106.709 829.714 122.99 839.626 155.553L1056.17 866.901C976.107 825.368 889.072 795.413 797.281 779.252L656.29 302.798C653.983 295.002 646.822 289.654 638.693 289.654C630.542 289.654 623.368 295.03 621.08 302.853L481.795 779.011C389.579 795.1 302.146 825.109 221.741 866.793L439.347 155.388L439.348 155.388C449.291 122.882 454.262 106.629 463.982 94.5853C472.562 83.9531 483.723 75.6958 496.4 70.6002C510.76 64.8284 527.756 64.8284 561.749 64.8284H717.174C751.212 64.8284 768.23 64.8284 782.603 70.6123C795.292 75.7184 806.459 83.9923 815.039 94.6439Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M840.951 900.754C805.253 931.279 734.002 952.097 651.929 952.097C551.197 952.097 466.767 920.737 444.363 878.561C436.354 902.732 434.558 930.396 434.558 948.068C434.558 948.068 429.281 1034.84 489.636 1095.2C489.636 1063.86 515.042 1038.46 546.381 1038.46C600.097 1038.46 600.036 1085.32 599.987 1123.34C599.986 1124.48 599.984 1125.61 599.984 1126.73C599.984 1184.44 635.255 1233.91 685.416 1254.77C677.924 1239.36 673.721 1222.05 673.721 1203.77C673.721 1148.73 706.034 1128.23 743.588 1104.41L743.588 1104.41C773.469 1085.46 806.668 1064.41 829.548 1022.17C841.486 1000.13 848.265 974.893 848.265 948.068C848.265 931.573 845.702 915.676 840.951 900.754Z"
+                    fill="currentColor"
+                  />
                 </svg>
-                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg
+                  class="w-5 h-5 md:w-10 md:h-10 text-brand-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.5rem"
+                  height="2.5rem"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
                   <path d="M0 0h24v24H0z" fill="none" />
-                  <path fill="currentColor" d="M21.7 6.53c.01.02.01.05.01.08v4.29c0 .1-.06.22-.15.27l-3.61 2.08v4.11c0 .11-.05.21-.15.27l-7.52 4.33c-.02.01-.04.04-.06.04H10s0-.03-.04-.04l-7.52-4.33a.32.32 0 0 1-.15-.27V4.5c0-.05 0-.08.01-.1c0-.01.01-.02.01-.03c0-.02.01-.03.02-.05c0-.01.01-.02.02-.03l.03-.03l.03-.03c.01-.01.02-.02.03-.02L6.2 2.04c.1-.04.22-.04.3 0l3.78 2.17c.01.01.02.01.03.02l.03.03l.03.03c.01.01.02.02.02.03c.01.02.02.03.02.05c0 .01.01.02.01.03c.01.03.01.05.01.1v8l3.14-1.78V6.61c0-.03 0-.06.01-.08l.01-.03s.01-.03.02-.05c0-.01.01-.02.02-.03l.03-.03l.03-.03c.01-.01.02-.02.03-.02l3.78-2.17c.08-.06.2-.06.3 0l3.76 2.17c.01 0 .02.01.03.02l.03.03l.03.03c.01.01.01.02.02.03c.01.02.01.05.02.05s.01 0 .01.03m-.61 4.19V7.15l-3.14 1.8v3.55zm-3.76 6.46V13.6l-6.9 3.94v3.61zM2.91 5v12.18l6.9 3.97v-3.61l-3.6-2.04H6.2c-.01 0-.02 0-.03-.03c-.01 0-.02-.01-.03-.02l-.03-.03c-.01-.01-.01-.02-.02-.03c-.01-.02-.01-.03-.02-.04c0-.02-.01-.03-.01-.04c-.01-.01-.01-.03-.01-.04V6.82zm3.45-2.32L3.23 4.5l3.13 1.78L9.5 4.5zm3.45 10.2V5L6.67 6.82v7.87zm7.83-8.08L14.5 6.61l3.14 1.8l3.13-1.8zm-.31 4.15l-3.14-1.8v3.57l3.14 1.78zM10.12 17L17 13.06l-3.12-1.8L7 15.23z" />
+                  <path
+                    fill="currentColor"
+                    d="M21.7 6.53c.01.02.01.05.01.08v4.29c0 .1-.06.22-.15.27l-3.61 2.08v4.11c0 .11-.05.21-.15.27l-7.52 4.33c-.02.01-.04.04-.06.04H10s0-.03-.04-.04l-7.52-4.33a.32.32 0 0 1-.15-.27V4.5c0-.05 0-.08.01-.1c0-.01.01-.02.01-.03c0-.02.01-.03.02-.05c0-.01.01-.02.02-.03l.03-.03l.03-.03c.01-.01.02-.02.03-.02L6.2 2.04c.1-.04.22-.04.3 0l3.78 2.17c.01.01.02.01.03.02l.03.03l.03.03c.01.01.02.02.02.03c.01.02.02.03.02.05c0 .01.01.02.01.03c.01.03.01.05.01.1v8l3.14-1.78V6.61c0-.03 0-.06.01-.08l.01-.03s.01-.03.02-.05c0-.01.01-.02.02-.03l.03-.03l.03-.03c.01-.01.02-.02.03-.02l3.78-2.17c.08-.06.2-.06.3 0l3.76 2.17c.01 0 .02.01.03.02l.03.03l.03.03c.01.01.01.02.02.03c.01.02.01.05.02.05s.01 0 .01.03m-.61 4.19V7.15l-3.14 1.8v3.55zm-3.76 6.46V13.6l-6.9 3.94v3.61zM2.91 5v12.18l6.9 3.97v-3.61l-3.6-2.04H6.2c-.01 0-.02 0-.03-.03c-.01 0-.02-.01-.03-.02l-.03-.03c-.01-.01-.01-.02-.02-.03c-.01-.02-.01-.03-.02-.04c0-.02-.01-.03-.01-.04c-.01-.01-.01-.03-.01-.04V6.82zm3.45-2.32L3.23 4.5l3.13 1.78L9.5 4.5zm3.45 10.2V5L6.67 6.82v7.87zm7.83-8.08L14.5 6.61l3.14 1.8l3.13-1.8zm-.31 4.15l-3.14-1.8v3.57l3.14 1.78zM10.12 17L17 13.06l-3.12-1.8L7 15.23z"
+                  />
                 </svg>
-                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg
+                  class="w-5 h-5 md:w-10 md:h-10 text-brand-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.5rem"
+                  height="2.5rem"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
                   <path d="M0 0h24v24H0z" fill="none" />
-                  <path fill="currentColor" d="M1.791 3.851L12 21.471L22.209 3.936V3.85H18.24l-6.18 10.616L5.906 3.851z" />
-                  <path fill="#35495e" d="m5.907 3.851l6.152 10.617L18.24 3.851h-3.723L12.084 8.03L9.66 3.85z" />
+                  <path
+                    fill="currentColor"
+                    d="M1.791 3.851L12 21.471L22.209 3.936V3.85H18.24l-6.18 10.616L5.906 3.851z"
+                  />
+                  <path
+                    fill="#35495e"
+                    d="m5.907 3.851l6.152 10.617L18.24 3.851h-3.723L12.084 8.03L9.66 3.85z"
+                  />
                 </svg>
-                <svg class="w-5 h-5 md:w-10 md:h-10 text-brand-500" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" viewBox="0 0 256 256" fill="none" aria-hidden="true">
+                <svg
+                  class="w-5 h-5 md:w-10 md:h-10 text-brand-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.5rem"
+                  height="2.5rem"
+                  viewBox="0 0 256 256"
+                  fill="none"
+                  aria-hidden="true"
+                >
                   <path d="M0 0h256v256H0z" fill="none" />
-                  <path fill="currentColor" d="M38.944 35.879c50.58-48.999 131.454-47.682 180.453 3.161c5.532-7.376 10.274-15.542 13.699-23.972c16.07 48.999 25.817 90.095 22.128 121.97c-1.844 26.87-12.381 52.687-29.768 73.235c-45.31 53.741-125.922 60.59-179.663 15.28l-1.028-.915l-.055-.036q-.252-.176-.498-.367q-.735-.573-1.336-1.24l-.144-.164l-1.68-1.493c-1.64-1.405-3.279-2.81-4.733-4.4l-.536-.606c-49-50.58-47.419-131.454 3.16-180.453M57.91 207.376c-4.742-3.688-11.591-3.162-15.28 1.58c-3.242 4.17-3.226 9.969.049 13.815l.052.06l2.033 1.807l.2.136c4.604 3.028 10.8 2.402 14.333-1.878l.194-.241c3.688-4.742 2.898-11.591-1.58-15.28M231.78 28.239c-13.173 27.661-45.84 48.736-74.027 55.322c-26.607 6.322-49.79 1.054-74.289 10.537c-55.848 21.339-54.794 87.724-24.236 102.74l1.844 1.054s22.074-4.389 43.902-10.185l1.87-.5c8.718-2.35 17.295-4.91 24.302-7.492c36.354-13.435 76.397-46.628 89.568-85.09c-6.849 40.042-41.359 78.767-75.87 96.418c-18.44 9.483-32.665 11.59-62.96 22.128c-3.688 1.317-6.586 2.635-6.586 2.635l1.108-.15l.736-.095l.733-.092c6.69-.83 12.702-1.244 12.702-1.244c42.94-2.108 110.38 12.118 141.729-29.768c32.139-42.677 14.225-111.697-.527-156.218" />
-                  <path fill="#fff" d="M57.911 207.376c4.479 3.688 5.269 10.537 1.58 15.279c-3.687 4.742-10.537 5.269-15.279 1.58s-5.268-10.537-1.58-15.279s10.537-5.268 15.28-1.58M231.78 28.239c14.752 44.521 32.666 113.541.527 156.218c-31.35 41.886-98.789 27.66-141.729 29.768c0 0-6.012.415-12.702 1.244l-.733.092q-.919.117-1.844.245s2.898-1.318 6.586-2.635c30.295-10.537 44.52-12.645 62.96-22.128c34.511-17.65 69.021-56.376 75.87-96.418c-13.171 38.462-53.214 71.655-89.568 85.09c-25.026 9.22-70.074 18.177-70.074 18.177l-1.844-1.054c-30.558-15.016-31.612-81.401 24.236-102.74c24.5-9.483 47.682-4.215 74.29-10.537c28.187-6.586 60.853-27.66 74.025-55.322" />
+                  <path
+                    fill="currentColor"
+                    d="M38.944 35.879c50.58-48.999 131.454-47.682 180.453 3.161c5.532-7.376 10.274-15.542 13.699-23.972c16.07 48.999 25.817 90.095 22.128 121.97c-1.844 26.87-12.381 52.687-29.768 73.235c-45.31 53.741-125.922 60.59-179.663 15.28l-1.028-.915l-.055-.036q-.252-.176-.498-.367q-.735-.573-1.336-1.24l-.144-.164l-1.68-1.493c-1.64-1.405-3.279-2.81-4.733-4.4l-.536-.606c-49-50.58-47.419-131.454 3.16-180.453M57.91 207.376c-4.742-3.688-11.591-3.162-15.28 1.58c-3.242 4.17-3.226 9.969.049 13.815l.052.06l2.033 1.807l.2.136c4.604 3.028 10.8 2.402 14.333-1.878l.194-.241c3.688-4.742 2.898-11.591-1.58-15.28M231.78 28.239c-13.173 27.661-45.84 48.736-74.027 55.322c-26.607 6.322-49.79 1.054-74.289 10.537c-55.848 21.339-54.794 87.724-24.236 102.74l1.844 1.054s22.074-4.389 43.902-10.185l1.87-.5c8.718-2.35 17.295-4.91 24.302-7.492c36.354-13.435 76.397-46.628 89.568-85.09c-6.849 40.042-41.359 78.767-75.87 96.418c-18.44 9.483-32.665 11.59-62.96 22.128c-3.688 1.317-6.586 2.635-6.586 2.635l1.108-.15l.736-.095l.733-.092c6.69-.83 12.702-1.244 12.702-1.244c42.94-2.108 110.38 12.118 141.729-29.768c32.139-42.677 14.225-111.697-.527-156.218"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M57.911 207.376c4.479 3.688 5.269 10.537 1.58 15.279c-3.687 4.742-10.537 5.269-15.279 1.58s-5.268-10.537-1.58-15.279s10.537-5.268 15.28-1.58M231.78 28.239c14.752 44.521 32.666 113.541.527 156.218c-31.35 41.886-98.789 27.66-141.729 29.768c0 0-6.012.415-12.702 1.244l-.733.092q-.919.117-1.844.245s2.898-1.318 6.586-2.635c30.295-10.537 44.52-12.645 62.96-22.128c34.511-17.65 69.021-56.376 75.87-96.418c-13.171 38.462-53.214 71.655-89.568 85.09c-25.026 9.22-70.074 18.177-70.074 18.177l-1.844-1.054c-30.558-15.016-31.612-81.401 24.236-102.74c24.5-9.483 47.682-4.215 74.29-10.537c28.187-6.586 60.853-27.66 74.025-55.322"
+                  />
                 </svg>
               </div>
               <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat2}</p>
@@ -453,7 +571,10 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             </div>
             <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
               <Icon name="map-pin" class="w-10 h-10 text-brand-500" />
-              <p class="text-sm font-semibold text-foreground">{aboutTeaser.basedIn} <br class="sm:hidden" />{basedInDisplay}</p>
+              <p class="text-sm font-semibold text-foreground">
+                {aboutTeaser.basedIn} <br class="sm:hidden" />
+                {basedInDisplay}
+              </p>
             </div>
           </div>
         </Card>
@@ -507,20 +628,17 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     </div>
   </section>
 
- <!-- CTA — `secondary` so it alternates with the `background` Blog section above and the `background` Footer below. -->
-  <section class="relative z-10 py-(--space-section-md) bg-background-secondary border-t border-border">
-    <!-- Mobile: flat section, no card -->
-    <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
-      <Badge variant="brand" pill class="mb-6">
+  <!-- CTA — `secondary` so it alternates with the `background` Blog section above and the `background` Footer below. -->
+  <CtaSection class="bg-background-secondary border-t border-border" maxWidth="7xl" glitch>
+    <Fragment slot="normal">
+      <Badge pill class="mb-6">
         <Icon name="message-circle" size="sm" />
         {cta.badge}
       </Badge>
-      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+      <h2 class="font-display text-4xl font-bold text-foreground-reverse mb-4 text-balance">
         {cta.heading}
       </h2>
-      <p class="text-lg text-foreground-muted mb-8 text-balance">
-        {cta.description}
-      </p>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">{cta.description}</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <Button size="lg" href={contactUrl} class="cta-btn-brand">
           {cta.primary}
@@ -531,18 +649,14 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
           <Icon name="arrow-right" size="sm" />
         </Button>
       </div>
-    </div>
-
-    <!-- Desktop: contained LetterGlitch band with glass card -->
-    <LetterGlitchBand>
+    </Fragment>
+    <Fragment slot="glitch">
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
         {cta.heading}
       </h2>
-      <p class="text-lg text-foreground-muted mb-8 text-balance">
-        {cta.description}
-      </p>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">{cta.description}</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button size="lg" href={contactUrl} class="hero-btn-brand">
+        <Button size="lg" href={contactUrl} class="lgb-btn-brand">
           {cta.primary}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -551,142 +665,157 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
           <Icon name="arrow-right" size="sm" />
         </Button>
       </div>
-    </LetterGlitchBand>
-  </section>
+    </Fragment>
+  </CtaSection>
 
-<script>
-  function initCountup() {
-    const counters = document.querySelectorAll<HTMLElement>('[data-countup]:not([data-countup-init])');
-    if (counters.length === 0) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        observer.unobserve(entry.target);
-        const el = entry.target as HTMLElement;
-        const target = parseInt(el.dataset.countup ?? '0', 10);
-        const suffix = el.dataset.suffix ?? '';
-        const duration = 1200;
-        const start = performance.now();
-        const tick = (now: number) => {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * target) + suffix;
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
+  <script>
+    function initCountup() {
+      const counters = document.querySelectorAll<HTMLElement>(
+        '[data-countup]:not([data-countup-init])'
+      );
+      if (counters.length === 0) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            const el = entry.target as HTMLElement;
+            const target = parseInt(el.dataset.countup ?? '0', 10);
+            const suffix = el.dataset.suffix ?? '';
+            const duration = 1200;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(eased * target) + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+        },
+        { threshold: 0.4 }
+      );
+      counters.forEach((el) => {
+        el.dataset.countupInit = 'true';
+        observer.observe(el);
       });
-    }, { threshold: 0.4 });
-    counters.forEach((el) => {
-      el.dataset.countupInit = 'true';
-      observer.observe(el);
-    });
-  }
-
-  initCountup();
-</script>
-
-<style is:global>
-  /* Widen the homepage hero description from md upward so the paragraph
-     reads on two lines instead of three on landscape phones, tablets,
-     and all laptop/desktop sizes. Scoped via the unique
-     .hero-dark-gradient class so other heroes keep the default
-     max-w-xl reading measure. */
-  @media (min-width: 768px) {
-    .hero-dark-gradient .hero-title-slot + div {
-      max-width: 48rem;
     }
-  }
 
-  /* ── Homepage hero tech-stack marquee ──────────────────────────────────────
-     A decorative tech-stack strip floored into the hero in place of the scroll
-     indicator. It must stay secondary to the H1 / description / CTAs, so we strip
-     the card "box" (brand border, glow ring, panel surface) and let the
-     brand-coloured logos float on the hero gradient as light accents. The logos
-     keep their brand colour and soft chip; only the surrounding chrome is removed. */
-  .hp-hero-marquee .stack-marquee-item > * {
-    background: transparent;   /* drop the card panel */
-    border-color: transparent; /* drop the brand border */
-    box-shadow: none;          /* drop the brand glow ring */
-    padding-left: var(--space-3);  /* tighter now there's no box, so logos sit closer */
-    padding-right: var(--space-3);
-  }
-  /* Lighter, calmer tool names so the colourful logos lead the eye. */
-  .hp-hero-marquee .stack-marquee-item .font-display {
-    font-weight: 500;
-    color: var(--color-foreground-muted);
-  }
+    initCountup();
+  </script>
 
-  /* Floored into the hero: the marquee is the section's last flex child, pushed to
-     the floor (mt-auto, in Hero.astro). The CONTENT stays at the top and the
-     leftover hero height opens up BETWEEN the CTAs and the marquee — the roomy
-     "Chrome look". The section's column `gap` (--hero-floor-gap) is a GUARANTEED
-     MINIMUM gap, so on shorter windows the marquee can never crowd the buttons;
-     taller windows simply get more room. padding-bottom is the breathing room
-     beneath it. */
-  section.hero-dark-gradient {
-    --hero-floor-gap: var(--space-16); /* 4rem — minimum gap above the marquee */
-    padding-bottom: var(--space-16); /* 4rem — breathing room below it */
-  }
-  .hp-hero-marquee {
-    pointer-events: none; /* decorative; never intercepts taps */
-  }
+  <style is:global>
+    /* Widen the homepage hero description from md upward so the paragraph
+       reads on two lines instead of three on landscape phones, tablets,
+       and all laptop/desktop sizes. Scoped via the unique
+       .hero-dark-gradient class so other heroes keep the default
+       max-w-xl reading measure. */
+    @media (min-width: 768px) {
+      .hero-dark-gradient .hero-title-slot + div {
+        max-width: 48rem;
+      }
+    }
 
-  /* Entrance: the marquee sits outside the content stagger container, so it fades
-     in on its own once the hero has settled (a vertical slide would fight the
-     logos' horizontal scroll). */
-  @media (prefers-reduced-motion: no-preference) {
+    /* ── Homepage hero tech-stack marquee ──────────────────────────────────────
+       A decorative tech-stack strip floored into the hero in place of the scroll
+       indicator. It must stay secondary to the H1 / description / CTAs, so we strip
+       the card "box" (brand border, glow ring, panel surface) and let the
+       brand-coloured logos float on the hero gradient as light accents. The logos
+       keep their brand colour and soft chip; only the surrounding chrome is removed. */
+    .hp-hero-marquee .stack-marquee-item > * {
+      background: transparent; /* drop the card panel */
+      border-color: transparent; /* drop the brand border */
+      box-shadow: none; /* drop the brand glow ring */
+      padding-left: var(--space-3); /* tighter now there's no box, so logos sit closer */
+      padding-right: var(--space-3);
+    }
+    /* Lighter, calmer tool names so the colourful logos lead the eye. */
+    .hp-hero-marquee .stack-marquee-item .font-display {
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+    }
+
+    /* Floored into the hero: the marquee is the section's last flex child, pushed to
+       the floor (mt-auto, in Hero.astro). The CONTENT stays at the top and the
+       leftover hero height opens up BETWEEN the CTAs and the marquee — the roomy
+       "Chrome look". The section's column `gap` (--hero-floor-gap) is a GUARANTEED
+       MINIMUM gap, so on shorter windows the marquee can never crowd the buttons;
+       taller windows simply get more room. padding-bottom is the breathing room
+       beneath it. */
+    section.hero-dark-gradient {
+      --hero-floor-gap: var(--space-16); /* 4rem — minimum gap above the marquee */
+      padding-bottom: var(--space-16); /* 4rem — breathing room below it */
+    }
     .hp-hero-marquee {
-      animation: hp-hero-marquee-fade 0.6s ease-out 1.2s backwards;
+      pointer-events: none; /* decorative; never intercepts taps */
     }
-  }
-  @keyframes hp-hero-marquee-fade {
-    from { opacity: 0.01; }
-    to   { opacity: 1; }
-  }
 
-  /* Hidden on phones — portrait (width) and landscape (short + coarse pointer),
-     matching the tech-stack section's behaviour. Shown from tablet up. */
-  @media (max-width: 767px) {
-    .hp-hero-marquee { display: none; }
-  }
-  @media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
-    .hp-hero-marquee { display: none; }
-  }
+    /* Entrance: the marquee sits outside the content stagger container, so it fades
+       in on its own once the hero has settled (a vertical slide would fight the
+       logos' horizontal scroll). */
+    @media (prefers-reduced-motion: no-preference) {
+      .hp-hero-marquee {
+        animation: hp-hero-marquee-fade 0.6s ease-out 1.2s backwards;
+      }
+    }
+    @keyframes hp-hero-marquee-fade {
+      from {
+        opacity: 0.01;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
-  /* Portrait-phone static stack logos — the lightweight counterpart to the
-     marquee. Hidden by default and shown only on portrait phones, exactly where
-     the marquee is hidden. A centered, non-interactive row: no links and no
-     animation loop, so it costs nothing after paint. */
-  .hp-hero-logos {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    pointer-events: none;
-  }
-  @media (max-width: 767px) and (orientation: portrait) {
-    .hp-hero-logos { display: flex; padding-bottom: 2rem; }
-  }
+    /* Hidden on phones — portrait (width) and landscape (short + coarse pointer),
+       matching the tech-stack section's behaviour. Shown from tablet up. */
+    @media (max-width: 767px) {
+      .hp-hero-marquee {
+        display: none;
+      }
+    }
+    @media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+      .hp-hero-marquee {
+        display: none;
+      }
+    }
 
-  .hp-hero-logo {
-    display: inline-flex;
-    flex: none;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 9999px;
-    color: var(--color-brand-500);
-    background: color-mix(in oklch, var(--color-brand-500) 12%, transparent);
-  }
-
-  /* One-time fade-in only (reuses the marquee's keyframe); nothing loops. */
-  @media (prefers-reduced-motion: no-preference) {
+    /* Portrait-phone static stack logos — the lightweight counterpart to the
+       marquee. Hidden by default and shown only on portrait phones, exactly where
+       the marquee is hidden. A centered, non-interactive row: no links and no
+       animation loop, so it costs nothing after paint. */
     .hp-hero-logos {
-      animation: hp-hero-marquee-fade 0.6s ease-out 1.2s backwards;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      pointer-events: none;
     }
-  }
-</style>
+    @media (max-width: 767px) and (orientation: portrait) {
+      .hp-hero-logos {
+        display: flex;
+        padding-bottom: 2rem;
+      }
+    }
 
+    .hp-hero-logo {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      color: var(--color-brand-500);
+      background: color-mix(in oklch, var(--color-brand-500) 12%, transparent);
+    }
+
+    /* One-time fade-in only (reuses the marquee's keyframe); nothing loops. */
+    @media (prefers-reduced-motion: no-preference) {
+      .hp-hero-logos {
+        animation: hp-hero-marquee-fade 0.6s ease-out 1.2s backwards;
+      }
+    }
+  </style>
 </LandingLayout>

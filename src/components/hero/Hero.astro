@@ -74,6 +74,10 @@ const sectionClasses = cn(
   // Floored bottom slot (e.g. the homepage tech-stack marquee): flex column so the
   // slot floats to the floor with a guaranteed minimum gap above it.
   isFlooredBottom && 'flex flex-col gap-[var(--hero-floor-gap,4rem)]',
+  // Marks the heroes that draw a grid. `showHeroHalo` gates both grid layers
+  // below, so it already names exactly the heroes whose badge needs an opaque
+  // fill; the rule is at the foot of this file.
+  showHeroHalo && 'hero-gridded',
   className
 );
 
@@ -94,186 +98,191 @@ const gridClasses = cn(
   {showHeroHalo && <HeroGrid />}
   {showHeroHalo && <HeroBeam />}
 
-  {
-    showGrid && (
+  {showGrid && (
+    <div
+      class="bg-grid-pattern pointer-events-none absolute inset-x-0 inset-y-[-20%] opacity-30 hidden md:dark:block"
+      style="mask-image: radial-gradient(ellipse 50% 50% at 50% 40%, black 0%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 40%, black 0%, transparent 70%);"
+      aria-hidden="true"
+    />
+  )}
+
+  {showGlow && (
+    <>
       <div
-        class="bg-grid-pattern pointer-events-none absolute inset-x-0 inset-y-[-20%] hidden opacity-30 md:dark:block"
-        style="mask-image: radial-gradient(ellipse 50% 50% at 50% 40%, black 0%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 40%, black 0%, transparent 70%);"
+        class="pointer-events-none absolute left-1/2 top-1/4 size-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/15 blur-[120px] hidden dark:block"
         aria-hidden="true"
       />
-    )
-  }
-
-  {
-    showGlow && (
-      <>
-        <div
-          class="bg-brand-500/15 pointer-events-none absolute top-1/4 left-1/2 hidden size-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] dark:block"
-          aria-hidden="true"
-        />
-        <div
-          class="bg-brand-600/10 pointer-events-none absolute right-1/4 bottom-1/4 hidden size-100 rounded-full blur-[100px] dark:block"
-          aria-hidden="true"
-        />
-      </>
-    )
-  }
-
-  {
-    showBlob && (
-      <>
-        <div
-          class="pointer-events-none absolute top-0 -left-20 hidden size-125 -translate-y-1/4 rounded-full blur-[120px] dark:block dark:opacity-[0.20]"
-          style="background: radial-gradient(ellipse at center, var(--color-brand-400) 0%, transparent 70%);"
-          aria-hidden="true"
-        />
-        <div
-          class="pointer-events-none absolute top-0 -right-20 hidden size-125 -translate-y-1/4 rounded-full blur-[120px] dark:block dark:opacity-[0.20]"
-          style="background: radial-gradient(ellipse at center, var(--color-brand-400) 0%, transparent 70%);"
-          aria-hidden="true"
-        />
-      </>
-    )
-  }
-
-  {
-    bottomFade && (
       <div
-        class="to-background-secondary pointer-events-none absolute inset-x-0 bottom-0 hidden h-40 bg-linear-to-b from-transparent dark:block"
+        class="pointer-events-none absolute bottom-1/4 right-1/4 size-100 rounded-full bg-brand-600/10 blur-[100px] hidden dark:block"
         aria-hidden="true"
       />
-    )
-  }
+    </>
+  )}
 
-  {
-    showScrollIndicator && (
+  {showBlob && (
+    <>
       <div
-        class="scroll-indicator-wrapper absolute bottom-14 left-1/2 z-10 -translate-x-1/2"
+        class="pointer-events-none absolute hidden dark:block dark:opacity-[0.20] rounded-full blur-[120px] size-125 -left-20 top-0 -translate-y-1/4"
+        style="background: radial-gradient(ellipse at center, var(--color-brand-400) 0%, transparent 70%);"
         aria-hidden="true"
-      >
-        <div class="scroll-indicator flex flex-col items-center gap-0.5">
-          <svg
-            class="scroll-indicator-chevron text-brand-500/70 h-7 w-7"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-          <svg
-            class="scroll-indicator-chevron-2 text-brand-500/35 h-7 w-7"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </div>
+      />
+      <div
+        class="pointer-events-none absolute hidden dark:block dark:opacity-[0.20] rounded-full blur-[120px] size-125 -right-20 top-0 -translate-y-1/4"
+        style="background: radial-gradient(ellipse at center, var(--color-brand-400) 0%, transparent 70%);"
+        aria-hidden="true"
+      />
+    </>
+  )}
+
+  {bottomFade && (
+    <div
+      class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-background-secondary hidden dark:block"
+      aria-hidden="true"
+    />
+  )}
+
+  {showScrollIndicator && (
+    <div
+      class="scroll-indicator-wrapper absolute bottom-14 left-1/2 -translate-x-1/2 z-10"
+      aria-hidden="true"
+    >
+      <div class="scroll-indicator flex flex-col items-center gap-0.5">
+        <svg
+          class="scroll-indicator-chevron w-7 h-7 text-brand-500/70"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+        <svg
+          class="scroll-indicator-chevron-2 w-7 h-7 text-brand-500/35"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </div>
-    )
-  }
+    </div>
+  )}
 
   <div class={gridClasses}>
     {/* Content Column */}
     <div class={cn(contentClasses, 'order-1 lg:order-0 animate-hero-stagger')}>
       {/* Badge Slot */}
-      {
-        hasBadgeSlot && (
-          <div class="mb-(--space-heading-gap)">
-            <slot name="badge" />
-          </div>
-        )
-      }
+      {hasBadgeSlot && (
+        <div class="hero-badge-slot mb-(--space-heading-gap)">
+          <slot name="badge" />
+        </div>
+      )}
 
       {/* Title Slot */}
-      {
-        hasTitleSlot && (
-          <div
-            class={cn(
-              'hero-title-slot mb-(--space-heading-gap)',
-              '[&>h1]:font-display [&>h1]:text-foreground [&>h1]:text-5xl [&>h1]:leading-[1.1] [&>h1]:font-bold [&>h1]:tracking-tight [&>h1]:text-balance md:[&>h1]:text-6xl lg:[&>h1]:text-7xl',
-              '[&>h2]:font-display [&>h2]:text-foreground [&>h2]:text-4xl [&>h2]:leading-[1.1] [&>h2]:font-bold [&>h2]:tracking-tight [&>h2]:text-balance md:[&>h2]:text-5xl lg:[&>h2]:text-6xl'
-            )}
-          >
-            <slot name="title" />
-          </div>
-        )
-      }
+      {hasTitleSlot && (
+        <div
+          class={cn(
+            'hero-title-slot mb-(--space-heading-gap)',
+            '[&>h1]:font-display [&>h1]:text-5xl [&>h1]:leading-[1.1] [&>h1]:font-bold [&>h1]:tracking-tight [&>h1]:text-balance [&>h1]:text-foreground md:[&>h1]:text-6xl lg:[&>h1]:text-7xl',
+            '[&>h2]:font-display [&>h2]:text-4xl [&>h2]:leading-[1.1] [&>h2]:font-bold [&>h2]:tracking-tight [&>h2]:text-balance [&>h2]:text-foreground md:[&>h2]:text-5xl lg:[&>h2]:text-6xl'
+          )}
+        >
+          <slot name="title" />
+        </div>
+      )}
 
       {/* Description Slot */}
-      {
-        hasDescriptionSlot && (
-          <div
-            class={cn(
-              'text-foreground-muted mb-(--space-stack-lg) max-w-xl text-lg leading-relaxed',
-              '[&>p]:text-foreground-muted [&>p]:text-lg [&>p]:leading-relaxed',
-              layout === 'centered' && 'mx-auto'
-            )}
-          >
-            <slot name="description" />
-          </div>
-        )
-      }
+      {hasDescriptionSlot && (
+        <div
+          class={cn(
+            'mb-(--space-stack-lg) max-w-xl text-lg leading-relaxed text-foreground-muted',
+            '[&>p]:text-lg [&>p]:leading-relaxed [&>p]:text-foreground-muted',
+            layout === 'centered' && 'mx-auto'
+          )}
+        >
+          <slot name="description" />
+        </div>
+      )}
 
       {/* Actions Slot */}
-      {
-        hasActionsSlot && (
-          <div
-            class={cn(
-              'flex w-full flex-col gap-4 sm:w-auto sm:flex-row',
-              layout === 'centered' && 'justify-center'
-            )}
-          >
-            <slot name="actions" />
-          </div>
-        )
-      }
+      {hasActionsSlot && (
+        <div
+          class={cn(
+            'flex w-full flex-col gap-4 sm:w-auto sm:flex-row',
+            layout === 'centered' && 'justify-center'
+          )}
+        >
+          <slot name="actions" />
+        </div>
+      )}
 
       {/* Default slot for additional content (social proof, etc.) */}
       <slot />
     </div>
 
     {/* Aside Column (for split layout) */}
-    {
-      layout === 'split' && hasAsideSlot && (
-        <div class="relative z-10 order-2 w-full lg:order-0">
-          <slot name="aside" />
-        </div>
-      )
-    }
+    {layout === 'split' && hasAsideSlot && (
+      <div class="relative z-10 w-full order-2 lg:order-0">
+        <slot name="aside" />
+      </div>
+    )}
   </div>
 
-  {
-    /* Bottom slot — e.g. the homepage tech-stack marquee, in place of the scroll
+  {/* Bottom slot — e.g. the homepage tech-stack marquee, in place of the scroll
       indicator. In a full-height hero it's the last flex child, so it sits on
       the floor while the content grid centres itself in the leftover height
       (my-auto above); the section's column `gap` guarantees a minimum gap so
       the slot never crowds the content on short windows. Outside full-height
-      it falls back to absolute. */
-  }
-  {
-    hasBottomSlot && (
-      <div
-        class={cn(
-          'hero-bottom-slot z-10 w-full',
-          isFlooredBottom ? 'relative' : 'absolute inset-x-0 bottom-0'
-        )}
-      >
-        <slot name="bottom" />
-      </div>
-    )
-  }
+      it falls back to absolute. */}
+  {hasBottomSlot && (
+    <div
+      class={cn(
+        'hero-bottom-slot z-10 w-full',
+        isFlooredBottom ? 'relative' : 'absolute inset-x-0 bottom-0'
+      )}
+    >
+      <slot name="bottom" />
+    </div>
+  )}
 </section>
 
 <style>
+  /* The badge on a gridded hero, filled rather than tinted.
+
+     `Badge variant="brand"` fills at `bg-brand-500/10`, and the hero behind it
+     draws a 56px lattice — `HeroGrid` in light mode, `hero-beam__grid` in dark
+     — so a 1px line reads straight through the pill and cuts it in half.
+
+     Mixing the same 10% of the brand into the section's own ground gives the
+     colour the pill already renders as, with nothing left to see through. It
+     reads the brand and the background token, so one rule covers all eight
+     colour themes and both modes with no second value to keep in step.
+
+     In sRGB, not OKLCH. `--color-background` in light mode is `oklch(100% 0 0)`,
+     whose hue is powerless, so mixing toward it in OKLCH interpolates the hue
+     away from the brand and the pill comes out the wrong colour. sRGB is also
+     what the browser composites the translucent fill in, so this lands on the
+     colour the pill has today.
+
+     Dark mode gets it too. The line there sits at a far lower contrast against
+     its ground than in light, so it was close to invisible to begin with and
+     this changes nothing you can see — it keeps one rule for both rather than
+     two that can drift.
+
+     Scoped to the badge slot's own child: every hero badge in the theme is a
+     brand-variant pill. A badge of another variant slotted here would be
+     repainted brand, and would need the rule narrowed. */
+  .hero-gridded .hero-badge-slot > :global(*) {
+    background-color: color-mix(in srgb, var(--color-brand-500) 10%, var(--color-background));
+  }
+
   /* Desktop only: hide on landscape mobile (phones max out ~430px tall) */
   .scroll-indicator-wrapper {
     display: none;

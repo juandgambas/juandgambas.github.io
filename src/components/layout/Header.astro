@@ -236,105 +236,316 @@ const buttonId = `${menuId}-button`;
   {...attrs}
 >
   <div class={cn(innerClasses, 'hdr-inner')}>
-    {
-      !hideLogo &&
-        (hasLogoSlot ? (
-          <slot name="logo" />
-        ) : (
-          <a href={logoHref} class="flex items-center gap-2">
-            <Logo size={size === 'sm' ? 'md' : 'lg'} forceDark={isInvert} class="bg-brand-600" />
-            {/* One line at every width: the wordmark never wraps, and it eases
+    {!hideLogo &&
+      (hasLogoSlot ? (
+        <slot name="logo" />
+      ) : (
+        <a href={logoHref} class="flex items-center gap-2">
+          <Logo size={size === 'sm' ? 'md' : 'lg'} forceDark={isInvert} class="bg-brand-600" />
+          {/* One line at every width: the wordmark never wraps, and it eases
                 20px → 16px between 345px and 320px so it clears the header
                 icons on the smallest screens. From 345px up the clamp
                 resolves to exactly text-xl (20px). */}
-            <span
-              class={cn(
-                'font-display text-[clamp(1rem,16vw-2.2rem,1.25rem)] font-bold tracking-tight whitespace-nowrap',
-                isFloating
-                  ? 'hdr-logo-text'
-                  : isInvert
-                    ? 'text-brand-600 dark:text-foreground lg:text-on-invert'
-                    : 'text-brand-600 dark:text-foreground'
-              )}
-            >
-              {logoText || siteConfig.name}
-            </span>
-          </a>
-        ))
-    }
+          <span
+            class={cn(
+              'font-display text-[clamp(1rem,16vw-2.2rem,1.25rem)] font-bold tracking-tight whitespace-pre-line',
+              isFloating
+                ? 'hdr-logo-text'
+                : isInvert
+                  ? 'text-brand-700 dark:text-foreground lg:text-on-invert'
+                  : 'text-brand-700 dark:text-foreground'
+            )}
+          >
+            {logoText || siteConfig.name}
+          </span>
+        </a>
+      ))}
 
-    {
-      layout !== 'minimal' &&
-        (hasNavSlot ? (
-          <nav class="hidden items-center gap-1 lg:flex" aria-label={t('nav.mainNav', locale)}>
-            <slot name="nav" />
-          </nav>
-        ) : (
-          <nav class="hidden items-center gap-1 lg:flex" aria-label={t('nav.mainNav', locale)}>
-            {navItems.map(({ label, href }) => (
-              <a
-                href={href.startsWith('#') && !isLandingPage ? `/${href}` : href}
-                class={cn(
-                  'nav-link relative rounded-md px-3 py-2 text-sm',
-                  'transition-all duration-(--transition-fast)',
-                  isFloating && 'hdr-invert-text',
-                  isFloating
-                    ? isActive(href)
-                      ? 'hdr-nav-active font-semibold'
-                      : 'font-medium'
-                    : isActive(href)
-                      ? 'nav-link-active text-foreground bg-secondary font-semibold'
-                      : 'nav-link-inactive text-foreground-muted hover:text-foreground hover:bg-secondary/70 font-medium'
-                )}
-                aria-current={isActive(href) ? 'page' : undefined}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-        ))
-    }
+    {layout !== 'minimal' &&
+      (hasNavSlot ? (
+        <nav class="hidden items-center gap-1 lg:flex" aria-label={t('nav.mainNav', locale)}>
+          <slot name="nav" />
+        </nav>
+      ) : (
+        <nav class="hidden items-center gap-1 lg:flex" aria-label={t('nav.mainNav', locale)}>
+          {navItems.map(({ label, href }) => (
+            <a
+              href={href.startsWith('#') && !isLandingPage ? `/${href}` : href}
+              class={cn(
+                'nav-link relative rounded-md px-3 py-2 text-sm',
+                'transition-all duration-(--transition-fast)',
+                isFloating && 'hdr-invert-text',
+                isFloating
+                  ? isActive(href)
+                    ? 'hdr-nav-active font-semibold'
+                    : 'font-medium'
+                  : isActive(href)
+                    ? 'nav-link-active font-semibold text-foreground bg-secondary'
+                    : 'nav-link-inactive font-medium text-foreground-muted hover:text-foreground hover:bg-secondary/70'
+              )}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+      ))}
 
     <div class="flex items-center gap-2 justify-self-end">
-      {
-        hasActionsSlot ? (
-          <slot name="actions" />
-        ) : (
-          <>
-            {/* On phones the search trigger lives in the menu drawer instead —
+      {hasActionsSlot ? (
+        <slot name="actions" />
+      ) : (
+        <>
+          {/* On phones the search trigger lives in the menu drawer instead —
                 three icons squeezed the brand onto two lines below 390px. The
                 modal itself stays mounted here at every size: the drawer row
                 clicks this (hidden) trigger. */}
-            {showSearch && (
-              <div class="hidden lg:flex">
-                <SearchModal class={isFloating ? 'hdr-invert-text' : undefined} />
-              </div>
-            )}
+          {showSearch && (
+            <div class="hidden lg:flex">
+              <SearchModal class={isFloating ? 'hdr-invert-text' : undefined} />
+            </div>
+          )}
 
-            {showThemeToggle && (
-              <div class="flex">
-                <ThemeModeDropdown class={isFloating ? 'hdr-invert-text' : undefined} />
-              </div>
-            )}
+          {showThemeToggle && (
+            <div class="flex">
+              <ThemeModeDropdown class={isFloating ? 'hdr-invert-text' : undefined} />
+            </div>
+          )}
 
-            {showThemeSelector && (
-              <div class="hidden lg:flex">
-                <ThemeSelectorDropdown class={isFloating ? 'hdr-invert-text' : undefined} />
-              </div>
-            )}
+          {showThemeSelector && (
+            <div class="hidden lg:flex">
+              <ThemeSelectorDropdown class={isFloating ? 'hdr-invert-text' : undefined} />
+            </div>
+          )}
 
-            {showLanguageSwitcher && (
-              <div class="hidden lg:flex">
-                <LanguageSwitcher
-                  class={isFloating ? 'hdr-invert-text' : undefined}
-                  alternates={languageAlternates}
-                />
-              </div>
-            )}
+          {showLanguageSwitcher && (
+            <div class="hidden lg:flex">
+              <LanguageSwitcher
+                class={isFloating ? 'hdr-invert-text' : undefined}
+                alternates={languageAlternates}
+              />
+            </div>
+          )}
 
-            {showSocialLinks && siteConfig.socialLinks.length > 0 && (
-              <div class="hidden items-center gap-0.5 lg:flex">
-                {siteConfig.socialLinks.map((url) => {
+          {showSocialLinks && siteConfig.socialLinks.length > 0 && (
+            <div class="hidden lg:flex items-center gap-0.5">
+              {siteConfig.socialLinks.map((url) => {
+                const { icon, label } = getSocialIconData(url);
+                return (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    class={cn(
+                      'rounded-md p-2 transition-colors duration-(--transition-fast)',
+                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+                      isFloating
+                        ? 'hdr-invert-text'
+                        : 'text-foreground-muted hover:text-foreground hover:bg-secondary/70'
+                    )}
+                  >
+                    <Icon name={icon} size="md" />
+                  </a>
+                );
+              })}
+            </div>
+          )}
+
+          {actions.map((action) => (
+            <Button
+              variant="ghost"
+              size="sm"
+              icon={action.iconOnly}
+              href={action.href}
+              target={action.target}
+              aria-label={action.label}
+              class={isFloating ? 'hdr-invert-text' : undefined}
+            >
+              <Icon name={action.icon} size="sm" />
+              {!action.iconOnly && action.label}
+            </Button>
+          ))}
+
+          {showCta && (
+            <div class="hidden lg:flex">
+              <Button
+                size="sm"
+                href={ctaHref}
+                target={ctaHref?.startsWith('http') ? '_blank' : undefined}
+                class={cn('hdr-cta-brand', isFloating ? 'hdr-invert-cta' : undefined)}
+                title={cta.label}
+                aria-label={`Go to ${cta.label} repo`}
+              >
+                {cta.icon && <Icon name={cta.icon} size="sm" class="lg:hidden" />}
+                <span class="lg:hidden">{cta.label}</span>
+                {cta.trailingIcon && <Icon name={cta.trailingIcon} size="sm" />}
+              </Button>
+            </div>
+          )}
+        </>
+      )}
+
+      {showMobileMenu && layout !== 'minimal' && (
+        <button
+          type="button"
+          id={buttonId}
+          class={cn(
+            'hdr-hamburger inline-flex items-center justify-center rounded-md p-2 lg:hidden',
+            'text-foreground',
+            'transition-colors',
+            'focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none',
+            isFloating ? 'hover:bg-secondary/40' : 'hover:bg-secondary'
+          )}
+          aria-expanded="false"
+          aria-controls={menuId}
+          aria-label={t('nav.toggleMenu', locale)}
+        >
+          <span class="menu-icon">
+            <Icon name="menu" size="md" />
+          </span>
+          <span class="close-icon hidden">
+            <Icon name="x" size="md" />
+          </span>
+        </button>
+      )}
+    </div>
+  </div>
+
+  {effectiveShowScrollProgress &&
+    (isFloating ? (
+      <div
+        class={`absolute inset-x-3 h-0.5 overflow-hidden rounded-full ${scrollProgressPosition === 'top' ? 'top-0.5' : 'bottom-0.5'}`}
+        aria-hidden="true"
+      >
+        <div
+          id="scroll-progress-bar"
+          class="absolute left-0 top-0 h-full w-0 bg-brand-500 transition-none"
+        />
+      </div>
+    ) : (
+      <div
+        id="scroll-progress-bar"
+        class={`absolute left-0 h-0.5 w-0 bg-brand-500 transition-none ${scrollProgressPosition === 'top' ? 'top-0' : 'bottom-0'}`}
+        aria-hidden="true"
+      />
+    ))}
+
+  {showMobileMenu &&
+    layout !== 'minimal' &&
+    (hasMobileMenuSlot ? (
+      <div
+        id={menuId}
+        class={cn(
+          'hidden origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
+          isFloating
+            ? 'rounded-b-2xl bg-background/95 backdrop-blur-xl'
+            : 'border-border bg-background border-t'
+        )}
+        role="navigation"
+        aria-label={t('nav.mobileNav', locale)}
+      >
+        <slot name="mobile-menu" />
+      </div>
+    ) : (
+      <div
+        id={menuId}
+        class={cn(
+          'hidden origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
+          isFloating
+            ? 'rounded-b-2xl bg-background/95 backdrop-blur-xl'
+            : 'border-border bg-background border-t'
+        )}
+        role="navigation"
+        aria-label={t('nav.mobileNav', locale)}
+      >
+        <div
+          class={cn(
+            'mobile-menu-body py-3',
+            isFloating ? 'px-3' : cn('mx-auto px-4', maxWidthClass)
+          )}
+        >
+          {showSearch && (
+            <section class="mobile-menu-section">
+              <button
+                type="button"
+                class="mobile-menu-search mobile-menu-stagger flex w-full items-center gap-3 rounded-xl border border-border-strong px-3 py-3 text-base text-foreground-muted transition-colors hover:text-foreground hover:border-brand-500"
+                style="--stagger-index: 0"
+                aria-haspopup="dialog"
+              >
+                <span class="mobile-menu-tile">
+                  <Icon name="search" size="sm" />
+                </span>
+                <span class="flex-1 text-left">{t('nav.searchSite', locale)}</span>
+                <kbd class="hidden sm:inline-block rounded border border-border-strong px-1.5 py-0.5 text-xs text-foreground-muted">
+                  ⌘K
+                </kbd>
+              </button>
+            </section>
+          )}
+
+          <section class="mobile-menu-section">
+            <p class="mobile-menu-label">{t('nav.sectionNavigate', locale)}</p>
+            <ul class="space-y-0.5">
+              {navItems.map(({ label, href }, idx) => {
+                const active = isActive(href);
+                const resolvedHref = href.startsWith('#') && !isLandingPage ? `/${href}` : href;
+                return (
+                  <li>
+                    <a
+                      href={resolvedHref}
+                      class={cn(
+                        'mobile-menu-row mobile-menu-stagger group flex items-center gap-3 rounded-xl px-3 py-3 text-base transition-colors',
+                        active ? 'mobile-menu-row-active' : 'mobile-menu-row-inactive'
+                      )}
+                      style={`--stagger-index: ${idx}`}
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      <span class="mobile-menu-tile">
+                        <Icon name={getNavIcon(href)} size="sm" />
+                      </span>
+                      <span class="flex-1">{label}</span>
+                      <Icon name="chevron-right" size="sm" class="mobile-menu-chevron" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+
+          {showThemeSelector && (
+            <section class="mobile-menu-section">
+              <p class="mobile-menu-label">{t('nav.sectionTheme', locale)}</p>
+              <div
+                class="mobile-menu-stagger flex items-center justify-between rounded-xl px-3 py-2.5"
+                style={`--stagger-index: ${navItems.length}`}
+              >
+                <span class="text-sm text-foreground-muted">{t('theme.colourTheme', locale)}</span>
+                <ThemeSelector />
+              </div>
+            </section>
+          )}
+
+          {showLanguageSwitcher && (
+            <section class="mobile-menu-section">
+              <p class="mobile-menu-label">{t('nav.sectionLanguage', locale)}</p>
+              <div
+                class="mobile-menu-stagger flex items-center justify-between rounded-xl px-3 py-2.5"
+                style={`--stagger-index: ${navItems.length + (showThemeSelector ? 1 : 0)}`}
+              >
+                <span class="text-sm text-foreground-muted">
+                  {t('nav.sectionLanguage', locale)}
+                </span>
+                <LanguageSwitcher alternates={languageAlternates} />
+              </div>
+            </section>
+          )}
+
+          {mobileSocialLinks.length > 0 && (
+            <section class="mobile-menu-section">
+              <p class="mobile-menu-label">{t('nav.sectionConnect', locale)}</p>
+              <div class="flex flex-wrap items-center gap-2 px-2 pt-1 pb-2">
+                {mobileSocialLinks.map((url, sIdx) => {
                   const { icon, label } = getSocialIconData(url);
                   return (
                     <a
@@ -342,271 +553,48 @@ const buttonId = `${menuId}-button`;
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      class={cn(
-                        'rounded-md p-2 transition-colors duration-(--transition-fast)',
-                        'focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none',
-                        isFloating
-                          ? 'hdr-invert-text'
-                          : 'text-foreground-muted hover:text-foreground hover:bg-secondary/70'
-                      )}
+                      title={label}
+                      class="mobile-menu-social mobile-menu-stagger inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-strong text-foreground-muted transition-colors"
+                      style={`--stagger-index: ${navItems.length + (showThemeSelector ? 1 : 0) + (showLanguageSwitcher ? 1 : 0) + sIdx}`}
                     >
                       <Icon name={icon} size="md" />
                     </a>
                   );
                 })}
               </div>
-            )}
-
-            {actions.map((action) => (
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={action.iconOnly}
-                href={action.href}
-                target={action.target}
-                aria-label={action.label}
-                class={isFloating ? 'hdr-invert-text' : undefined}
-              >
-                <Icon name={action.icon} size="sm" />
-                {!action.iconOnly && action.label}
-              </Button>
-            ))}
-
-            {showCta && (
-              <div class="hidden lg:flex">
-                <Button
-                  size="sm"
-                  href={ctaHref}
-                  target={ctaHref?.startsWith('http') ? '_blank' : undefined}
-                  class={cn('hdr-cta-brand', isFloating ? 'hdr-invert-cta' : undefined)}
-                >
-                  {cta.icon && <Icon name={cta.icon} size="sm" />}
-                  {cta.label}
-                  {cta.trailingIcon && <Icon name={cta.trailingIcon} size="sm" />}
-                </Button>
-              </div>
-            )}
-          </>
-        )
-      }
-
-      {
-        showMobileMenu && layout !== 'minimal' && (
-          <button
-            type="button"
-            id={buttonId}
-            class={cn(
-              'hdr-hamburger inline-flex items-center justify-center rounded-md p-2 lg:hidden',
-              'text-foreground',
-              'transition-colors',
-              'focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none',
-              isFloating ? 'hover:bg-secondary/40' : 'hover:bg-secondary'
-            )}
-            aria-expanded="false"
-            aria-controls={menuId}
-            aria-label={t('nav.toggleMenu', locale)}
-          >
-            <span class="menu-icon">
-              <Icon name="menu" size="md" />
-            </span>
-            <span class="close-icon hidden">
-              <Icon name="x" size="md" />
-            </span>
-          </button>
-        )
-      }
-    </div>
-  </div>
-
-  {
-    effectiveShowScrollProgress &&
-      (isFloating ? (
-        <div
-          class={`absolute inset-x-3 h-0.5 overflow-hidden rounded-full ${scrollProgressPosition === 'top' ? 'top-0.5' : 'bottom-0.5'}`}
-          aria-hidden="true"
-        >
-          <div
-            id="scroll-progress-bar"
-            class="bg-brand-500 absolute top-0 left-0 h-full w-0 transition-none"
-          />
-        </div>
-      ) : (
-        <div
-          id="scroll-progress-bar"
-          class={`bg-brand-500 absolute left-0 h-0.5 w-0 transition-none ${scrollProgressPosition === 'top' ? 'top-0' : 'bottom-0'}`}
-          aria-hidden="true"
-        />
-      ))
-  }
-
-  {
-    showMobileMenu &&
-      layout !== 'minimal' &&
-      (hasMobileMenuSlot ? (
-        <div
-          id={menuId}
-          class={cn(
-            'hidden origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
-            isFloating
-              ? 'bg-background/95 rounded-b-2xl backdrop-blur-xl'
-              : 'border-border bg-background border-t'
-          )}
-          role="navigation"
-          aria-label={t('nav.mobileNav', locale)}
-        >
-          <slot name="mobile-menu" />
-        </div>
-      ) : (
-        <div
-          id={menuId}
-          class={cn(
-            'hidden origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
-            isFloating
-              ? 'bg-background/95 rounded-b-2xl backdrop-blur-xl'
-              : 'border-border bg-background border-t'
-          )}
-          role="navigation"
-          aria-label={t('nav.mobileNav', locale)}
-        >
-          <div
-            class={cn(
-              'mobile-menu-body py-3',
-              isFloating ? 'px-3' : cn('mx-auto px-4', maxWidthClass)
-            )}
-          >
-            {showSearch && (
-              <section class="mobile-menu-section">
-                <button
-                  type="button"
-                  class="mobile-menu-search mobile-menu-stagger border-border-strong text-foreground-muted hover:text-foreground hover:border-brand-500 flex w-full items-center gap-3 rounded-xl border px-3 py-3 text-base transition-colors"
-                  style="--stagger-index: 0"
-                  aria-haspopup="dialog"
-                >
-                  <span class="mobile-menu-tile">
-                    <Icon name="search" size="sm" />
-                  </span>
-                  <span class="flex-1 text-left">{t('nav.searchSite', locale)}</span>
-                  <kbd class="border-border-strong text-foreground-muted hidden rounded border px-1.5 py-0.5 text-xs sm:inline-block">
-                    ⌘K
-                  </kbd>
-                </button>
-              </section>
-            )}
-
-            <section class="mobile-menu-section">
-              <p class="mobile-menu-label">{t('nav.sectionNavigate', locale)}</p>
-              <ul class="space-y-0.5">
-                {navItems.map(({ label, href }, idx) => {
-                  const active = isActive(href);
-                  const resolvedHref = href.startsWith('#') && !isLandingPage ? `/${href}` : href;
-                  return (
-                    <li>
-                      <a
-                        href={resolvedHref}
-                        class={cn(
-                          'mobile-menu-row mobile-menu-stagger group flex items-center gap-3 rounded-xl px-3 py-3 text-base transition-colors',
-                          active ? 'mobile-menu-row-active' : 'mobile-menu-row-inactive'
-                        )}
-                        style={`--stagger-index: ${idx}`}
-                        aria-current={active ? 'page' : undefined}
-                      >
-                        <span class="mobile-menu-tile">
-                          <Icon name={getNavIcon(href)} size="sm" />
-                        </span>
-                        <span class="flex-1">{label}</span>
-                        <Icon name="chevron-right" size="sm" class="mobile-menu-chevron" />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
             </section>
+          )}
 
-            {showThemeSelector && (
-              <section class="mobile-menu-section">
-                <p class="mobile-menu-label">{t('nav.sectionTheme', locale)}</p>
-                <div
-                  class="mobile-menu-stagger flex items-center justify-between rounded-xl px-3 py-2.5"
-                  style={`--stagger-index: ${navItems.length}`}
-                >
-                  <span class="text-foreground-muted text-sm">
-                    {t('theme.colourTheme', locale)}
-                  </span>
-                  <ThemeSelector />
-                </div>
-              </section>
-            )}
-
-            {showLanguageSwitcher && (
-              <section class="mobile-menu-section">
-                <p class="mobile-menu-label">{t('nav.sectionLanguage', locale)}</p>
-                <div
-                  class="mobile-menu-stagger flex items-center justify-between rounded-xl px-3 py-2.5"
-                  style={`--stagger-index: ${navItems.length + (showThemeSelector ? 1 : 0)}`}
-                >
-                  <span class="text-foreground-muted text-sm">
-                    {t('nav.sectionLanguage', locale)}
-                  </span>
-                  <LanguageSwitcher alternates={languageAlternates} />
-                </div>
-              </section>
-            )}
-
-            {mobileSocialLinks.length > 0 && (
-              <section class="mobile-menu-section">
-                <p class="mobile-menu-label">{t('nav.sectionConnect', locale)}</p>
-                <div class="flex flex-wrap items-center gap-2 px-2 pt-1 pb-2">
-                  {mobileSocialLinks.map((url, sIdx) => {
-                    const { icon, label } = getSocialIconData(url);
-                    return (
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={label}
-                        title={label}
-                        class="mobile-menu-social mobile-menu-stagger border-border-strong text-foreground-muted inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors"
-                        style={`--stagger-index: ${navItems.length + (showThemeSelector ? 1 : 0) + (showLanguageSwitcher ? 1 : 0) + sIdx}`}
-                      >
-                        <Icon name={icon} size="md" />
-                      </a>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
-
-            {showCta && (
-              <div
-                class="mobile-menu-stagger mobile-menu-cta-wrap pt-2"
-                style={`--stagger-index: ${navItems.length + (showThemeSelector ? 1 : 0) + (showLanguageSwitcher ? 1 : 0) + mobileSocialLinks.length}`}
+          {showCta && (
+            <div
+              class="mobile-menu-stagger mobile-menu-cta-wrap pt-2"
+              style={`--stagger-index: ${navItems.length + (showThemeSelector ? 1 : 0) + (showLanguageSwitcher ? 1 : 0) + mobileSocialLinks.length}`}
+            >
+              <Button
+                fullWidth
+                href={ctaHref}
+                target={ctaHref?.startsWith('http') ? '_blank' : undefined}
+                title={cta.label}
+                aria-label={`Go to ${cta.label} repo`}
               >
-                <Button
-                  fullWidth
-                  href={ctaHref}
-                  target={ctaHref?.startsWith('http') ? '_blank' : undefined}
-                >
-                  {cta.icon && <Icon name={cta.icon} size="sm" />}
-                  {cta.label}
-                  {cta.trailingIcon && <Icon name={cta.trailingIcon} size="sm" />}
-                </Button>
-              </div>
-            )}
-          </div>
+                {cta.icon && <Icon name={cta.icon} size="sm" class="lg:hidden" />}
+                <span class="lg:hidden">{cta.label}</span>
+                {cta.trailingIcon && <Icon name={cta.trailingIcon} size="sm" class="lg:hidden" />}
+              </Button>
+            </div>
+          )}
         </div>
-      ))
-  }
+      </div>
+    ))}
 </header>
 
-{
-  showMobileMenu && layout !== 'minimal' && (
-    <div
-      id={`${menuId}-backdrop`}
-      class="pointer-events-none fixed inset-0 z-40 opacity-0 transition-opacity duration-200 lg:hidden"
-      aria-hidden="true"
-    />
-  )
-}
+{showMobileMenu && layout !== 'minimal' && (
+  <div
+    id={`${menuId}-backdrop`}
+    class="pointer-events-none fixed inset-0 z-40 opacity-0 transition-opacity duration-200 lg:hidden"
+    aria-hidden="true"
+  />
+)}
 
 <script>
   import { trapFocus } from '@/lib/focus-trap';
@@ -705,7 +693,10 @@ const buttonId = `${menuId}-button`;
           if (isFloating) {
             header.classList.remove('rounded-t-2xl');
             header.classList.add('rounded-2xl');
-            if (window.scrollY <= 60) {
+            // Written by measureFlipPoint() in the scroll-watcher script
+            // below. Read straight off the element because each <script>
+            // block is its own module — the helper there is not in scope here.
+            if (window.scrollY <= (Number(header.dataset.flipAt) || 60)) {
               header.removeAttribute('data-scrolled');
             }
           } else {
@@ -771,6 +762,41 @@ const buttonId = `${menuId}-button`;
   // without re-introducing a critical-path reflow.
   const SCROLL_THRESHOLD = 60;
   const AUTO_HIDE_THRESHOLD = 150;
+
+  /* WHERE THE HEADER FLIPS.
+     60px of scroll by default. On a page with a full-height hero that is
+     wrong: the header's at-rest look is built to sit ON the hero — dark glass
+     in light mode, no shadow — so flipping to the light, shadowed state after
+     60px leaves it in the wrong costume for the remaining height of the hero.
+
+     A page overrides it by marking the element the header should stay over:
+
+         <section data-header-flip-anchor>
+
+     The flip then happens when that element's bottom edge reaches the header's
+     own bottom edge, which is the moment the next section arrives underneath
+     the header. Not before it — a light bar over the last of a dark hero is
+     the same mismatch, just briefer — and not after.
+
+     `offsetTop + offsetHeight` rather than a bounding rect: the header is
+     fixed, so offsetTop resolves to its CSS `top`, and neither value moves
+     when the auto-hide transform runs. Re-measured on resize, because the
+     anchor's height is viewport-dependent. */
+  function measureFlipPoint(header: HTMLElement) {
+    const anchor = document.querySelector<HTMLElement>('[data-header-flip-anchor]');
+    if (!anchor) {
+      header.dataset.flipAt = String(SCROLL_THRESHOLD);
+      return;
+    }
+    const anchorBottom = anchor.getBoundingClientRect().bottom + window.scrollY;
+    const headerBottom = header.offsetTop + header.offsetHeight;
+    header.dataset.flipAt = String(
+      Math.max(SCROLL_THRESHOLD, Math.round(anchorBottom - headerBottom))
+    );
+  }
+
+  /** The scroll position this header changes costume at. */
+  const flipPoint = (header: HTMLElement) => Number(header.dataset.flipAt) || SCROLL_THRESHOLD;
   const BAR_SCROLLED_CLASSES = [
     'bg-background/80',
     'backdrop-blur-lg',
@@ -804,6 +830,9 @@ const buttonId = `${menuId}-button`;
       if (header.dataset.scrollInit) return;
       header.dataset.scrollInit = 'true';
 
+      measureFlipPoint(header);
+      window.addEventListener('resize', () => measureFlipPoint(header), { passive: true });
+
       const isBar = header.dataset.headerShape === 'bar';
       const isFloating = header.dataset.headerShape === 'floating';
       const isAutoHide = header.dataset.headerAutoHide !== 'false';
@@ -825,7 +854,7 @@ const buttonId = `${menuId}-button`;
           const wasHidden = header.hasAttribute('data-header-hidden');
 
           // ── WRITES ──
-          if (currentScrollY > SCROLL_THRESHOLD) {
+          if (currentScrollY > flipPoint(header)) {
             header.setAttribute('data-scrolled', '');
             if (isTransparentBar) {
               header.classList.add(...BAR_SCROLLED_CLASSES);

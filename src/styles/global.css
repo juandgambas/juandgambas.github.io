@@ -86,6 +86,13 @@
   --color-warning: var(--warning);
   --color-error: var(--error);
 
+  /* Higher-contrast variants for status colour used as text or as an icon on
+     the page background. See the note in tokens/primitives.css. */
+  --color-success-strong: var(--success-strong);
+  --color-warning-strong: var(--warning-strong);
+  --color-error-strong: var(--error-strong);
+  --color-info-strong: var(--info-strong);
+
   /* Inverted/Contrast Sections */
   --color-surface-invert: var(--surface-invert);
   --color-surface-invert-secondary: var(--surface-invert-secondary);
@@ -333,13 +340,18 @@
 
   /* Hero gradient — dark mode */
   .dark .hero-dark-gradient {
-    background: linear-gradient(to bottom, var(--color-brand-500) 0%, #000 100%);
+    background: linear-gradient(to bottom, var(--color-brand-500) 0%, var(--bar-color) 100%);
   }
 
+  /* The end stop is named because it is also the colour Safari needs under the
+     toolbar it floats over the foot of the screen. One source of truth: change
+     it here and the browser chrome follows. See `paintBody` in BaseLayout, and
+     `data-bar-color` on the hero in HomeView. */
   .hero-dark-gradient {
     position: relative;
     isolation: isolate;
-    background: linear-gradient(to bottom, var(--color-brand-500) 0%, #000 100%);
+    --bar-color: #000;
+    background: linear-gradient(to bottom, var(--color-brand-500) 0%, var(--bar-color) 100%);
   }
   /* The hero panel stays dark in light mode, so its text needs the same
      hierarchy the panel has in dark mode: a near-white heading (91%
@@ -1297,17 +1309,94 @@
 }
 
 /* CTA primary button on mobile / coarse-pointer CTA sections.
-   brand-700 fill / brand-800 hover in both modes: the lightest brand step
-   that holds white label text at WCAG AA (>=4.5:1) across every theme. */
-.cta-btn-brand {
+   brand-700 fill in both modes: the lightest brand step that holds white
+   label text at WCAG AA (>=4.5:1) across every theme.
+
+   No hover colour. On the CTA band this button sits on a gradient running
+   brand-500 down to brand-900, and the buttons land low in that travel where
+   the ground is already near brand-700. A darker hover put the fill within
+   1.1:1 of the ground behind it, so the button dissolved rather than
+   responded. Hover is carried by the arrow instead — it shifts 4px — and a
+   press by `active:scale-[0.98]` on Button itself. */
+.cta-btn-brand, .lgb-btn-brand {
   background-color: var(--color-brand-700) !important;
   background-image: none !important;
   color: white !important;
   border-color: transparent !important;
 }
-.cta-btn-brand:hover {
-  background-color: var(--color-brand-800) !important;
-  background-image: none !important;
+
+.cta-btn-brand:hover, .lgb-btn-brand:hover {
+  opacity: 0.85;
+}
+
+/* Controls standing on a hero that draws a grid.
+
+   A hero with `showHeroHalo` paints a 56px lattice behind its content —
+   `HeroGrid` in light mode, `hero-beam__grid` in dark. Any control filled with
+   `bg-transparent` lets a 1px line read straight through it, which cuts the
+   control in half.
+
+   Every affected hero paints `bg-background`, so filling with that token gives
+   the colour the transparent control already shows and leaves nothing to see
+   through. On plain ground nothing about the control changes.
+
+   Applied at the call site rather than in the variant or the component. Both
+   the outline variants and the tag lists are used away from a hero as well,
+   and several of those sit on `bg-background-secondary` — a different colour,
+   which this fill would turn into a pale patch.
+
+   Two button classes because the two outline variants hover differently:
+   `outline` hovers to `--secondary`, which is opaque already and is restated
+   here so the base fill cannot win the cascade against it, while
+   `brand-outline` hovers to `bg-brand-500/10`, which is translucent and would
+   let the line straight back in. Mixing that same 10% into the same ground
+   gives the hover its colour with nothing left to see through.
+
+   `!important`, matching `.cta-btn-brand` above, because the utility being
+   overridden comes from the same variant and carries the same weight. It is on
+   the hover rules too, so the hover still wins over the base fill.
+
+   In sRGB rather than OKLCH: `--color-background` is `oklch(100% 0 0)` in light
+   mode, whose hue is powerless, so mixing toward it in OKLCH drags the hue off
+   the brand. sRGB is also what the browser composites a translucent fill in, so
+   this lands where the hover sits today. */
+.hero-btn-opaque {
+  background-color: var(--color-background) !important;
+}
+.hero-btn-opaque:hover {
+  background-color: var(--color-secondary) !important;
+}
+.hero-btn-opaque-brand {
+  background-color: var(--color-background) !important;
+}
+.hero-btn-opaque-brand:hover {
+  background-color: color-mix(in srgb, var(--color-brand-500) 10%, var(--color-background)) !important;
+}
+
+/* The same fix for the tag pills a hero carries.
+
+   Only the unselected pill: the selected one fills with `bg-brand-500` and
+   carries `aria-current="page"`. Neither hero passes an active tag today, but
+   the exclusion keeps the rule honest if one ever does.
+
+   No hover rule — these pills change only their border on hover, so there is
+   no second translucent state to close. */
+.tag-pills-opaque a:not([aria-current]) {
+  background-color: var(--color-background);
+}
+
+/* Primary button inside an inverted section.
+   The primary variant is `bg-foreground text-background`, but the Button's own
+   light-mode style wins the cascade for background-color and fills with
+   brand-700 (see the note on .hero-dark-gradient .btn-primary above). The
+   label kept following `text-background`, which .invert-section redefines all
+   the way down to the near-black inverted surface — so the button rendered as
+   near-black on brand blue, 3.9:1. White is what a brand-700 fill was built
+   for: 5.3:1 on the blue theme, and AA on every other, exactly as for
+   .hero-btn-brand and .cta-btn-brand above. !important to match them, since
+   the utility it overrides is applied by the same variant. */
+.invert-section .btn-primary {
+  color: white !important;
 }
 
 /* Header CTA — brand colour in light mode (brand-700 for AA white text) */
@@ -1330,6 +1419,71 @@
 }
 .btn-destructive:hover {
   background-color: oklch(47% 0.18 25);
+}
+
+/* ── The CTA band's button pair ─────────────────────────────────────────
+   The band is a saturated brand field with a grid over it, and the grid
+   decides both buttons: anything transparent lets the lines read straight
+   through it. So the pair is a near-white primary and an opaque brand
+   secondary, and neither has a see-through state — including on hover.
+
+   Primary: the near-white pill the home hero already uses on its own
+   gradient. Two rules have to be beaten for it. Button.astro paints
+   `.btn-primary` a brand fill in light mode, which on a brand field is a
+   duller patch of the same colour rather than a button; and
+   `.invert-section .btn-primary` forces a white label, which was right for
+   the brand fill it was written for and would be white-on-white here. Both
+   are answered below, with `!important` for the reason the hero's copy
+   gives: Button's own rule otherwise wins `background-color` back on hover.
+
+   The label is brand-700, not the near-black `--color-background` the pill
+   started with. brand-700 is the step that clears 4.5:1 on a near-white fill
+   in all eight palettes: brand-500 fails in seven of them and brand-600 still
+   fails on emerald, teal, cyan and sky — the same four the tag pill had to
+   move past.
+
+   Neither button takes a hover colour. This one is already near-white on a
+   dark field, so it has nowhere brighter to go: its hover mixed the
+   foreground with white and moved the fill by under 2%, which read as no
+   response at all. The pair also needed opposite directions to be legible
+   here — lighter for the dark secondary, darker for this one — which one
+   hover convention cannot give. Hover is carried by the arrow instead, 4px on
+   both buttons, and a press by `active:scale-[0.98]` on Button itself.
+
+   Secondary: `.cta-btn-brand`, an opaque brand fill with no border.
+   `.hero-btn-brand` would look the same at rest but fades to `opacity: 0.85`
+   on hover, which makes the whole button translucent and shows the grid
+   through it. */
+.cta-band.invert-section .btn-primary {
+  background-color: var(--color-foreground) !important;
+  background-image: linear-gradient(
+    180deg,
+    var(--color-foreground) 0%,
+    color-mix(in oklch, var(--color-foreground) 55%, var(--color-foreground-secondary)) 100%
+  ) !important;
+  border: 1px solid var(--color-foreground-secondary) !important;
+  color: var(--color-brand-700) !important;
+}
+
+/* The secondary's edge, on the band only.
+
+   Its brand-700 fill sits on a field travelling brand-500 to brand-900, and
+   the buttons land where the ground is already near brand-700 — so the fill
+   is 1.5:1 against what is behind it and the button's shape barely reads.
+   WCAG 1.4.11 asks 3:1 to identify a control, which the fill cannot give
+   without breaking something else: brand-500 would clear the boundary in only
+   five of the eight palettes and would drop the white label to 2.8:1, and
+   brand-600 clears neither.
+
+   A 1px white line at 35% composites over the fill, so no colour changes —
+   the button only gains an edge. Worst of the eight is 3.21:1 (teal), which
+   clears the bar with little to spare; 45% is the same line at 3.91 if a
+   future palette needs the room.
+
+   Scoped to the band because `.cta-btn-brand` is used on light sections too,
+   including the contact form's submit, where a white edge would be wrong. */
+.cta-band.invert-section .cta-btn-brand {
+  border-color: rgb(255 255 255 / 0.35) !important;
 }
 
 .hero-btn-learn {
@@ -1418,7 +1572,8 @@ summary {
    brand in dark mode too, mirroring the light-mode primary: brand-600 fill,
    brand-700 hover, white label. The same four cooler hues as light mode
    (cyan/emerald/sky/teal) sit on brand-700/800 so the white text keeps
-   WCAG AA — worst case across all 12 themes is 4.54:1 (green, at rest). */
+   WCAG AA — worst case across the eight themes is 5.31:1 (blue, at rest),
+   measured from each theme's --brand-600/700 against white. */
 html.dark .btn-primary.project-live-btn,
 html.dark .mobile-menu-cta-wrap .btn-primary {
   background-color: var(--color-brand-600);

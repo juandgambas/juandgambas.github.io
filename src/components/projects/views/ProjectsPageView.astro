@@ -12,7 +12,6 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
-import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import ProjectTagList from '@/components/projects/ProjectTagList.astro';
 import Pagination from '@/components/blog/Pagination.astro';
@@ -25,6 +24,7 @@ import {
   PROJECT_TAG_CLOUD_LIMIT,
   PROJECTS_PER_PAGE,
 } from '@/lib/projects';
+import CtaSection from '@/components/layout/CtaSection.astro';
 
 interface Props {
   /** Locale whose projects this page renders. Defaults to the site default. */
@@ -62,35 +62,29 @@ const aboutUrl = localizedPath('/about', locale);
 
     <h1 slot="title">{t('projects.title', locale)}</h1>
 
-    <p slot="description">
-      {t('projects.heroDescription', locale)}
-    </p>
+    <p slot="description">{t('projects.heroDescription', locale)}</p>
   </Hero>
 
-  <section class="bg-background-secondary border-border border-t py-(--space-section-md)">
-    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6">
+  <section class="bg-background-secondary py-(--space-section-md) border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4" data-reveal>
         <a
           href={projectsHref}
-          class="group border-brand-500/40 text-brand-700 dark:text-brand-400 hover:border-brand-500/80 hover:bg-brand-500/10 inline-flex items-center gap-2 rounded-lg border bg-transparent px-4 py-2 text-sm font-medium transition-colors"
+          class="group inline-flex items-center gap-2 rounded-lg border border-brand-500/40 bg-transparent px-4 py-2 text-sm font-medium text-brand-700 dark:text-brand-400 hover:border-brand-500/80 hover:bg-brand-500/10 transition-colors"
         >
           <Icon name="arrow-left" size="sm" />
           {t('projects.allProjects', locale)}
         </a>
 
-        {
-          topTags.length > 0 && (
-            <ProjectTagList tags={topTags} locale={locale} class="justify-center" />
-          )
-        }
+        {topTags.length > 0 && (
+          <ProjectTagList tags={topTags} locale={locale} class="justify-center" />
+        )}
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
-        {
-          pageProjects.map((project, i) => (
-            <ProjectCard project={project} index={i} locale={locale} />
-          ))
-        }
+        {pageProjects.map((project, i) => (
+          <ProjectCard project={project} index={i} locale={locale} />
+        ))}
       </div>
 
       <Pagination
@@ -102,41 +96,30 @@ const aboutUrl = localizedPath('/about', locale);
   </section>
 
   <!-- CTA -->
-  <section class="bg-background relative z-10 py-(--space-section-md)">
-    <!-- Mobile: flat section, no card -->
-    <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
-      <Badge variant="brand" pill class="mb-6">
-        <Icon name="message-circle" size="sm" />
-        {t('projects.ctaBadge', locale)}
-      </Badge>
-      <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
+  <CtaSection class="bg-background" maxWidth="7xl" glitch>
+    <Fragment slot="normal">
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
         {t('projects.ctaHeading', locale)}
       </h2>
-      <p class="text-foreground-muted mb-8 text-lg text-balance">
-        {t('projects.ctaLead', locale)}
-      </p>
-      <div class="flex flex-col justify-center gap-4 sm:flex-row">
-        <Button size="lg" href={contactUrl} class="cta-btn-brand">
+      <p class="text-lg text-foreground-muted mb-8 text-balance">{t('projects.ctaLead', locale)}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={contactUrl}>
           {t('projects.ctaPrimary', locale)}
           <Icon name="arrow-right" size="sm" />
         </Button>
-        <Button size="lg" variant="brand-outline" href={aboutUrl}>
+        <Button size="lg" variant="outline" class="cta-btn-brand" href={aboutUrl}>
           {t('projects.ctaSecondary', locale)}
           <Icon name="arrow-right" size="sm" />
         </Button>
       </div>
-    </div>
-
-    <!-- Desktop: contained LetterGlitch band with glass card -->
-    <LetterGlitchBand>
-      <h2 class="font-display text-foreground mb-4 text-4xl font-bold text-balance">
+    </Fragment>
+    <Fragment slot="glitch">
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
         {t('projects.ctaHeading', locale)}
       </h2>
-      <p class="text-foreground-muted mb-8 text-lg text-balance">
-        {t('projects.ctaLead', locale)}
-      </p>
-      <div class="flex flex-col justify-center gap-4 sm:flex-row">
-        <Button size="lg" href={contactUrl} class="hero-btn-brand">
+      <p class="text-lg text-foreground-muted mb-8 text-balance">{t('projects.ctaLead', locale)}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" class="lgb-btn-brand" href={contactUrl}>
           {t('projects.ctaPrimary', locale)}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -145,6 +128,6 @@ const aboutUrl = localizedPath('/about', locale);
           <Icon name="arrow-right" size="sm" />
         </Button>
       </div>
-    </LetterGlitchBand>
-  </section>
+    </Fragment>
+  </CtaSection>
 </PageLayout>
