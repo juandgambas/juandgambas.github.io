@@ -19,14 +19,14 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { colourThemes, selectorThemes } from '../lib/themes';
-import en from '../i18n/en.json';
-import nl from '../i18n/nl.json';
-import siteConfig from '../config/site.config';
+// import en from '../i18n/en.json';
+// import nl from '../i18n/nl.json';
+// import siteConfig from '../config/site.config';
 
 const COUNT = colourThemes.length;
 const IDS = colourThemes.map((t) => t.id);
 const read = (p: string) => readFileSync(join(process.cwd(), p), 'utf8');
-const norm = (s: string) => s.replace(/\s+/g, ' ').trim();
+// const norm = (s: string) => s.replace(/\s+/g, ' ').trim();
 
 describe('colour themes', () => {
   it('the registry is the number the copy quotes', () => {
