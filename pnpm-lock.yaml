@@ -10,22 +10,22 @@ importers:
     dependencies:
       '@astrojs/cloudflare':
         specifier: ^14.4.3
-        version: 14.4.3(@types/node@26.6.5)(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.5))(yaml@2.9.1)
+        version: 14.4.3(@types/node@26.6.6)(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.6))(yaml@2.9.1)
       '@astrojs/mdx':
         specifier: 8.1.1
-        version: 8.1.1(@astrojs/markdown-satteri@0.4.6)(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+        version: 8.1.1(@astrojs/markdown-satteri@0.4.6)(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       '@astrojs/netlify':
         specifier: ^8.2.10
-        version: 8.2.10(@types/node@26.6.5)(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(yaml@2.9.1)
+        version: 8.2.10(@types/node@26.6.6)(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(yaml@2.9.1)
       '@astrojs/react':
         specifier: 7.1.1
-        version: 7.1.1(@types/node@26.6.5)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(yaml@2.9.1)
+        version: 7.1.1(@types/node@26.6.6)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(yaml@2.9.1)
       '@astrojs/sitemap':
         specifier: ^3.7.4
         version: 3.7.4
       '@astrojs/vercel':
         specifier: ^11.0.17
-        version: 11.0.17(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(react@19.3.1)(rollup@4.57.1)(supports-color@10.2.2)(ws@8.22.0)
+        version: 11.0.17(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(react@19.3.1)(rollup@4.57.1)(supports-color@10.2.2)(ws@8.22.0)
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.3.0
         version: 5.3.0
@@ -46,7 +46,7 @@ importers:
         version: 6.0.3(react@19.3.1)
       astro:
         specifier: 7.4.3
-        version: 7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+        version: 7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
       astro-icon:
         specifier: ^1.2.0
         version: 1.2.0
@@ -79,7 +79,7 @@ importers:
         version: 2.1.0
       sharp:
         specifier: ^0.35.5
-        version: 0.35.5(@types/node@26.6.5)
+        version: 0.35.5(@types/node@26.6.6)
       tailwind-merge:
         specifier: ^3.7.0
         version: 3.7.0
@@ -92,10 +92,10 @@ importers:
         version: 9.39.5
       '@tailwindcss/vite':
         specifier: ^4.3.3
-        version: 4.3.3(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+        version: 4.3.3(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       '@types/node':
-        specifier: ^26.6.5
-        version: 26.6.5
+        specifier: ^26.6.6
+        version: 26.6.6
       '@types/react':
         specifier: ^19.3.0
         version: 19.3.0
@@ -134,7 +134,7 @@ importers:
         version: 8.72.1(eslint@9.39.5(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       vitest:
         specifier: ^5.0.5
-        version: 5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.6.5)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+        version: 5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       zod:
         specifier: ^4.6.7
         version: 4.6.7
@@ -1843,8 +1843,8 @@ packages:
   '@types/node@25.9.9':
     resolution: {integrity: sha512-b4e2xxj/yMeT2hNlD6x7zNFiQK2Dlmkb9CQ6v3/1G2RezKN4YS2lcEv8lzGm1mhs4f2lM4yNAMI/zUDBZBBt7w==}
 
-  '@types/node@26.6.5':
-    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
+  '@types/node@26.6.6':
+    resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -5399,16 +5399,16 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@14.4.3(@types/node@26.6.5)(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.5))(yaml@2.9.1)':
+  '@astrojs/cloudflare@14.4.3(@types/node@26.6.6)(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.6))(yaml@2.9.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
       '@astrojs/underscore-redirects': 1.0.4
-      '@cloudflare/vite-plugin': 1.65.0(@types/node@26.6.5)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.5))
-      astro: 7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      '@cloudflare/vite-plugin': 1.65.0(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.6))
+      astro: 7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
       piccolore: 0.1.3
       prismjs: 1.30.0
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
-      wrangler: 4.154.0(@types/node@26.6.5)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      wrangler: 4.154.0(@types/node@26.6.6)
     transitivePeerDependencies:
       - '@types/node'
       - '@vitejs/devtools'
@@ -5523,25 +5523,25 @@ snapshots:
       github-slugger: 2.0.0
       satteri: 0.10.5
 
-  '@astrojs/mdx@8.1.1(@astrojs/markdown-satteri@0.4.6)(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
+  '@astrojs/mdx@8.1.1(@astrojs/markdown-satteri@0.4.6)(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
       '@astrojs/markdown-satteri': 0.4.6
-      astro: 7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      astro: 7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
       es-module-lexer: 3.0.4
 
-  '@astrojs/netlify@8.2.10(@types/node@26.6.5)(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(yaml@2.9.1)':
+  '@astrojs/netlify@8.2.10(@types/node@26.6.6)(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(esbuild@0.28.1)(jiti@2.7.0)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(yaml@2.9.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
       '@astrojs/underscore-redirects': 1.0.4
       '@netlify/blobs': 11.1.6(supports-color@10.2.2)
       '@netlify/functions': 6.0.3
-      '@netlify/vite-plugin': 3.0.1(@types/node@26.6.5)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+      '@netlify/vite-plugin': 3.0.1(@types/node@26.6.6)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       '@vercel/nft': 1.11.0(rollup@4.57.1)(supports-color@10.2.2)
-      astro: 7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      astro: 7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
       rolldown: 1.2.15
       tinyglobby: 0.2.17
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@types/node'
       - '@vitejs/devtools'
@@ -5568,17 +5568,17 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@7.1.1(@types/node@26.6.5)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(yaml@2.9.1)':
+  '@astrojs/react@7.1.1(@types/node@26.6.6)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(yaml@2.9.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
       '@types/react': 19.3.0
       '@types/react-dom': 19.3.0(@types/react@19.3.0)
-      '@vitejs/plugin-react': 6.1.2(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+      '@vitejs/plugin-react': 6.1.2(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       devalue: 6.0.3
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
       ultrahtml: 1.7.0
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@rolldown/plugin-babel'
       - '@types/node'
@@ -5609,14 +5609,14 @@ snapshots:
 
   '@astrojs/underscore-redirects@1.0.4': {}
 
-  '@astrojs/vercel@11.0.17(astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(react@19.3.1)(rollup@4.57.1)(supports-color@10.2.2)(ws@8.22.0)':
+  '@astrojs/vercel@11.0.17(astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(react@19.3.1)(rollup@4.57.1)(supports-color@10.2.2)(ws@8.22.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
       '@vercel/analytics': 2.0.1(react@19.3.1)
       '@vercel/functions': 3.10.4(ws@8.22.0)
       '@vercel/nft': 1.11.0(rollup@4.57.1)(supports-color@10.2.2)
       '@vercel/routing-utils': 6.6.0
-      astro: 7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      astro: 7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
       rolldown: 1.2.15
       tinyglobby: 0.2.17
     transitivePeerDependencies:
@@ -5725,13 +5725,13 @@ snapshots:
     optionalDependencies:
       workerd: 1.20261023.1
 
-  '@cloudflare/vite-plugin@1.65.0(@types/node@26.6.5)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.5))':
+  '@cloudflare/vite-plugin@1.65.0(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))(workerd@1.20261023.1)(wrangler@4.154.0(@types/node@26.6.6))':
     dependencies:
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261023.1)
-      miniflare: 5.20261019.2-beta(@types/node@26.6.5)
+      miniflare: 5.20261019.2-beta(@types/node@26.6.6)
       unenv: 2.0.0-rc.24
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
-      wrangler: 4.154.0(@types/node@26.6.5)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      wrangler: 4.154.0(@types/node@26.6.6)
       ws: 8.22.0
     transitivePeerDependencies:
       - '@types/node'
@@ -6239,7 +6239,7 @@ snapshots:
   '@jridgewell/trace-mapping@0.3.9':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
 
   '@mapbox/node-pre-gyp@2.0.3(supports-color@10.2.2)':
     dependencies:
@@ -6344,7 +6344,7 @@ snapshots:
       parse-gitignore: 2.0.0
       semver: 7.7.4
 
-  '@netlify/dev@5.1.11(@types/node@26.6.5)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))':
+  '@netlify/dev@5.1.11(@types/node@26.6.6)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))':
     dependencies:
       '@netlify/ai': 1.0.2
       '@netlify/blobs': 11.1.6(supports-color@10.2.2)
@@ -6354,7 +6354,7 @@ snapshots:
       '@netlify/edge-functions-dev': 2.0.5
       '@netlify/functions-dev': 2.0.13(rollup@4.57.1)(supports-color@10.2.2)
       '@netlify/headers': 3.0.4
-      '@netlify/images': 2.0.5(@types/node@26.6.5)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))
+      '@netlify/images': 2.0.5(@types/node@26.6.6)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))
       '@netlify/redirects': 4.1.1
       '@netlify/runtime': 5.0.10(supports-color@10.2.2)
       '@netlify/server-dev': 0.1.5
@@ -6439,9 +6439,9 @@ snapshots:
     dependencies:
       '@netlify/headers-parser': 10.1.1
 
-  '@netlify/images@2.0.5(@types/node@26.6.5)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))':
+  '@netlify/images@2.0.5(@types/node@26.6.6)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))':
     dependencies:
-      ipx: 4.0.0(@types/node@26.6.5)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))
+      ipx: 4.0.0(@types/node@26.6.6)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))
     transitivePeerDependencies:
       - '@types/node'
       - unstorage
@@ -6506,12 +6506,12 @@ snapshots:
 
   '@netlify/types@3.3.0': {}
 
-  '@netlify/vite-plugin@3.0.1(@types/node@26.6.5)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
+  '@netlify/vite-plugin@3.0.1(@types/node@26.6.6)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
-      '@netlify/dev': 5.1.11(@types/node@26.6.5)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))
+      '@netlify/dev': 5.1.11(@types/node@26.6.6)(rollup@4.57.1)(supports-color@10.2.2)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0)))
       '@netlify/dev-utils': 6.0.4
       dedent: 1.7.2
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -6921,12 +6921,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.3
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.3
 
-  '@tailwindcss/vite@4.3.3(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
+  '@tailwindcss/vite@4.3.3(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@tailwindcss/node': 4.3.3
       '@tailwindcss/oxide': 4.3.3
       tailwindcss: 4.3.3
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
@@ -6971,7 +6971,7 @@ snapshots:
     dependencies:
       undici-types: 7.24.6
 
-  '@types/node@26.6.5':
+  '@types/node@26.6.6':
     dependencies:
       undici-types: 8.9.0
 
@@ -6989,7 +6989,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/triple-beam@1.3.5': {}
 
@@ -7193,19 +7193,19 @@ snapshots:
     optionalDependencies:
       ajv: 6.12.6
 
-  '@vitejs/plugin-react@6.1.2(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
+  '@vitejs/plugin-react@6.1.2(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
 
-  '@vitest/mocker@5.0.5(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
+  '@vitest/mocker@5.0.5(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.0.5
       estree-walker: 3.0.3
       magic-string: 1.4.5
     optionalDependencies:
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
 
   '@vitest/spy@5.0.5': {}
 
@@ -7464,7 +7464,7 @@ snapshots:
       '@iconify/types': 2.0.0
       '@iconify/utils': 3.1.7
 
-  astro@7.4.3(@types/node@26.6.5)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1):
+  astro@7.4.3(@types/node@26.6.6)(@vercel/functions@3.10.4(ws@8.22.0))(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
       '@astrojs/compiler-rs': 0.5.2
       '@astrojs/internal-helpers': 0.13.0
@@ -7513,13 +7513,13 @@ snapshots:
       unifont: 1.0.3
       unstorage: 1.17.5(@vercel/functions@3.10.4(ws@8.22.0))
       verkit: 0.5.0
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
-      vitefu: 1.1.3(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vitefu: 1.1.3(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.6.7
     optionalDependencies:
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -8653,9 +8653,9 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.1.0
 
-  ipx@4.0.0(@types/node@26.6.5)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0))):
+  ipx@4.0.0(@types/node@26.6.6)(unstorage@1.17.5(@vercel/functions@3.10.4(ws@8.22.0))):
     dependencies:
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
       srvx: 1.0.8
     optionalDependencies:
       unstorage: 1.17.5(@vercel/functions@3.10.4(ws@8.22.0))
@@ -9096,10 +9096,10 @@ snapshots:
 
   mimic-fn@4.0.0: {}
 
-  miniflare@5.20261019.2-beta(@types/node@26.6.5):
+  miniflare@5.20261019.2-beta(@types/node@26.6.6):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
       undici: 7.29.1
       workerd: 1.20261019.1
       ws: 8.21.0
@@ -9109,10 +9109,10 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  miniflare@5.20261023.1-beta(@types/node@26.6.5):
+  miniflare@5.20261023.1-beta(@types/node@26.6.6):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
-      sharp: 0.35.5(@types/node@26.6.5)
+      sharp: 0.35.5(@types/node@26.6.6)
       undici: 7.30.1
       workerd: 1.20261023.1
       ws: 8.21.0
@@ -9794,7 +9794,7 @@ snapshots:
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
 
-  sharp@0.35.5(@types/node@26.6.5):
+  sharp@0.35.5(@types/node@26.6.6):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -9825,7 +9825,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.5
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   shebang-command@2.0.0:
     dependencies:
@@ -10324,7 +10324,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1):
+  vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -10332,20 +10332,20 @@ snapshots:
       rolldown: 1.2.15
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
       esbuild: 0.28.1
       fsevents: 2.3.3
       jiti: 2.7.0
       yaml: 2.9.1
 
-  vitefu@1.1.3(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)):
+  vitefu@1.1.3(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)):
     optionalDependencies:
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
 
-  vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.6.5)(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)):
+  vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.0.5(vite@8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+      '@vitest/mocker': 5.0.5(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -10356,11 +10356,11 @@ snapshots:
       tinybench: 6.2.2
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: 8.3.5(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.5(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)
       why-is-node-running: 3.2.1
     optionalDependencies:
       '@opentelemetry/api': 1.9.1
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
     transitivePeerDependencies:
       - msw
 
@@ -10561,13 +10561,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261023.1
       '@cloudflare/workerd-windows-64': 1.20261023.1
 
-  wrangler@4.154.0(@types/node@26.6.5):
+  wrangler@4.154.0(@types/node@26.6.6):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261023.1)
       blake3-wasm: 2.1.5
       esbuild: 0.28.2
-      miniflare: 5.20261023.1-beta(@types/node@26.6.5)
+      miniflare: 5.20261023.1-beta(@types/node@26.6.6)
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20261023.1
