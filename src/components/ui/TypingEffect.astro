@@ -60,6 +60,9 @@ const id = `typing-${Math.random().toString(36).slice(2, 8)}`;
   define:vars={{ id, words, typeSpeed, deleteSpeed, pauseAfterType, pauseAfterDelete }}
 >
   function startTyping() {
+    /** @type {string[]} */
+    const localWords = words;
+
     const root = document.getElementById(id);
     if (!root) return;
     const textEl = root.querySelector('.typing-text');
@@ -75,7 +78,7 @@ const id = `typing-${Math.random().toString(36).slice(2, 8)}`;
     document.body.appendChild(measurer);
 
     let maxWidth = 0;
-    for (const word of words) {
+    for (const word of localWords) {
       measurer.textContent = word + '|'; // include cursor character in measurement
       maxWidth = Math.max(maxWidth, measurer.offsetWidth);
     }
