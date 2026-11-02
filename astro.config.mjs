@@ -146,38 +146,38 @@ function pagefind() {
  * a 0-byte file on Cloudflare while the build reported success. The cost is
  * that `astro dev` has no favicon, since build hooks do not run there.
  */
-function faviconAssets() {
-  const letter = SITE_NAME.charAt(0).toUpperCase();
-  const pngSizes = {
-    'favicon-32x32.png': 32,
-    'apple-touch-icon.png': 180,
-    'pwa-192x192.png': 192,
-    'pwa-512x512.png': 512,
-  };
+// function faviconAssets() {
+//   const letter = SITE_NAME.charAt(0).toUpperCase();
+//   const pngSizes = {
+//     'favicon-32x32.png': 32,
+//     'apple-touch-icon.png': 180,
+//     'pwa-192x192.png': 192,
+//     'pwa-512x512.png': 512,
+//   };
 
-  return {
-    name: 'favicon-assets',
-    hooks: {
-      'astro:build:done': async ({ dir, logger }) => {
-        // Imported here rather than at the top of this file: a static import
-        // of the sharp-backed module makes pagefind's own dynamic import above
-        // fail with "Vite module runner has been closed" (#600).
-        const { buildFaviconSvg } = await import('./src/lib/favicon/svg.ts');
-        const { renderFaviconPng, renderFaviconIco } = await import('./src/lib/favicon/raster.ts');
-        const out = fileURLToPath(dir);
+//   return {
+//     name: 'favicon-assets',
+//     hooks: {
+//       'astro:build:done': async ({ dir, logger }) => {
+//         // Imported here rather than at the top of this file: a static import
+//         // of the sharp-backed module makes pagefind's own dynamic import above
+//         // fail with "Vite module runner has been closed" (#600).
+//         const { buildFaviconSvg } = await import('./src/lib/favicon/svg.ts');
+//         const { renderFaviconPng, renderFaviconIco } = await import('./src/lib/favicon/raster.ts');
+//         const out = fileURLToPath(dir);
 
-        await writeFile(join(out, 'favicon.svg'), buildFaviconSvg(letter, THEME_COLOR));
+//         await writeFile(join(out, 'favicon.svg'), buildFaviconSvg(letter, THEME_COLOR));
 
-        for (const [name, size] of Object.entries(pngSizes)) {
-          await writeFile(join(out, name), await renderFaviconPng(letter, THEME_COLOR, size));
-        }
-        await writeFile(join(out, 'favicon.ico'), await renderFaviconIco(letter, THEME_COLOR));
+//         for (const [name, size] of Object.entries(pngSizes)) {
+//           await writeFile(join(out, name), await renderFaviconPng(letter, THEME_COLOR, size));
+//         }
+//         await writeFile(join(out, 'favicon.ico'), await renderFaviconIco(letter, THEME_COLOR));
 
-        logger.info(`wrote ${Object.keys(pngSizes).length + 2} favicon files to ${out}`);
-      },
-    },
-  };
-}
+//         logger.info(`wrote ${Object.keys(pngSizes).length + 2} favicon files to ${out}`);
+//       },
+//     },
+//   };
+// }
 
 /**
  * OG share cards, drawn after every `astro build`.

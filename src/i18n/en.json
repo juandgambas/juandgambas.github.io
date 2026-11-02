@@ -31,6 +31,7 @@
     "cancel": "Cancel",
     "next": "Next",
     "previous": "Previous",
+    "home": "Home",
     "map": "Map",
     "mapConsentPrompt": "Accept cookies to load the interactive map.",
     "viewOnGoogleMaps": "View on Google Maps",
@@ -620,7 +621,7 @@
     },
     "home": {
       "meta": {
-        "title": "Full-Stack Developer",
+        "title": "Juan Gamba Saenz | Web Full-Stack Developer",
         "description": "Crafting high-performance web applications from concept to deployment. Specialized in Laravel, Spring Boot, and Vue.js."
       },
       "hero": {

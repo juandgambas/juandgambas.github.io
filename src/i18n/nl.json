@@ -31,6 +31,7 @@
     "cancel": "Annuleren",
     "next": "Volgende",
     "previous": "Vorig",
+    "home": "Thuis",
     "map": "Kaart",
     "mapConsentPrompt": "Accepteer cookies om de interactieve kaart te laden.",
     "viewOnGoogleMaps": "Bekijk op Google Maps",
@@ -620,7 +621,7 @@
     },
     "home": {
       "meta": {
-        "title": "Fullstack-ontwikkelaar",
+        "title": "Juan Gamba Saenz | Full-stack webontwikkelaar",
         "description": "Het maken van krachtige webapplicaties, van concept tot implementatie. Gespecialiseerd in Laravel, Spring Boot en Vue.js."
       },
       "hero": {

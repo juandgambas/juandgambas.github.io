@@ -14,11 +14,6 @@ export const GET: APIRoute = () => {
     theme_color: branding.colors.themeColor,
     icons: [
       {
-        src: branding.favicon.svg,
-        sizes: 'any',
-        type: 'image/svg+xml',
-      },
-      {
         src: '/pwa-192x192.png',
         sizes: '192x192',
         type: 'image/png',
@@ -27,6 +22,11 @@ export const GET: APIRoute = () => {
         src: '/pwa-512x512.png',
         sizes: '512x512',
         type: 'image/png',
+      },
+      {
+        src: branding.favicon.svg,
+        sizes: 'any',
+        type: 'image/svg+xml',
       },
     ],
   };
