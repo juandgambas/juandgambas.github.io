@@ -403,7 +403,7 @@ export default defineConfig({
     icon(),
     siteUrlCheck(),
     pagefind(),
-    faviconAssets(),
+    // faviconAssets(),
     ogCards(),
     verifySiteUrl(),
   ],
