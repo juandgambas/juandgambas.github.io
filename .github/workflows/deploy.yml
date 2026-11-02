@@ -18,14 +18,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: pnpm/setup@v3
+        with:
+          version: 12.16.1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 26
           cache: 'pnpm'
-
-      - uses: pnpm/setup@v3
-        with:
-          version: 12.16.1
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run lint
@@ -39,14 +39,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: pnpm/setup@v3
+        with:
+          version: 12.16.1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 26
           cache: 'pnpm'
-
-      - uses: pnpm/setup@v3
-        with:
-          version: 12.16.1
 
       - run: pnpm install --frozen-lockfile
 
@@ -75,14 +75,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: pnpm/setup@v3
+        with:
+          version: 12.16.1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 26
           cache: 'pnpm'
-
-      - uses: pnpm/setup@v3
-        with:
-          version: 12.16.1
 
       - run: pnpm install --frozen-lockfile
 
