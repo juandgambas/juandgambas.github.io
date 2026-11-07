@@ -62,7 +62,7 @@
     "png-to-ico": "^3.0.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "resend": "^6.35.0",
+    "resend": "^6.37.0",
     "schema-dts": "^2.1.0",
     "sharp": "^0.35.5",
     "tailwind-merge": "^3.7.0"
